@@ -1,3 +1,4 @@
+//import packStudyAlgorithm.NewId;
 import packStudyAlgorithm.NQueen;
 
 public class Main {
