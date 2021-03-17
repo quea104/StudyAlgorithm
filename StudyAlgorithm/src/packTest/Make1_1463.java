@@ -1,4 +1,4 @@
-package packStudyAlgorithm;
+package packTest;
 import java.util.Scanner;
 
 public class Make1_1463 {

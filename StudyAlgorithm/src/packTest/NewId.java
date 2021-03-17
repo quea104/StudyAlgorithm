@@ -1,4 +1,4 @@
-package packStudyAlgorithm;
+package packTest;
 
 /*
  * ¹®Á¦: https://programmers.co.kr/learn/courses/30/lessons/72410?language=java

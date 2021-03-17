@@ -1,4 +1,4 @@
-package packStudyAlgorithm;
+package packTest;
 
 /*
  * ¹®Á¦: 
