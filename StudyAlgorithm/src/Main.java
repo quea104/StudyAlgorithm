@@ -1,15 +1,67 @@
+//import packRecursion.BasicConcept;
+//import packRecursion.Maze;
+//import packRecursion.CountingCellsBlob;
+import packRecursion.NQueen;
+
 //import packDataStructure.Stack;
 //import packDataStructure.Queue;
-//import packStudyAlgorithm.NewId;
-//import packStudyAlgorithm.NQueen;
+
 //import packSortAlgorithm.BubbleSort;
 //import packSortAlgorithm.SelectionSort;
 //import packSortAlgorithm.InsertionSort;
 //import packSortAlgorithm.MergeSort;
-import packSortAlgorithm.QuickSort;
+//import packSortAlgorithm.QuickSort;
+
+//import packStudyAlgorithm.NewId;
+//import packStudyAlgorithm.NQueen;
 
 public class Main {
 	public static void main(String[] args) {
+//		BasicConcept cBasicConcept = new BasicConcept();
+//		int m = 24, n = 36;
+//		System.out.println("gcd: " + cBasicConcept.gcd(m, n));
+//		System.out.println("gcdSimple: " + cBasicConcept.gcdSimple(m, n));
+//		System.out.println("lcm: " + cBasicConcept.lcm(m, n));
+
+//		cBasicConcept.printChars("Cooling Work");
+//		cBasicConcept.printCharsReverse("Cooling Work");
+		
+//		int[] data = cBasicConcept.readFrom(5, new int[] {1,2,3,4,5}, new java.util.Scanner(System.in));
+//		print(data);
+		
+//		System.out.println(cBasicConcept.findMax(new int[] {1,2,10,4,5}, 0, 4));
+		
+//		Maze cMaze = new Maze();
+//		int[][] maze = {
+//				{0,0,0,0,0,0,0,1},
+//				{0,1,1,0,1,1,0,1},
+//				{0,0,0,1,0,0,0,1},
+//				{0,1,0,0,1,1,0,0},
+//				{0,1,1,1,0,0,1,1},
+//				{0,1,0,0,0,1,0,1},
+//				{0,0,0,1,0,0,0,1},
+//				{0,1,1,1,0,1,0,0}
+//		};
+//		System.out.println(cMaze.findPath(maze, 0, 0));
+//		printMap(maze);
+		
+//		CountingCellsBlob cCountingCellsBlob = new CountingCellsBlob();
+//		int[][] grid = {
+//				{1,0,0,0,0,0,0,1},
+//				{0,1,1,0,0,1,0,0},
+//				{1,1,0,0,1,0,1,0},
+//				{0,0,0,0,0,1,0,0},
+//				{0,1,0,1,0,1,0,0},
+//				{0,1,0,1,0,1,0,0},
+//				{1,0,0,0,1,0,0,1},
+//				{0,1,1,0,0,1,1,1}
+//		};
+//		System.out.println(cCountingCellsBlob.countBlob(grid, 3, 5));
+//		printMap(grid);
+		
+		NQueen cNQueen = new NQueen();
+		
+		
 //		System.out.println("Data Structure: STACK");
 //		Stack cStack = new Stack();
 //		cStack.push(10);
@@ -58,12 +110,12 @@ public class Main {
 //		resultArr = cMergeSort.sort(arr, 0, arr.length-1);
 //		cMergeSort.print(resultArr);
 		
-		System.out.println("Sort Algorithm: Quick Sort");
-		arr = new int[] {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
-		QuickSort cQuickSort = new QuickSort();
-		cQuickSort.print(arr);
-		resultArr = cQuickSort.sort(arr, 0, arr.length-1);
-		cQuickSort.print(resultArr);
+//		System.out.println("Sort Algorithm: Quick Sort");
+//		arr = new int[] {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
+//		QuickSort cQuickSort = new QuickSort();
+//		cQuickSort.print(arr);
+//		resultArr = cQuickSort.sort(arr, 0, arr.length-1);
+//		cQuickSort.print(resultArr);
 		
 //		NewId classNewId = new NewId();
 //		String answerNewId = classNewId.solution(".1.");
@@ -72,5 +124,22 @@ public class Main {
 //		NQueen classNQueen = new NQueen();
 //		int answerNQueen = classNQueen.solution(3);
 //		System.out.println("Answer:"+answerNQueen);
+	}
+	
+	public static void print(int arr[]) {
+		for(int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+	}
+	
+	public static void printMap(int maze[][]) {
+		for(int i = 0; i < maze.length; i++) {
+			for(int j = 0; j < maze.length; j++) {
+				System.out.print(maze[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
 	}
 }
