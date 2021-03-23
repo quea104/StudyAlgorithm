@@ -59,8 +59,8 @@ public class Main {
 //		System.out.println(cCountingCellsBlob.countBlob(grid, 3, 5));
 //		printMap(grid);
 		
-		NQueen cNQueen = new NQueen();
-		
+		NQueen cNQueen = new NQueen(8);
+		System.out.println(cNQueen.queens(0));
 		
 //		System.out.println("Data Structure: STACK");
 //		Stack cStack = new Stack();
