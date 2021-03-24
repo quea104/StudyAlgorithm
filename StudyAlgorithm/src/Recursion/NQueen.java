@@ -1,4 +1,4 @@
-package packRecursion;
+package Recursion;
 
 /*
  * https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/lecture/4077?tab=curriculum
@@ -26,29 +26,44 @@ package packRecursion;
  */
 public class NQueen {
 	private int[] cols;
+	private int N;
 	
 	public NQueen(int N) {
-		cols = new int[N+1];
+		this.N = N;
+		this.cols = new int[N+1];
 	}
 
+	// 매개변수 level: 현재 노드의 위치를 포현
+	// 전역변수 배열 cols: level의 말이 어디에 놓였는지는 지 표현 => cols[i]=j i번 말이 (i행, j열)에 놓였음 의미
 	public boolean queens(int level) {
-		if(level < 0 || level >= cols.length) 
+		if(!promising(level)) // when state is non-promising(Infeasible)
 			return false;
-		else if(level == cols.length)
+		else if(level == N) {// success
+			for(int i = 1; i <= N; i++) {
+				System.out.println("(" + i + "," + cols[i] + ")");
+			}
 			return true;
-		else if(!promising(level))
-			return false;
+		}
 		else {
-			for(int i = 1; i <= cols.length; i++) {
-				cols[level+1] = i;
+			// visit children recursively
+			for(int i = 1; i <= N; i++) {
+				cols[level+1] = i; // (level+1행, i열)
 				if(queens(level+1))
 					return true;
 			}
+			
+			// N개의 열에 시도했는데 모두 실패하였으므로 false 반환
 			return false;
 		}
 	}
 	
 	private boolean promising(int level) {
+		for(int i = 1; i < level; i++) {
+			if(cols[i] == cols[level]) // 같은 열에 놓였는지 확인 
+				return false;
+			else if(level - i == Math.abs(cols[i] - cols[level])) // 같은 대각선에 놓였는지 검사				
+				return false;
+		}
 		return true;
 	}
 }

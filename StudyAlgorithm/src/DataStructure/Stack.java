@@ -1,4 +1,4 @@
-package packDataStructure;
+package DataStructure;
 
 /*
  * 선형자료구조

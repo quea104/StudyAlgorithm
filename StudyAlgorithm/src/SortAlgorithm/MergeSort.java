@@ -1,4 +1,4 @@
-package packSortAlgorithm;
+package SortAlgorithm;
 
 /*
  * 합병정렬

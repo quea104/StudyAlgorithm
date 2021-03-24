@@ -1,4 +1,4 @@
-package packSortAlgorithm;
+package SortAlgorithm;
 
 /*
  * 선택정렬

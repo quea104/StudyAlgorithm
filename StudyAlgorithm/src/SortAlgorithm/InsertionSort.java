@@ -1,4 +1,4 @@
-package packSortAlgorithm;
+package SortAlgorithm;
 
 /*
  * »ğÀÔÁ¤·Ä

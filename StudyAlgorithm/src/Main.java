@@ -1,7 +1,7 @@
 //import packRecursion.BasicConcept;
 //import packRecursion.Maze;
 //import packRecursion.CountingCellsBlob;
-import packRecursion.NQueen;
+import Recursion.NQueen;
 
 //import packDataStructure.Stack;
 //import packDataStructure.Queue;
@@ -59,7 +59,7 @@ public class Main {
 //		System.out.println(cCountingCellsBlob.countBlob(grid, 3, 5));
 //		printMap(grid);
 		
-		NQueen cNQueen = new NQueen(8);
+		NQueen cNQueen = new NQueen(10);
 		System.out.println(cNQueen.queens(0));
 		
 //		System.out.println("Data Structure: STACK");

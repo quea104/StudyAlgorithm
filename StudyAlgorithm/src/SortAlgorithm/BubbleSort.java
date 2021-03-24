@@ -1,4 +1,4 @@
-package packSortAlgorithm;
+package SortAlgorithm;
 
 /*
  * 버블정렬

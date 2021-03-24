@@ -1,4 +1,4 @@
-package packTest;
+package TestKakao;
 
 /*
  * ¹®Á¦: https://programmers.co.kr/learn/courses/30/lessons/72411
