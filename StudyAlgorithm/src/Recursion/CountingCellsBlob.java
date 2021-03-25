@@ -6,6 +6,7 @@ package Recursion;
  */
 
 /*
+ * 일자: 21.03.23.화
  * Counting Cells in a Blob
  * 	- Binay 이미지
  * 	- 각 픽셀은 Background Pixel 이거나 혹은 Image Pixel

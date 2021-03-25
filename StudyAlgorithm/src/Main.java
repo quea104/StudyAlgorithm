@@ -1,22 +1,32 @@
-//import packRecursion.BasicConcept;
-//import packRecursion.Maze;
-//import packRecursion.CountingCellsBlob;
-import Recursion.NQueen;
+//import Recursion.BasicConcept;
+//import Recursion.Maze;
+//import Recursion.CountingCellsBlob;
+//import Recursion.NQueen;
 
-//import packDataStructure.Stack;
-//import packDataStructure.Queue;
+//import DataStructure.Stack;
+//import DataStructure.Queue;
 
-//import packSortAlgorithm.BubbleSort;
-//import packSortAlgorithm.SelectionSort;
-//import packSortAlgorithm.InsertionSort;
-//import packSortAlgorithm.MergeSort;
-//import packSortAlgorithm.QuickSort;
+//import SortAlgorithm.BubbleSort;
+//import SortAlgorithm.SelectionSort;
+//import SortAlgorithm.InsertionSort;
+//import SortAlgorithm.MergeSort;
+//import SortAlgorithm.QuickSort;
 
-//import packStudyAlgorithm.NewId;
-//import packStudyAlgorithm.NQueen;
+//import TestKakao.NewId;
+//import TestKakao.NQueen;
 
+//import TestBackJoon.MinMax;
+//import TestBackJoon.MaxIndex;
+//import TestBackJoon.CountNumber;
+//import TestBackJoon.Remainder;
+//import TestBackJoon.Average;
+//import TestBackJoon.QuizOX;
+//import TestBackJoon.OverAverage;
+import TestBackJoon.SelfNumber;
+
+import java.io.IOException;
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 //		BasicConcept cBasicConcept = new BasicConcept();
 //		int m = 24, n = 36;
 //		System.out.println("gcd: " + cBasicConcept.gcd(m, n));
@@ -59,8 +69,8 @@ public class Main {
 //		System.out.println(cCountingCellsBlob.countBlob(grid, 3, 5));
 //		printMap(grid);
 		
-		NQueen cNQueen = new NQueen(10);
-		System.out.println(cNQueen.queens(0));
+//		NQueen cNQueen = new NQueen(10);
+//		System.out.println(cNQueen.queens(0));
 		
 //		System.out.println("Data Structure: STACK");
 //		Stack cStack = new Stack();
@@ -80,7 +90,7 @@ public class Main {
 //		cQueue.print();
 //		System.out.printf("OUT: %d %d %d %d", cQueue.dequeue(), cQueue.dequeue(), cQueue.dequeue(), cQueue.dequeue());
 
-		int[] arr, resultArr;
+//		int[] arr, resultArr;
 		
 //		System.out.println("Sort Algorithm: Bubble Sort");
 //		BubbleSort cBubbleSort = new BubbleSort();
@@ -124,6 +134,30 @@ public class Main {
 //		NQueen classNQueen = new NQueen();
 //		int answerNQueen = classNQueen.solution(3);
 //		System.out.println("Answer:"+answerNQueen);
+		
+//		MinMax cMinMax = new MinMax();
+//		cMinMax.solution();
+		
+//		MaxIndex cMaxIndex = new MaxIndex();
+//		cMaxIndex.solution();
+		
+//		CountNumber cCountNumber = new CountNumber();
+//		cCountNumber.solution();
+		
+//		Remainder cRemainder = new Remainder();
+//		cRemainder.solution();
+		
+//		Average cAverage = new Average();
+//		cAverage.solution();
+		
+//		QuizOX cQuizOX = new QuizOX();
+//		cQuizOX.solution();
+		
+//		OverAverage cOverAverage = new OverAverage();
+//		cOverAverage.solution();
+		
+		SelfNumber cSelfNumber = new SelfNumber();
+		cSelfNumber.solution();
 	}
 	
 	public static void print(int arr[]) {

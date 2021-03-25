@@ -6,6 +6,7 @@ package Recursion;
  */
 
 /*
+ * 일자: 21.03.23.화~21.03.24.수
  * n queens problem
  * 	- N*N 크기의 체스판
  * 	- N × N인 체스판 위에 퀸 N개를 서로 공격할 수 없게 놓는 문제
