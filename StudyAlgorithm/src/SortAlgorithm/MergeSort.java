@@ -22,7 +22,7 @@ public class MergeSort {
 		int mid;
 		if (s < e)
 		{
-			mid = (s + e) / 2; 
+			mid = (s + e) / 2;
 			
 			sort(arr, s, mid);
 			sort(arr, mid + 1, e);
@@ -42,17 +42,17 @@ public class MergeSort {
 		while (i <= mid && j <= e)
 		{
 			if (arr[i] <= arr[j]) 
-				sorted[k++] = arr[i++]; 
+				sorted[k++] = arr[i++];
 			else
 				sorted[k++] = arr[j++];
 		}
 
 		int tmp = i>mid ? j : i;
 		
-		while(k<=e) 
+		while(k<=e)
 			sorted[k++] = arr[tmp++];
 
-		for (i=s;i<=e;i++) 
+		for (i=s;i<=e;i++)
 			arr[i] = sorted[i];
 	}
 	

@@ -22,7 +22,14 @@
 //import TestBackJoon.Average;
 //import TestBackJoon.QuizOX;
 //import TestBackJoon.OverAverage;
-import TestBackJoon.SelfNumber;
+//import TestBackJoon.SelfNumber;
+//import TestBackJoon.ContinueNumber;
+//import TestBackJoon.ASCIICode;
+//import TestBackJoon.SearchAlphabet;
+//import TestBackJoon.RepeatAlphabet;
+//import TestBackJoon.StudyWord;
+import TestBackJoon.CountWord;
+import TestBackJoon.ReverseConstant;
 
 import java.io.IOException;
 public class Main {
@@ -156,8 +163,29 @@ public class Main {
 //		OverAverage cOverAverage = new OverAverage();
 //		cOverAverage.solution();
 		
-		SelfNumber cSelfNumber = new SelfNumber();
-		cSelfNumber.solution();
+//		SelfNumber cSelfNumber = new SelfNumber();
+//		cSelfNumber.solution();
+		
+//		ContinueNumber cContinueNumber = new ContinueNumber();
+//		cContinueNumber.solution();
+
+//		ASCIICode cASCIICode = new ASCIICode();
+//		cASCIICode.solution();
+		
+//		SearchAlphabet cSearchAlphabet = new SearchAlphabet();
+//		cSearchAlphabet.solution();
+		
+//		RepeatAlphabet cRepeateAlphabet = new RepeatAlphabet();
+//		cRepeateAlphabet.solution();
+		
+//		StudyWord cStudyWord = new StudyWord();
+//		cStudyWord.solution();
+		
+//		CountWord cCountWord = new CountWord();
+//		cCountWord.solution();
+		
+		ReverseConstant cReverseConstant = new ReverseConstant();
+		cReverseConstant.solution();
 	}
 	
 	public static void print(int arr[]) {
