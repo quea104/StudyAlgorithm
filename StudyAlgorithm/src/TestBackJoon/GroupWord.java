@@ -26,18 +26,20 @@ public class GroupWord {
 	
 	private boolean wordCheck(String word) {
 		boolean[] alpha = new boolean[26];
+		int prev = 0;
 		for(int i = 0; i < word.length(); i++) {
-			if(alpha[word.charAt(i)-'a'])
-				return false;
-			else {
-				alpha[word.charAt(i)-'a'] = true;
-				char c = word.charAt(i);
-				while(true) {
-					if(c != word.charAt(++i)) {
-						i--;
-						break;
-					}
+			int now = word.charAt(i); 	// i 번째 문자 저장 (현재 문자)
+			if (prev != now) {
+				if(alpha[word.charAt(i)-'a'])
+					return false;
+				else {
+					alpha[word.charAt(i)-'a'] = true;
+					prev = now;
 				}
+				
+			}
+			else {
+				continue;
 			}
 		}
 	    return true;
