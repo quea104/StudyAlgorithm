@@ -28,8 +28,11 @@
 //import TestBackJoon.SearchAlphabet;
 //import TestBackJoon.RepeatAlphabet;
 //import TestBackJoon.StudyWord;
-import TestBackJoon.CountWord;
-import TestBackJoon.ReverseConstant;
+//import TestBackJoon.CountWord;
+//import TestBackJoon.ReverseConstant;
+//import TestBackJoon.Dial;
+//import TestBackJoon.CroatiaAlphabet;
+import TestBackJoon.GroupWord;
 
 import java.io.IOException;
 public class Main {
@@ -184,8 +187,17 @@ public class Main {
 //		CountWord cCountWord = new CountWord();
 //		cCountWord.solution();
 		
-		ReverseConstant cReverseConstant = new ReverseConstant();
-		cReverseConstant.solution();
+//		ReverseConstant cReverseConstant = new ReverseConstant();
+//		cReverseConstant.solution();
+		
+//		Dial cDial = new Dial();
+//		cDial.solution();
+		
+//		CroatiaAlphabet cCroatiaAlphabet = new CroatiaAlphabet();
+//		cCroatiaAlphabet.solution();
+		
+		GroupWord cGroupWord = new GroupWord();
+		cGroupWord.solution();
 	}
 	
 	public static void print(int arr[]) {

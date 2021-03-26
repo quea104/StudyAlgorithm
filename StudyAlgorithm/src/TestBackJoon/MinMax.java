@@ -12,6 +12,7 @@ package TestBackJoon;
 import java.util.Scanner;
 public class MinMax {
 	public void solution() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		int min = sc.nextInt(), max = min;

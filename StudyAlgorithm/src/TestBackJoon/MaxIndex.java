@@ -12,6 +12,7 @@ package TestBackJoon;
 import java.util.Scanner;
 public class MaxIndex {
 	public void solution() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		int index = 1;
 		int max = sc.nextInt();
