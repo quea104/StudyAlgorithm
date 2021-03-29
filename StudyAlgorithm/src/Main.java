@@ -32,7 +32,10 @@
 //import TestBackJoon.ReverseConstant;
 //import TestBackJoon.Dial;
 //import TestBackJoon.CroatiaAlphabet;
-import TestBackJoon.GroupWord;
+//import TestBackJoon.GroupWord;
+//import TestBackJoon.BreakEvenPoint;
+//import TestBackJoon.Honeycomb;
+import TestBackJoon.SearchFraction;
 
 import java.io.IOException;
 public class Main {
@@ -196,8 +199,17 @@ public class Main {
 //		CroatiaAlphabet cCroatiaAlphabet = new CroatiaAlphabet();
 //		cCroatiaAlphabet.solution();
 		
-		GroupWord cGroupWord = new GroupWord();
-		cGroupWord.solution();
+//		GroupWord cGroupWord = new GroupWord();
+//		cGroupWord.solution();
+		
+//		BreakEvenPoint cBreakEvenPoint = new BreakEvenPoint();
+//		cBreakEvenPoint.solution();
+		
+//		Honeycomb cHoneycomb = new Honeycomb();
+//		cHoneycomb.solution();
+		
+		SearchFraction cSearchFraction = new SearchFraction();
+		cSearchFraction.solution();
 	}
 	
 	public static void print(int arr[]) {
