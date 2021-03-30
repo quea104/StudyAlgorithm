@@ -1,9 +1,8 @@
 package TestBackJoon;
-
 /*
+ * 문제명: 알파벳 찾기
  * 일자: 21.03.25.목
  * https://www.acmicpc.net/problem/10809
- * 문제명: 알파벳 찾기
  * 문제내용: 
  		알파벳 소문자로만 이루어진 단어 S가 주어진다. 
  		각각의 알파벳에 대해서, 단어에 포함되어 있는 경우에는 처음 등장하는 위치를, 포함되어 있지 않은 경우에는 -1을 출력하는 프로그램을 작성하시오.
@@ -16,7 +15,7 @@ package TestBackJoon;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-public class SearchAlphabet {	
+public class T0325SearchAlphabet {	
 	public void solution() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String word = br.readLine();

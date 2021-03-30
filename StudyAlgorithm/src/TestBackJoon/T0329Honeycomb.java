@@ -1,8 +1,8 @@
 package TestBackJoon;
 /*
+ * 문제명: 벌집
  * 일자: 21.03.29.월
  * https://www.acmicpc.net/problem/2292
- * 문제명: 벌집
  * 문제내용:
  		위의 그림과 같이 육각형으로 이루어진 벌집이 있다. 
  		그림에서 보는 바와 같이 중앙의 방 1부터 시작해서 이웃하는 방에 돌아가면서 1씩 증가하는 번호를 주소로 매길 수 있다. 
@@ -15,7 +15,7 @@ package TestBackJoon;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-public class Honeycomb {
+public class T0329Honeycomb {
 	public void solution() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());

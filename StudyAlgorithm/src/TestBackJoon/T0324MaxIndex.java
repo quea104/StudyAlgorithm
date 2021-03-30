@@ -1,8 +1,7 @@
 package TestBackJoon;
-
 /*
- * 일자: 21.03.24.수
  * 문제명: 최댓값
+ * 일자: 21.03.24.수
  * https://www.acmicpc.net/problem/2562
  * 문제내용: 9개의 서로 다른 자연수가 주어질 때, 이들 중 최댓값을 찾고 그 최댓값이 몇 번째 수인지를 구하는 프로그램을 작성
  * 입력: 첫째 줄부터 아홉 번째 줄까지 한 줄에 하나의 자연수가 주어진다. 주어지는 자연수는 100 보다 작다.
@@ -10,7 +9,7 @@ package TestBackJoon;
  */
 
 import java.util.Scanner;
-public class MaxIndex {
+public class T0324MaxIndex {
 	public void solution() {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);

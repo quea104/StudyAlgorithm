@@ -35,7 +35,12 @@
 //import TestBackJoon.GroupWord;
 //import TestBackJoon.BreakEvenPoint;
 //import TestBackJoon.Honeycomb;
-import TestBackJoon.SearchFraction;
+//import TestBackJoon.SearchFraction;
+//import TestBackJoon.UpPanic;
+//import TestBackJoon.Hotel;
+//import TestBackJoon.ViceChairman;
+//import TestBackJoon.DeliverySugar;
+import TestBackJoon.T0330BigAdd;
 
 import java.io.IOException;
 public class Main {
@@ -208,8 +213,23 @@ public class Main {
 //		Honeycomb cHoneycomb = new Honeycomb();
 //		cHoneycomb.solution();
 		
-		SearchFraction cSearchFraction = new SearchFraction();
-		cSearchFraction.solution();
+//		SearchFraction cSearchFraction = new SearchFraction();
+//		cSearchFraction.solution();
+		
+//		UpPanic cUpPanic = new UpPanic();
+//		cUpPanic.solution();
+		
+//		Hotel cHotel = new Hotel();
+//		cHotel.solution();
+		
+//		ViceChairman cViceChairman = new ViceChairman();
+//		cViceChairman.solution();
+		
+//		DeliverySugar cDeliverySugar = new DeliverySugar();
+//		cDeliverySugar.solution();
+		
+		T0330BigAdd cBigAdd = new T0330BigAdd();
+		cBigAdd.solution();
 	}
 	
 	public static void print(int arr[]) {

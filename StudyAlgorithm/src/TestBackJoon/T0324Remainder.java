@@ -1,5 +1,4 @@
 package TestBackJoon;
-
 /*
  * ÀÏÀÚ: 21.03.24.¼ö
  * https://www.acmicpc.net/problem/3052
@@ -25,7 +24,7 @@ package TestBackJoon;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-public class Remainder {
+public class T0324Remainder {
 	public void solution() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int count = 0;

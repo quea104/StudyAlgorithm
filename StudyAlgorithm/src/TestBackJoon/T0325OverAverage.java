@@ -1,9 +1,8 @@
 package TestBackJoon;
-
 /*
+ * 문제명: 평균은 넘겠지
  * 일자: 21.03.25.목
  * https://www.acmicpc.net/problem/4344
- * 문제명: 평균은 넘겠지
  * 문제내용: 
  		대학생 새내기들의 90%는 자신이 반에서 평균은 넘는다고 생각한다. 당신은 그들에게 슬픈 진실을 알려줘야 한다.
  * 입력: 
@@ -18,7 +17,7 @@ import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
-public class OverAverage {
+public class T0325OverAverage {
 	public void solution() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

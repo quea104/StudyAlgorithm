@@ -1,9 +1,8 @@
 package TestBackJoon;
-
 /*
+ * 문제명: 평균 
  * 일자: 21.03.24.수
  * https://www.acmicpc.net/problem/1546
- * 문제명: 평균 
  * 문제내용: 
  		세준이는 기말고사를 망쳤다. 세준이는 점수를 조작해서 집에 가져가기로 했다. 일단 세준이는 자기 점수 중에 최댓값을 골랐다. 이 값을 M이라고 한다. 그리고 나서 모든 점수를 점수/M*100으로 고쳤다.
 		예를 들어, 세준이의 최고점이 70이고, 수학점수가 50이었으면 수학점수는 50/70*100이 되어 71.43점이 된다.
@@ -18,7 +17,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
-public class Average {
+public class T0324Average {
 	public void solution() throws IOException {
 		//Scanner sc = new Scanner(System.in);
 		//double arr[] = new double[sc.nextInt()];
