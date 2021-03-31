@@ -27,14 +27,12 @@ public class T0330BigAdd {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-
 		String A = st.nextToken();
 		String B = st.nextToken();
 		if(A.length() > B.length())
-			B = String.format("%0"+Integer.toString(A.length())+"d", B);
+			B = String.format("%0"+Integer.toString(A.length()-B.length())+"d", 0).concat(B);
 		else if(A.length() < B.length())
-			A = String.format("%0"+Integer.toString(B.length())+"d", A);
-		
+			A = String.format("%0"+Integer.toString(B.length()-A.length())+"d", 0).concat(A);
 		int a = 0, b = 0, add = 0, remain = 0;
 		String result = "";
 		for(int i = A.length(); i > 0; i--) {
@@ -42,7 +40,7 @@ public class T0330BigAdd {
 			b = Integer.parseInt(B.substring(i-1, i));
 			add = a + b + remain;
 			remain = add/10;
-			result = Integer.toString((add > 10 && i > 1) ? add-10 : add).concat(result);
+			result = Integer.toString((add >= 10 && i > 1) ? add-10 : add).concat(result);
 		}
 		bw.write(result);
 		bw.flush();

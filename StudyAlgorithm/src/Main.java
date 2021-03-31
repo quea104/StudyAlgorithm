@@ -40,7 +40,10 @@
 //import TestBackJoon.Hotel;
 //import TestBackJoon.ViceChairman;
 //import TestBackJoon.DeliverySugar;
-import TestBackJoon.T0330BigAdd;
+//import TestBackJoon.T0330BigAdd;
+//import TestBackJoon.T0331Spacecrapft;
+//import TestBackJoon.T0331SearchPrimeNumber;
+import TestBackJoon.T0331PrimeNumber;
 
 import java.io.IOException;
 public class Main {
@@ -228,8 +231,17 @@ public class Main {
 //		DeliverySugar cDeliverySugar = new DeliverySugar();
 //		cDeliverySugar.solution();
 		
-		T0330BigAdd cBigAdd = new T0330BigAdd();
-		cBigAdd.solution();
+//		T0330BigAdd cBigAdd = new T0330BigAdd();
+//		cBigAdd.solution();
+		
+//		T0331Spacecrapft cSpacecrapft = new T0331Spacecrapft();
+//		cSpacecrapft.solution();
+		
+//		T0331SearchPrimeNumber cSearchPrimeNumber = new T0331SearchPrimeNumber();
+//		cSearchPrimeNumber.solution();
+		
+		T0331PrimeNumber cPrimeNumber = new T0331PrimeNumber();
+		cPrimeNumber.solution();
 	}
 	
 	public static void print(int arr[]) {
