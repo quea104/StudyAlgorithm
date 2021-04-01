@@ -43,7 +43,11 @@
 //import TestBackJoon.T0330BigAdd;
 //import TestBackJoon.T0331Spacecrapft;
 //import TestBackJoon.T0331SearchPrimeNumber;
-import TestBackJoon.T0331PrimeNumber;
+//import TestBackJoon.T0331PrimeNumber;
+//import TestBackJoon.T0401PrimeFactorization;
+//import TestBackJoon.T0401SolvePrimeNumber;
+//import TestBackJoon.T0401BertrandPostulate;
+import TestBackJoon.T0401GoldbachConjecture;
 
 import java.io.IOException;
 public class Main {
@@ -240,8 +244,20 @@ public class Main {
 //		T0331SearchPrimeNumber cSearchPrimeNumber = new T0331SearchPrimeNumber();
 //		cSearchPrimeNumber.solution();
 		
-		T0331PrimeNumber cPrimeNumber = new T0331PrimeNumber();
-		cPrimeNumber.solution();
+//		T0331PrimeNumber cPrimeNumber = new T0331PrimeNumber();
+//		cPrimeNumber.solution();
+		
+//		T0401PrimeFactorization cPrimeFactorization = new T0401PrimeFactorization();
+//		cPrimeFactorization.solution();
+		
+//		T0401SolvePrimeNumber cSolvePrimeNumber = new T0401SolvePrimeNumber();
+//		cSolvePrimeNumber.solution();
+		
+//		T0401BertrandPostulate cBertrandPostulate = new T0401BertrandPostulate();
+//		cBertrandPostulate.solution();
+		
+		T0401GoldbachConjecture cGoldbachConjecture = new T0401GoldbachConjecture();
+		cGoldbachConjecture.solution();		
 	}
 	
 	public static void print(int arr[]) {
