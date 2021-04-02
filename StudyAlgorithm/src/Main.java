@@ -47,7 +47,11 @@
 //import TestBackJoon.T0401PrimeFactorization;
 //import TestBackJoon.T0401SolvePrimeNumber;
 //import TestBackJoon.T0401BertrandPostulate;
-import TestBackJoon.T0401GoldbachConjecture;
+//import TestBackJoon.T0401GoldbachConjecture;
+//import TestBackJoon.T0402EscapeFromSquare;
+//import TestBackJoon.T0402FourthDot;
+//import TestBackJoon.T0402RightTriangle;
+import TestBackJoon.T0402TaxicaGeometry;
 
 import java.io.IOException;
 public class Main {
@@ -256,8 +260,20 @@ public class Main {
 //		T0401BertrandPostulate cBertrandPostulate = new T0401BertrandPostulate();
 //		cBertrandPostulate.solution();
 		
-		T0401GoldbachConjecture cGoldbachConjecture = new T0401GoldbachConjecture();
-		cGoldbachConjecture.solution();		
+//		T0401GoldbachConjecture cGoldbachConjecture = new T0401GoldbachConjecture();
+//		cGoldbachConjecture.solution();
+		
+//		T0402EscapeFromSquare cSquare = new T0402EscapeFromSquare();
+//		cSquare.solution();
+		
+//		T0402FourthDot cFourthDot = new T0402FourthDot();
+//		cFourthDot.solution();
+		
+//		T0402RightTriangle cRightTriangle = new T0402RightTriangle();
+//		cRightTriangle.solution();
+		
+		T0402TaxicaGeometry cTaxicaGeometry = new T0402TaxicaGeometry();
+		cTaxicaGeometry.solution();
 	}
 	
 	public static void print(int arr[]) {
