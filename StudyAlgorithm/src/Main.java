@@ -51,7 +51,10 @@
 //import TestBackJoon.T0402EscapeFromSquare;
 //import TestBackJoon.T0402FourthDot;
 //import TestBackJoon.T0402RightTriangle;
-import TestBackJoon.T0402TaxicaGeometry;
+//import TestBackJoon.T0402TaxicaGeometry;
+//import TestBackJoon.T0408Turret;
+//import TestBackJoon.T0408FibonacciNumber5;
+import TestBackJoon.T0408Star10;
 
 import java.io.IOException;
 public class Main {
@@ -272,8 +275,17 @@ public class Main {
 //		T0402RightTriangle cRightTriangle = new T0402RightTriangle();
 //		cRightTriangle.solution();
 		
-		T0402TaxicaGeometry cTaxicaGeometry = new T0402TaxicaGeometry();
-		cTaxicaGeometry.solution();
+//		T0402TaxicaGeometry cTaxicaGeometry = new T0402TaxicaGeometry();
+//		cTaxicaGeometry.solution();
+		
+//		T0408Turret cTurret = new T0408Turret();
+//		cTurret.solution();
+		
+//		T0408FibonacciNumber5 cFibonacciNumber5 = new T0408FibonacciNumber5();
+//		cFibonacciNumber5.solution();
+		
+		T0408Star10 cStar10 = new T0408Star10();
+		cStar10.solution();
 	}
 	
 	public static void print(int arr[]) {
