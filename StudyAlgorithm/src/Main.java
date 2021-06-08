@@ -54,8 +54,10 @@
 //import TestBackJoon.T0402TaxicaGeometry;
 //import TestBackJoon.T0408Turret;
 //import TestBackJoon.T0408FibonacciNumber5;
-import TestBackJoon.T0408Star10;
-
+//import TestBackJoon.T0408Star10;
+//import TestBackJoon.T2798BlackJack;
+//import TestBackJoon.T2231ApartSum;
+import TestBackJoon.T7568Build;
 import java.io.IOException;
 public class Main {
 	public static void main(String[] args) throws IOException {
@@ -284,8 +286,17 @@ public class Main {
 //		T0408FibonacciNumber5 cFibonacciNumber5 = new T0408FibonacciNumber5();
 //		cFibonacciNumber5.solution();
 		
-		T0408Star10 cStar10 = new T0408Star10();
-		cStar10.solution();
+//		T0408Star10 cStar10 = new T0408Star10();
+//		cStar10.solution();
+		
+//		T2798BlackJack cBlackJack = new T2798BlackJack();
+//		cBlackJack.solution();
+		
+//		T2231ApartSum cT2231ApartSum = new T2231ApartSum();
+//		cT2231ApartSum.solution();
+
+		T7568Build cT7568Build = new T7568Build();
+		cT7568Build.solution();
 	}
 	
 	public static void print(int arr[]) {
