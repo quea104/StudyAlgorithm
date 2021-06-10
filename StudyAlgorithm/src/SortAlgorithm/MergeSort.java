@@ -37,7 +37,7 @@ public class MergeSort {
 		return arr;
 	}
 	
-	public static  void merge(int arr[], int s, int e)
+	public static void merge(int arr[], int s, int e)
 	{
 		int mid = (s + e) / 2;
 
