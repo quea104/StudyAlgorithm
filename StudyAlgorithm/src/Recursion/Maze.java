@@ -15,12 +15,27 @@ package Recursion;
 public class Maze {
 	// Decision Problem : 답이 Yes 또는 No인 문제
 	
-	private static final int PATHWAY_COLOR = 0; // white - 이동 가능한 통로
-	private static final int WALL_COLOR = 1; 	// blue - 미로의 벽
-	private static final int BLOCKED_COLOR = 2;	// red - 지나가면 안되는 경로
-	private static final int PATH_COLOR = 3;	// green - 이동 경로
+	public static final int PATHWAY_COLOR = 0; // white - 이동 가능한 통로
+	public static final int WALL_COLOR = 1; 	// blue - 미로의 벽
+	public static final int BLOCKED_COLOR = 2;	// red - 지나가면 안되는 경로
+	public static final int PATH_COLOR = 3;	// green - 이동 경로
+
+	public static void main(String[] args) {
+		int[][] maze = {
+				{0,0,0,0,0,0,0,1},
+				{0,1,1,0,1,1,0,1},
+				{0,0,0,1,0,0,0,1},
+				{0,1,0,0,1,1,0,0},
+				{0,1,1,1,0,0,1,1},
+				{0,1,0,0,0,1,0,1},
+				{0,0,0,1,0,0,0,1},
+				{0,1,1,1,0,1,0,0}
+		};
+		System.out.println(findPath(maze, 0, 0));
+		printMap(maze);
+	}
 		
-	public boolean findPath(int[][] maze, int x, int y) {
+	public static boolean findPath(int[][] maze, int x, int y) {
 		int N = maze.length;
 		if(x < 0 || y < 0 || x >= N || y >= N) {
 			return false;
@@ -52,5 +67,15 @@ public class Maze {
 			//print(maze);
 			return false;
 		}
+	}
+
+	public static void printMap(int maze[][]) {
+		for(int i = 0; i < maze.length; i++) {
+			for(int j = 0; j < maze.length; j++) {
+				System.out.print(maze[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
 	}
 }

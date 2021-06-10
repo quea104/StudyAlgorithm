@@ -12,7 +12,7 @@ package TestBackJoon;
 //import java.io.InputStreamReader;
 import java.io.IOException;
 public class T0326StudyWord {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		int b[] = new int[26];
 		int c= System.in.read();
 		while(c>64) {

@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class T2231ApartSum {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String str_N = br.readLine();
 		int len = str_N.length();

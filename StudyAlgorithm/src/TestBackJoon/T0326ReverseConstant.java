@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 public class T0326ReverseConstant {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		int a = Integer.parseInt(new StringBuilder(st.nextToken()).reverse().toString());
@@ -25,7 +25,7 @@ public class T0326ReverseConstant {
 		System.out.println((a > b) ? a : b);
 	}
 	
-	private int reverseNumber(int num) {
+	public static int reverseNumber(int num) {
 		int rNum = 0;
 		int ten = 100;
 		while(num > 0) {

@@ -16,7 +16,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 public class T0401BertrandPostulate {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		boolean[] primeCheck = new boolean[(123456*2)+1]; // true:소수X, false:소스O
 		primeCheck[0] = primeCheck[1] = true;
 		for(int i = 2; i < Math.sqrt(primeCheck.length); i++) {

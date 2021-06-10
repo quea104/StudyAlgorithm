@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
 public class T0330ViceChairman {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		int[][] apart = new int[16][16];
 		for(int i = 0; i < apart.length; i++) {
 			apart[0][i] = i;

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 public class T0402FourthDot {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		int x4 = 0, y4 = 0;
 		int[] xArr = new int[3];
 		int[] yArr = new int[3];

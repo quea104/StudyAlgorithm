@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 public class T0326GroupWord {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		int count = 0;
@@ -23,7 +23,7 @@ public class T0326GroupWord {
 		System.out.println(count);
 	}
 	
-	private boolean wordCheck(String word) {
+	public static boolean wordCheck(String word) {
 		boolean[] alpha = new boolean[26];
 		int prev = 0;
 		for(int i = 0; i < word.length(); i++) {

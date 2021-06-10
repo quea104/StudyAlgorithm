@@ -9,13 +9,14 @@ package TestBackJoon;
  */
 
 public class NQueen {	
-	public int solution(int n) {
+	public static void main(String[] args) {
+		int n = 10;
 		boolean[][] arrChess = new boolean[n][n];
 		printChess(arrChess);
-		return calculate(arrChess, 0);
+		System.out.println(calculate(arrChess, 0));
 	}
 	
-	private int calculate(boolean[][] arrChess, int row) {
+	public static int calculate(boolean[][] arrChess, int row) {
 		if (row == arrChess.length-1) {
 			printChess(arrChess);
 			return 1;
@@ -32,7 +33,7 @@ public class NQueen {
 		return count;
 	}
 	
-	private boolean checkMove(boolean[][] arrChess, int row, int col) {		
+	public static boolean checkMove(boolean[][] arrChess, int row, int col) {		
 		int diff = 0;
 		for (int j = row-1; j >= 0; j--) {
 			diff++;
@@ -44,7 +45,7 @@ public class NQueen {
 		return true;
 	}
 	
-	private void printChess(boolean[][] arr) {
+	public static void printChess(boolean[][] arr) {
 		for(int i = 0; i < arr.length; i++) {
 			for(int j = 0; j < arr.length; j++) {
 				System.out.print(arr[i][j] ? 1 : 0);
@@ -62,11 +63,10 @@ public class NQueen {
 	static boolean[] check_dig = new boolean[40];
 	static boolean[] check_dig2 = new boolean[40];
 	
-	public int solution(int number) {
-		n = number;
-		return calculate(0);
+	public static void main(String[] args) {
+		System.out.println(calculate(0));
 	}
-	private int calculate(int row) {
+	public static int calculate(int row) {
 		if(row == n) return 1;
 		int cnt = 0;
 		for(int col = 0; col < n; col++){
@@ -86,7 +86,7 @@ public class NQueen {
 		}
 		return cnt;	
 	}
-	private static boolean check(int row, int col) {
+	public static boolean check(int row, int col) {
 		// | 방향 (위 아래)
 		if (check_col[col]) {
 	        return false;

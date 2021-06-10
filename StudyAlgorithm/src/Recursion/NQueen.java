@@ -26,17 +26,18 @@ package Recursion;
  * 출력: 퀸 N개를 서로 공격할 수 없게 놓는 경우의 수
  */
 public class NQueen {
-	private int[] cols;
-	private int N;
-	
-	public NQueen(int N) {
-		this.N = N;
-		this.cols = new int[N+1];
+	public static int[] cols;
+	public static int N;
+
+	public static void main(String[] args) {
+		N = 10;
+		cols = new int[N+1];
+		System.out.println(queens(0));
 	}
 
 	// 매개변수 level: 현재 노드의 위치를 포현
 	// 전역변수 배열 cols: level의 말이 어디에 놓였는지는 지 표현 => cols[i]=j i번 말이 (i행, j열)에 놓였음 의미
-	public boolean queens(int level) {
+	public static boolean queens(int level) {
 		if(!promising(level)) // when state is non-promising(Infeasible)
 			return false;
 		else if(level == N) {// success
@@ -58,7 +59,7 @@ public class NQueen {
 		}
 	}
 	
-	private boolean promising(int level) {
+	public static boolean promising(int level) {
 		for(int i = 1; i < level; i++) {
 			if(cols[i] == cols[level]) // 같은 열에 놓였는지 확인 
 				return false;

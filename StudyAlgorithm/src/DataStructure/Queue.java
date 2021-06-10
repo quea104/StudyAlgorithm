@@ -27,10 +27,20 @@ class LinkedList {
 }
 
 public class Queue {
-	LinkedList front;
-	LinkedList back;
+	public static LinkedList front;
+	public static LinkedList back;
+
+	public static void main(String[] args) {
+		System.out.println("\n\nData Structure: QUEUE");
+		enqueue(10);
+		enqueue(2);
+		enqueue(8);
+		enqueue(5);
+		print();
+		System.out.printf("OUT: %d %d %d %d", dequeue(), dequeue(), dequeue(), dequeue());
+	}
 	
-	public void enqueue(int n) {
+	public static void enqueue(int n) {
 		if(front == null) {
 			front = new LinkedList(n, null);
 			back = front;
@@ -41,13 +51,13 @@ public class Queue {
 		}
 	}
 	
-	public int dequeue() {
+	public static int dequeue() {
 		int val = front.getValue();
 		front = front.getNext();
 		return val;
 	}
 	
-	public void print() {
+	public static void print() {
 		LinkedList pQueue = front;
 		while(pQueue != null) {
 			System.out.print(pQueue.getValue()+" ");

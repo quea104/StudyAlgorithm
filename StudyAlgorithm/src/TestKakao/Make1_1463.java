@@ -1,4 +1,5 @@
 package TestKakao;
+
 import java.util.Scanner;
 
 public class Make1_1463 {

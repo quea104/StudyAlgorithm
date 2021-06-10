@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 public class T0324CountNumber {
 	// 문자열로 해결
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String result = Integer.toString(Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine()));
 		int[] arrCount = new int[10];

@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 public class T0324Average {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		//Scanner sc = new Scanner(System.in);
 		//double arr[] = new double[sc.nextInt()];
 		

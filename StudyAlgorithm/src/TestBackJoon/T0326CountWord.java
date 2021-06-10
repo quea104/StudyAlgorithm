@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 public class T0326CountWord {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String sentence = br.readLine().trim();
 		int count = sentence.split(" ").length;

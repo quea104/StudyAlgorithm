@@ -15,7 +15,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 public class T0325QuizOX {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		for(int i = 0; i < N; i++) {
@@ -23,7 +23,7 @@ public class T0325QuizOX {
 		}
 	}
 	
-	private int calculate(String paper) {
+	public static int calculate(String paper) {
 		int sum = 0, count = 1;
 		for(int i = 0; i < paper.length(); i++) {
 			String anw = paper.substring(i, i+1);

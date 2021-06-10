@@ -10,7 +10,7 @@ package TestBackJoon;
 
 import java.io.*;
 public class T0325ASCIICode {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		int a = System.in.read();
         System.out.println(a);
         

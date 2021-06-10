@@ -7,11 +7,26 @@ package Recursion;
  */
 
 public class BasicConcept {
+	public static void main(String[] args) {
+		int m = 24, n = 36;
+		System.out.println("gcd: " + gcd(m, n));
+		System.out.println("gcdSimple: " + gcdSimple(m, n));
+		System.out.println("lcm: " + lcm(m, n));
+
+		printChars("Cooling Work");
+		printCharsReverse("Cooling Work");
+		
+		int[] data = readFrom(5, new int[] {1,2,3,4,5}, new java.util.Scanner(System.in));
+		print(data);
+		
+		System.out.println(findMax(new int[] {1,2,10,4,5}, 0, 4));
+	}
+	
 	/*
 	 * 0! = 1
 	 * n! = n*(n-1)!
 	 */
-	public int factorial(int n) {
+	public static int factorial(int n) {
 		if(n == 0) return 1;
 		else {
 			return n * factorial(n-1);
@@ -22,7 +37,7 @@ public class BasicConcept {
 	 * x^0 = 1
 	 * x^n = x*x^n-1 (if n>0)
 	 */
-	public double power(double x, int n) {
+	public static double power(double x, int n) {
 		if(n < 0) return -1;
 		else if (n == 0)
 			return 1;
@@ -35,7 +50,7 @@ public class BasicConcept {
 	 * f1 = 1
 	 * fn = fn-1 + fn-2 (if n>1)
 	 */
-	public int fibonacci(int n) {
+	public static int fibonacci(int n) {
 		if(n < 0) return -1;
 		else if(n == 0) return 0;
 		else if(n == 1) return 1;
@@ -50,7 +65,7 @@ public class BasicConcept {
 	 * 	m이 n의 배수이면 gcd(m,n) = n,
 	 * 	그렇지 않으면 gcd(m,n) = gcd(n, m%n)
 	 */
-	public int gcd(int m, int n) {
+	public static int gcd(int m, int n) {
 		/*
 		 * if(m < n) { int tmp = m; m = n; n = tmp; }
 		 */
@@ -68,7 +83,7 @@ public class BasicConcept {
 	 * 	m (if n=0)
 	 * 	gcd(n, m%n) otherwise
 	 */
-	public int gcdSimple(int m, int n) {
+	public static int gcdSimple(int m, int n) {
 		if(n == 0) 
 			return m;
 		else
@@ -78,14 +93,14 @@ public class BasicConcept {
 	/*
 	 * 최소공배수
 	 */
-	public int lcm(int m, int n) {
+	public static int lcm(int m, int n) {
 		return m*n/gcd(m,n);
 	}
 	
 	/*
 	 * 문자열 길이 계산
 	 */
-	public int lengthOfString(String str) {
+	public static int lengthOfString(String str) {
 		if (str.equals(""))
 			return 0;
 		else
@@ -95,7 +110,7 @@ public class BasicConcept {
 	/*
 	 * 문자열 출력
 	 */
-	public void printChars(String str) {
+	public static void printChars(String str) {
 		if (str.length()==0)
 			return;
 		else {
@@ -107,7 +122,7 @@ public class BasicConcept {
 	/*
 	 * 문자열 뒤집어 출력
 	 */
-	public void printCharsReverse(String str) {
+	public static void printCharsReverse(String str) {
 		if (str.length()==0) {
 			return;
 		}
@@ -120,7 +135,7 @@ public class BasicConcept {
 	/*
 	 * 2진법
 	 */
-	public String numberInBinary(int n, String nStr) {
+	public static String numberInBinary(int n, String nStr) {
 		if (n<2) {
 			return Integer.toString(n).concat(nStr);
 		}
@@ -132,7 +147,7 @@ public class BasicConcept {
 	/*
 	 * 배열의 합 구하기
 	 */
-	public int sum(int n, int[] data) {
+	public static int sum(int n, int[] data) {
 		if (n<=0)
 			return 0;
 		else
@@ -142,7 +157,7 @@ public class BasicConcept {
 	/*
 	 * 데이터파일로부터 n개의 정수 읽어오기
 	 */
-	public int[] readFrom(int n, int[] data, java.util.Scanner in) {
+	public static int[] readFrom(int n, int[] data, java.util.Scanner in) {
 		if (n == 0) 
 			return data;
 		else {
@@ -155,7 +170,7 @@ public class BasicConcept {
 	 * 순차탐색
 	 */
 	// 암시적(Implicit) 매개변수
-	public int search(int[] data, int n, int target) {
+	public static int search(int[] data, int n, int target) {
 		for (int i = 0; i < n; i++) {
 			if (data[i] == target) {
 				return i;
@@ -165,7 +180,7 @@ public class BasicConcept {
 	}
 	
 	// 명시적(Explicit) 매개변수 - 검색구간의 종료점을 명시적으로 지정
-	public int search(int[] data, int begin, int end, int target) {
+	public static int search(int[] data, int begin, int end, int target) {
 		if (begin > end) 
 			return -1;
 		else if (target == data[begin]) 
@@ -174,7 +189,7 @@ public class BasicConcept {
 			return search(data, begin+1, end, target);
 	}
 	// 명시적(Explicit) 매개변수 - 검색구간의 시작점을 명시적으로 지정
-	public int search2(int[] data, int begin, int end, int target) {
+	public static int search2(int[] data, int begin, int end, int target) {
 		if(begin > end) 
 			return -1;
 		else if (target == data[begin]) 
@@ -184,7 +199,7 @@ public class BasicConcept {
 	}
 	
 	// 이분 탐색 활용
-	public int searchByDivide(int[] data, int begin, int end, int target) {
+	public static int searchByDivide(int[] data, int begin, int end, int target) {
 		if (begin > end)
 			return -1;
 		else {
@@ -206,7 +221,7 @@ public class BasicConcept {
 	 * MAX(data[n]) = MAX( data[1], MAX(data[n-1]~data[2]) )
 	 */
 	// 명시적 매개변수	
-	public int findMax(int[] data, int begin, int end) {
+	public static int findMax(int[] data, int begin, int end) {
 		if (begin == end)
 			return data[begin];
 		else {
@@ -219,7 +234,7 @@ public class BasicConcept {
 	}
 	
 	// 이분 탐색 활용
-	public int findMaxByDivde(int[] data, int begin, int end) {
+	public static int findMaxByDivde(int[] data, int begin, int end) {
 		if(begin == end)
 			return data[begin];
 		else {
@@ -233,7 +248,7 @@ public class BasicConcept {
 	/*
 	 * 이진검색 - 단, 데이터가 오름차순 정렬 되어 있어야 함.
 	 */
-	public int binarySearch(int[] data, int begin, int end, int target) {
+	public static int binarySearch(int[] data, int begin, int end, int target) {
 		if (begin > end)
 			return -1;
 		else {
@@ -245,5 +260,12 @@ public class BasicConcept {
 			else 
 				return binarySearch(data, middle+1, end, target);
 		}
+	}
+	
+	public static void print(int arr[]) {
+		for(int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
 	}
 }

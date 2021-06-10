@@ -16,7 +16,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 public class T0326Dial {
-	public void solution2() throws IOException {
+	public static void main(String[] args) throws IOException {
 		int sum = 0;
 		int input = System.in.read(); 
 		while(input > 64 && input < 91) {
@@ -34,7 +34,8 @@ public class T0326Dial {
 		System.out.println(sum);
 	}
 	
-	public void solution() throws IOException {
+	/*
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println(calulate(br.readLine()));
 	}
@@ -67,4 +68,5 @@ public class T0326Dial {
 		else 
 			return -2;
 	}
+	*/
 }

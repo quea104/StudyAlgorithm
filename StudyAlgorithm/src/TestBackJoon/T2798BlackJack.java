@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class T2798BlackJack {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int m = Integer.parseInt(st.nextToken());
@@ -34,7 +34,7 @@ public class T2798BlackJack {
 		System.out.println(sum);
 	}
 	
-	int serach(int[] cards, int m, int n) {
+	public static int serach(int[] cards, int m, int n) {
 		int sum = 0;
 		
 		for(int i = 0; i < m-2; i++) {

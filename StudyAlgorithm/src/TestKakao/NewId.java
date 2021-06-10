@@ -6,16 +6,16 @@ package TestKakao;
  */
 
 public class NewId {	
-	public String solution(String new_id) {
-        String answer = new_id;
+	public static void main(String[] args) {
+        String answer = ".1.";
         
         System.out.println("0: " + answer);
         answer = checkId(answer);
-                
-        return answer;
+
+        System.out.println(answer);
     }
 	
-	private String checkId(String str) {
+	public static String checkId(String str) {
 		str = changeLower(str);
 		
 		str = removeCharacter(str);
@@ -32,26 +32,26 @@ public class NewId {
 	}
 	
 	// 소문자로 치환
-	private String changeLower(String str) {
+	public static String changeLower(String str) {
 		return str.toLowerCase();
 	}
 	
 	// 알파벳 소문자, 숫자, 빼기(-), 밑줄(_), 마침표(.)를 제외
-	private String removeCharacter(String str) {
+	public static String removeCharacter(String str) {
 		// [^abc] : a, b, c를 제외한 문자 1개
 		str = str.replaceAll("[^0-9a-z-_.]", "");
 		return str;
 	}
 	
 	// '...'와 '..' 가 '.'로 교체
-	private String changeDot(String str) {
+	public static String changeDot(String str) {
 	    // + : 1회 이상 반복
 		str = str.replaceAll("\\.+", ".");
 		return str;
 	}
 
     // 마침표(.)는 처음과 끝에 사용 불가
-	private String removeDotStartEnd(String str) {
+	public static String removeDotStartEnd(String str) {
         // ^ : 문자열의 시작지점
 		// $ : 문자열의 종료지점
 		// X|Z : X 또는 Z
@@ -59,14 +59,14 @@ public class NewId {
 		return str;
 	}
 
-	private String limitString(String str) {
+	public static String limitString(String str) {
 		if(str.length() > 15) {
 			str = str.substring(0, 15);  
         }
 		return str;
 	}
 
-	private String paddingString(String str) {
+	public static String paddingString(String str) {
 		// 내 풀이
 		/*
 		if(str.length() < 3) {

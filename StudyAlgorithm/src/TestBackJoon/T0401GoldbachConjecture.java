@@ -18,7 +18,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 public class T0401GoldbachConjecture {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		boolean[] prime = new boolean[10000+1];
 		prime[0] = prime[1] = true;
 		for(int i = 2; i < Math.sqrt(prime.length); i++) {

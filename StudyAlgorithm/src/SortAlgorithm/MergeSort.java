@@ -11,13 +11,18 @@ package SortAlgorithm;
  * -> 결합(Combine): 정렬된 부분 배열들을 하나의 배열에 합병
  */
 public class MergeSort {
-	int[] sorted;
-	
-	public MergeSort (int maxSize) {
-		sorted = new int[maxSize];
+	public static int[] sorted;
+
+	public static void main(String[] args) {
+		int[] arr, resultArr;
+		System.out.println("Sort Algorithm: Merge Sort");
+		arr = new int[] {10, 8, 2, 5, 6, 4};
+		print(arr);
+		resultArr = sort(arr, 0, arr.length-1);
+		print(resultArr);
 	}
 	
-	public int[] sort(int arr[], int s, int e)
+	public static int[] sort(int arr[], int s, int e)
 	{
 		int mid;
 		if (s < e)
@@ -32,7 +37,7 @@ public class MergeSort {
 		return arr;
 	}
 	
-	private void merge(int arr[], int s, int e)
+	public static  void merge(int arr[], int s, int e)
 	{
 		int mid = (s + e) / 2;
 
@@ -56,7 +61,7 @@ public class MergeSort {
 			arr[i] = sorted[i];
 	}
 	
-	public void print(int arr[]) {
+	public static void print(int arr[]) {
 		for(int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i]+" ");
 		}

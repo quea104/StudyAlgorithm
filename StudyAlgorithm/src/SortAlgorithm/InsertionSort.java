@@ -7,7 +7,16 @@ package SortAlgorithm;
  * O(n^2) 정렬 알고리즘 중에서는 가장 빠름
  */
 public class InsertionSort {
-	public int[] sort(int[] arr) {
+	public static void main(String[] args) {
+		int[] arr, resultArr;
+		System.out.println("Sort Algorithm: Insertion Sort");
+		arr = new int[] {10, 8, 2, 5, 6, 4};
+		print(arr);
+		resultArr = sort(arr);
+		print(resultArr);
+	}
+	
+	public static int[] sort(int arr[]) {
 		for(int i = 1; i < arr.length; i++) {
 			for(int j = i-1; j >= 0; j--) { // j를 i의 왼쪽으로 이동
 				if(arr[j] > arr[j+1]) { // i번째 값이 커질 때까지 이동
@@ -21,7 +30,7 @@ public class InsertionSort {
 		return arr;
 	}
 	
-	public void print(int arr[]) {
+	public static void print(int arr[]) {
 		for(int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i]+" ");
 		}

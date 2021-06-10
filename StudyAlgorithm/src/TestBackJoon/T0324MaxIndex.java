@@ -10,7 +10,7 @@ package TestBackJoon;
 
 import java.util.Scanner;
 public class T0324MaxIndex {
-	public void solution() {
+	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		int index = 1;

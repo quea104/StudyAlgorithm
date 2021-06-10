@@ -20,13 +20,13 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
 public class T0408Star10 {
-	public void solution() throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		print(makeStar(new char[N+1][N+1], 1));
 	}
 	
-	private char[][] makeStar(char[][] star, int n) {
+	public static char[][] makeStar(char[][] star, int n) {
 		if(n > star.length-1) {
 			return star;
 		}
@@ -48,7 +48,7 @@ public class T0408Star10 {
 		}
 	}
 	
-	private void print(char[][] star) throws IOException {
+	public static void print(char[][] star) throws IOException {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		for(int i = 0; i < star.length; i++) {
 			for(int j = 0; j < star.length; j++) {

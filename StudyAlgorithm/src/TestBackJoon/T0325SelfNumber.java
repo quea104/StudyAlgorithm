@@ -19,8 +19,7 @@ package TestBackJoon;
 //import java.io.OutputStreamWriter;
 //import java.io.IOException;
 public class T0325SelfNumber {
-	public void solution() // throws IOException 
-	{
+	public static void main(String[] args) { // throws IOException
 		//BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringBuilder sb = new StringBuilder();
 		int N = 10001;
@@ -40,7 +39,7 @@ public class T0325SelfNumber {
 		//bw.flush();
 	}
 	
-	private int d(int num) {
+	public static int d(int num) {
 		int sum = num;
 		
 		// 수로 계산
