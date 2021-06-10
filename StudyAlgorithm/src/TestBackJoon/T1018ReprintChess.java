@@ -2,7 +2,7 @@ package TestBackJoon;
 
 /*
  * 문제명: 체스판 다시 칠하기
- * 일자: 21.06.09.수
+ * 일자: 21.06.09.수~10.목
  * https://www.acmicpc.net/problem/1018
  * 문제내용:
  		지민이는 자신의 저택에서 MN개의 단위 정사각형으로 나누어져 있는 (y+8)*N 크기의 보드를 찾았다. 어떤 정사각형은 검은색으로 칠해져 있고, 나머지는 흰색으로 칠해져 있다. 지민이는 이 보드를 잘라서 8*8 크기의 체스판으로 만들려고 한다.
@@ -13,8 +13,8 @@ package TestBackJoon;
  * 출력: 첫째 줄에 지민이가 다시 칠해야 하는 정사각형 개수의 최솟값을 출력한다.
  */
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 public class T1018ReprintChess {
