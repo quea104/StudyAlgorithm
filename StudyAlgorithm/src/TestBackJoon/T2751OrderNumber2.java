@@ -1,6 +1,6 @@
 package TestBackJoon;
 /*
- * 문제명: 수 정렬하기
+ * 문제명: 수 정렬하기2
  * 일자: 21.06.10.목
  * https://www.acmicpc.net/problem/2751
  * 문제내용: N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로그램을 작성하시오.
@@ -12,55 +12,47 @@ package TestBackJoon;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
 public class T2751OrderNumber2 {
 	public static int[] tempArr;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int[] arr = new int[Integer.parseInt(br.readLine())];
-		for(int i = 0; i < arr.length; i++) {
-			arr[i] = Integer.parseInt(br.readLine());
-		}
-		tempArr = new int[arr.length];
+		StringBuilder sb = new StringBuilder();
+		int N = Integer.parseInt(br.readLine());
 		
-		sort(arr, 0, arr.length-1);
+		// list 계열 중 하나를 쓰면 된다.
+		ArrayList<Integer> list = new ArrayList<>();
+		
+		for(int i = 0; i < N; i++) {
+			list.add(Integer.parseInt(br.readLine()));
+		}
+		
+		Collections.sort(list);
+		
+		for(int value : list) {
+			sb.append(value).append('\n');
+		}
+		System.out.println(sb);
+		
+		/*
+		// Counting Sort. 수가 중복되지도 않기 때문에 boolean[] 배열에 입력 받은 값을 index로 쓰면 되는데, 아무래도 직접 비교 정렬이 아니므로 시간복잡도는 O(n) 으로 매우 빠른 방법이다.
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		int N = Integer.parseInt(br.readLine());
+		
+		boolean[] arr = new boolean[10000001];
+		
+		for(int i = 0; i < N; i++) {
+			arr[Integer.parseInt(br.readLine())] = true;
+		}
 
-		for(int i = 0; i < arr.length; i++) {
-			System.out.println(arr[i]);
+		for(int i = 0; i < N; i++) {
+			if(arr[i])
+				sb.append(i).append('\n');
 		}
-	}
-	
-	public static void sort(int[] arr, int start, int end) {
-		if(start < end) {
-			int mid = (start + end) / 2;
-			sort(arr, start, mid);
-			sort(arr, mid+1, end);
-			merge(arr, start, end);
-		}
-	}
-	
-	public static void merge(int[] arr, int start, int end) {
-		int mid = (start + end) / 2;
-		int moveFirst = start;
-		int moveMiddle = mid+1;
-		int index = start;
-		
-		while(moveFirst <= mid && moveMiddle <= end) {
-			if(arr[moveFirst] > arr[moveMiddle]) {
-				tempArr[index++] = arr[moveMiddle++];
-			}
-			else {
-				tempArr[index++] = arr[moveFirst++];
-			}
-		}
-		
-		int remainIndex = (moveFirst > mid ? moveMiddle : moveFirst);
-		while(index <= end) {
-			tempArr[index++] = arr[remainIndex++];
-		}
-		
-		for(int i = start; i <= end; i++) {
-			arr[i] = tempArr[i];
-		}
+		System.out.println(sb);
+		 */
 	}
 }
