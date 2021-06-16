@@ -28,7 +28,7 @@ public class NQueen {
 				arrChess[row][col] = true;
 				count += calculate(arrChess, row+1);
 				arrChess[row][col] = false;
-			} 
+			}
 		}
 		return count;
 	}
