@@ -8,7 +8,7 @@ package TestBackJoon;
  * 조건: 퀸이 놓였을 때 퀸 자신을 기준으로 일직선상(가로 및 세로)과 대각선 방향에는 아무것도 놓여있으면 안 됨
  */
 
-public class NQueen {	
+public class NQueen {
 	public static void main(String[] args) {
 		int n = 10;
 		boolean[][] arrChess = new boolean[n][n];
