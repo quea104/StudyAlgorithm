@@ -64,7 +64,7 @@ public class D210618T14889StartAndLink {
 			for(int i = 0; i < N; i++) {
 				if(startTeam[person] == 0) {
 					startTeam[startIndex++] = i;
-					dfs(1);
+					//dfs(1);
 				}
 			}
 			
