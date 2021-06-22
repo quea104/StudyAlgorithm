@@ -46,7 +46,7 @@ public class D210618T14889StartAndLink {
 		System.out.println(diffMin);
 	}
 
-	static void dfs(int person, int start, int link) {
+	static void dfs(int person, int startIndex, int linkIndex) {
 		if(person == N/2) {
 			int sumStart = 0;
 			int sumLink = 0;
@@ -62,7 +62,10 @@ public class D210618T14889StartAndLink {
 		}
 		else {
 			for(int i = 0; i < N; i++) {
-				startTeam[person] = i;
+				if(startTeam[person] == 0) {
+					startTeam[startIndex++] = i;
+					dfs(1);
+				}
 			}
 			
 			for(int i = 0; i < N; i++) {
