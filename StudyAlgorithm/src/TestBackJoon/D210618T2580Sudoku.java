@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 public class D210618T2580Sudoku {
-	// 스도쿠판은 누가봐도 2차원 배열로 구현한는데 N-Queen 문제처럼 한 행이나 열에 하나의 퀸만이 오는 것이 아니기 때문
+	// 스도쿠판은 N-Queen 문제처럼 한 행이나 열에 하나의 퀸만이 오는 것이 아니기 때문에 2차원 배열로 해야함
 	static int[][] board = new int[9][9];
 
 	public static void main(String[] args) throws IOException {
@@ -59,7 +59,7 @@ public class D210618T2580Sudoku {
 				}
 				else {
 					dfs(row, column+1); // 아니라면 열 이동						
-				}					
+				}
 			}
 		}
 	}
