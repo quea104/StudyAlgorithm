@@ -45,7 +45,7 @@ public class D210614T2108Statistics {
 			if(countArr[i] >= repeatMaxCount) {
 				repeatMaxCount = countArr[i];
 			}
-		}		
+		}
 		ArrayList<Integer> repeatList = new ArrayList<>();
 		for(int i = 0; i < countArr.length; i++) {
 			if(countArr[i] == repeatMaxCount) {

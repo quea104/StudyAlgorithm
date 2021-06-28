@@ -1,7 +1,7 @@
 package TestBackJoon;
 /*
  * 문제명: 일곱 난쟁이
- * 일자: 21.06.24.목
+ * 일자: 21.06.28.월
  * https://www.acmicpc.net/problem/2309
  * 문제내용: 왕비를 피해 일곱 난쟁이들과 함께 평화롭게 생활하고 있던 백설공주에게 위기가 찾아왔다. 일과를 마치고 돌아온 난쟁이가 일곱 명이 아닌 아홉 명이었던 것이다.
 			아홉 명의 난쟁이는 모두 자신이 "백설 공주와 일곱 난쟁이"의 주인공이라고 주장했다. 뛰어난 수학적 직관력을 가지고 있던 백설공주는, 다행스럽게도 일곱 난쟁이의 키의 합이 100이 됨을 기억해 냈다.
@@ -13,11 +13,12 @@ package TestBackJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Arrays;
 
-public class D0624T2309TheSevenDwarfs {
+public class D210628T2309TheSevenDwarfs {
 	static int[] table = new int[9];
 	static boolean[] visited = new boolean[9];
+	static int[] result = new int[7];
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -28,27 +29,27 @@ public class D0624T2309TheSevenDwarfs {
 		dfs(0, 0);
 	}
 
-	static void dfs(int count, int start) {
-		if(count == 7) {
-			int sum = 0;
-			for(int i = 0; i < 9; i++) {
-				if(visited[i]) {
-					sum += table[i];
-				}
-			}
-			if(sum == 100) {
+	static void dfs(int depth, int start) {
+		if(depth == 7) {
+			if (Arrays.stream(result).sum() == 100){
+				Arrays.sort(result);
 				StringBuilder sb = new StringBuilder();
-				for(int i = 0; i < 9; i++) {
-					if(visited[i]) {
-						sb.append(table[i]).append("\n");
-					}
-				}
+				for (int num : result)
+					sb.append(num).append("\n");
 				System.out.println(sb.toString());
+				System.exit(0);
 			}
+			
+			return ;
 		}
 		else {
 			for(int i = start; i < 9; i++) {
-				
+				if(!visited[i]) {
+					visited[i] = true;
+					result[depth] = table[i];
+					dfs(depth+1, i+1);
+					visited[i] = false;
+				}
 			}
 		}
 	}
