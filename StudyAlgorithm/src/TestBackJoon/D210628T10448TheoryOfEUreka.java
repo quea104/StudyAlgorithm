@@ -1,7 +1,7 @@
 package TestBackJoon;
 /*
  * 문제명: 유레카 이론
- * 일자: 21.06.28.월
+ * 일자: 21.06.28.월~29.화
  * https://www.acmicpc.net/problem/10448
  * 문제내용: 삼각수 Tn(n ≥ 1)는 [그림]에서와 같이 기하학적으로 일정한 모양의 규칙을 갖는 점들의 모음으로 표현될 수 있다.
 		자연수 n에 대해 n ≥ 1의 삼각수Tn는 명백한 공식이 있다.			
@@ -21,50 +21,77 @@ package TestBackJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 public class D210628T10448TheoryOfEUreka {
-	static final int MAX = 1001;
-	static int N;
+	static int N, pass;
 	static int[] table = new int[45];
 	
 	public static void main(String[] args) throws IOException {
-		getTriangleNumber();
-		
+		/*
+		// 1.완전탐색
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		int T = Integer.parseInt(br.readLine());
+		while(T-- > 0) {
+			N = Integer.parseInt(br.readLine());
+			boolean pass = false;			
+			for(int i = 1; i < 45; i++) {
+				for(int j = 1; j < 45; j++) {
+					for(int k = 1; k < 45; k++) {
+						int sum = (i*(i+1)/2) + (j*(j+1)/2) + (k*(k+1)/2);
+						if(sum == N) {
+							pass = true;
+							break;
+						}
+					}
+					if(pass) break;
+				}
+				if(pass) break;
+			}
+			if(pass) sb.append(1).append("\n");
+			else sb.append(0).append("\n");
+		}
+		
+		System.out.println(sb.toString());
+		*/
+		
+		// 2. DFS
+		getTriangleNumber();
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		int T = Integer.parseInt(br.readLine());
 		for(int i = 0; i < T; i++) {
 			N = Integer.parseInt(br.readLine());
-			System.out.println(dfs(0, 0, 0));
+			pass = 0;
+			dfs(0, 0);
+			sb.append(pass).append("\n");
 		}
+		System.out.println(sb.toString());
 	}
 	
-	static int dfs(int depth, int start, int sum) {
+	static void dfs(int depth, int sum) {		
 		if(depth == 3) {
-			if(sum == N) {
-				return 1;
+			if(sum == N) { // 3개의 삼각수로 값이 이뤄진 경우
+				pass = 1;
+				return;
 			}
+			else // 3개의 삼각수로 값이 이뤄지지 않은 경우
+				return;
 		}
-		else {
-			if(sum == N) {
-				return 0;
-			}
-			else {
-				for(int i = 0; i < table.length; i++) {
-					dfs(depth+1, i+1, sum+table[i]);	
-				}
-			}
+
+		for(int i = 1; i < table.length; i++) {
+			if(table[i] > N) return;
+			
+			dfs(depth+1, sum+table[i]);
 		}
-		
-		return 0;
 	}
 	
 	static void getTriangleNumber() {
 		int n = 1;
 		while(true) {
 			int cal = n*(n+1)/2;
-			if(cal > MAX) break;
+			if(cal >= 1000) break;
 			table[n++] = cal;
 		}
 	}
-
 }
