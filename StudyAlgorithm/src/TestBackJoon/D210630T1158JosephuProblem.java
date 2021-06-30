@@ -75,5 +75,6 @@ public class D210630T1158JosephuProblem {
 		}
 		sb.append(arr.get(0));
 		sb.append(">");
+		System.out.println(sb);
 	}
 }
