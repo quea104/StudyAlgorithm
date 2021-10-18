@@ -1,7 +1,7 @@
 package TestBackJoon;
 
 /*
- * 문제명: 피보나치 함수
+ * 문제명: 신나는 함수 실행
  * 일자: 21.10.18.월
  * https://www.acmicpc.net/problem/9184
  * 문제내용: 재귀 호출만 생각하면 신이 난다! 아닌가요? 다음과 같은 재귀함수 w(a, b, c)가 있다.
