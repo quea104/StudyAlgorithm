@@ -15,17 +15,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class D211014T1003Fibonacci {
-	static int[] memo = new int[Integer.MAX_VALUE];
-	static int[][] result = new int[Integer.MAX_VALUE][2];
+	static int[] memo = new int[41];
+	static int[][] result = new int[41][2];
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		int T = Integer.parseInt(br.readLine());
-		memo[0] = 0;
-		memo[1] = 1;
+		memo[0] = 0; memo[1] = 1;
+		result[0][0] = 1; result[0][1] = 0;
+		result[1][0] = 0; result[1][1] = 1;
 		while(T-- > 0) {
 			int n = Integer.parseInt(br.readLine());
+			fibonacci(n);
+			sb.append(result[n][0] + " " + result[n][1] + "\n");
 		}
+		System.out.print(sb.toString());
 	}
 	
 	static int fibonacci(int n) {
@@ -36,7 +41,12 @@ public class D211014T1003Fibonacci {
 			if(memo[n] > 0) {
 				return memo[n]; 
 			}
+			
 			memo[n] = fibonacci(n-1) + fibonacci(n-2);
+			
+			result[n][0] = result[n-1][0] + result[n-2][0];
+			result[n][1] = result[n-1][1] + result[n-2][1];
+			
 			return memo[n];
 		}
 	}
