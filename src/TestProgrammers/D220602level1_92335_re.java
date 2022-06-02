@@ -1,8 +1,8 @@
 package TestProgrammers;
 
 /*
- * 문제명: 신고 결과 받기
- * 일자: 22.05.31.화
+ * 문제명: 신고 결과 받기 - 복습
+ * 일자: 22.06.02.화
  * https://programmers.co.kr/learn/courses/30/lessons/92334
  * 문제 설명
 신입사원 무지는 게시판 불량 이용자를 신고하고 처리 결과를 메일로 발송하는 시스템을 개발하려 합니다. 무지가 개발하려는 시스템은 다음과 같습니다.
@@ -71,7 +71,7 @@ id_list	report	k	result
 
 import java.util.*;
 
-public class D220531level1_92334 {
+public class D220602level1_92335_re {
 
 	public static void main(String[] args) {
 		String[] id_list = {"muzi", "frodo", "apeach", "neo"}; // 사용자 목록
@@ -80,51 +80,54 @@ public class D220531level1_92334 {
 		
 		int[] answer = new int[id_list.length];
 
-		HashMap<String, HashSet<String>> map = new HashMap<String, HashSet<String>>(); // 사용자가 신고한 목록
-		HashMap<String, Integer> countMap = new HashMap<String, Integer>(); // 신고당한 사용자 목록
-		HashMap<String, Integer> sendMap = new HashMap<String, Integer>(); // 신고한 사용자에게 처리 안내 메일 전송 횟수 목록
+		HashMap<String, Reports> users = new HashMap<String, Reports>(); // 사용자 신고 정보 명단
+		
 		for(String id: id_list) {
-			map.put(id, new HashSet<String>());
-			countMap.put(id, 0);
-			sendMap.put(id, 0);
+			users.put(id, new Reports());
 		}
 		
 		for(String str: report) {
 			StringTokenizer st = new StringTokenizer(str, " ");
-			String id = st.nextToken();
-			HashSet<String> set = map.get(id);
-			set.add(st.nextToken());
-			map.put(id, set);
+			String id_report = st.nextToken(); // 신고한 사용자
+			String id_reported = st.nextToken(); // 신고당한 사용자
+			
+			users.get(id_report).reportList.add(id_reported);
+			users.get(id_reported).reportedList.add(id_report);
 		}
 		
-		for(String key:map.keySet()) {
-			HashSet<String> set = map.get(key);
-			
-			Iterator<String> iter = set.iterator();
+		for(String name:users.keySet()) {
+			Reports reportInfo = users.get(name);
+			Iterator<String> iter = reportInfo.reportList.iterator(); // 내가 신고한 사용자 목록
 			while(iter.hasNext()) {
-				String id_report = iter.next();
-				countMap.put(id_report, countMap.getOrDefault(id_report, 0) + 1);
-			}
-		}
-
-		for(String id:map.keySet()) {
-			HashSet<String> set = map.get(id);
-
-			Iterator<String> iter = set.iterator();
-			while(iter.hasNext()) {
-				String id_report = iter.next();
-				if(k <= countMap.get(id_report)) {
-					sendMap.put(id, sendMap.getOrDefault(id, 0) + 1);
+				String id_reported = iter.next();
+				if(k <= users.get(id_reported).reportedList.size()) {
+					reportInfo.increaseSendCount();
 				}
 			}
 		}
 		
 		for(int i = 0; i < id_list.length; i++) {
-			answer[i] = sendMap.get(id_list[i]);
+			answer[i] = users.get(id_list[i]).sendCount;
 		}
 
         for(int i = 0; i < answer.length; i++) {
             System.out.print(answer[i]+", ");
         }
+	}
+}
+
+class Reports{
+	int sendCount; // 신고 처리 결과 메일 수신 받은 회수
+	HashSet<String> reportList; // 사용자가 신고한 신고자 목록
+	HashSet<String> reportedList; // 사용자를 신고한 신고자 목록
+	
+	protected Reports() {
+		sendCount = 0;
+		reportList = new HashSet<>();
+		reportedList = new HashSet<>();
+	}
+	
+	protected void increaseSendCount() {
+		this.sendCount++;
 	}
 }
