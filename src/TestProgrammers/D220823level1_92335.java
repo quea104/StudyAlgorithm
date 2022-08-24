@@ -126,5 +126,4 @@ public class D220823level1_92335 {
 		
 		System.out.println(answer);
 	}	
-	
 }
