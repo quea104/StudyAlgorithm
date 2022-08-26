@@ -83,11 +83,11 @@ public class D220825T1260DFSAndBFS {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken())+1;
-		int m = Integer.parseInt(st.nextToken());
-		int v = Integer.parseInt(st.nextToken());
+		int n = Integer.parseInt(st.nextToken()) + 1; // 정점의 수 - 배열이 0부터 시작하므로 정점 수 그대로 표현하기 위해선 +1 해줘야 함
+		int m = Integer.parseInt(st.nextToken()); // 간선의 수
+		int v = Integer.parseInt(st.nextToken()); // 시작 정점
 
-		adjList = new LinkedList[n];
+		adjList = new LinkedList[n]; // 정점 수 만큼 인접 리스트 크기로 초기화
 		for(int i = 0; i < n; i++) {
 			adjList[i] = new LinkedList<Integer>();
 		}
@@ -96,11 +96,13 @@ public class D220825T1260DFSAndBFS {
 			st = new StringTokenizer(br.readLine());
 			int x = Integer.parseInt(st.nextToken());
 			int y = Integer.parseInt(st.nextToken());
+			
+			// 간선은 양방향 이므로 양 정점 리스트에 표기해줘야 함
 			addEdge(x, y);
 			addEdge(y, x);
 		}
 
-		// 정점 번호가 작은 것을 먼저 방문해야 하므로 정렬
+		// 인접 정점은 오름차순으로 방문해야 하므로 정렬 처리
 		for(int i = 0; i < n; i++) {
 			Collections.sort(adjList[i]);
 		}
