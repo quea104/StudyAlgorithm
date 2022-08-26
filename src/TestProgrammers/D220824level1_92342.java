@@ -48,7 +48,7 @@ public class D220824level1_92342 {
 				break;
 			
 			lion[i]++;			
-			dfs(count+1);			
+			dfs(count+1);
 			lion[i]--;
 		}
 	}
