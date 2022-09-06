@@ -2,7 +2,7 @@ package TestBackJoon;
 
 /*
  * 문제명: 토마토
- * 일자: 22.09.05.금
+ * 일자: 22.09.05.월
  * https://www.acmicpc.net/problem/7576
  * 문제풀이: BFS
  * 입력:

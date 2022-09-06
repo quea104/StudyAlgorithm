@@ -2,7 +2,7 @@ package TestBackJoon;
 
 /*
  * 문제명: 나이트의 이동
- * 일자: 22.09.05.금
+ * 일자: 22.09.05.월
  * https://www.acmicpc.net/problem/7562
  * 문제풀이: BFS
  * 입력:
