@@ -1,3 +1,9 @@
+# 자료구조
+- Queue
+	- FIFO (First In First Out) = 선입선출
+	- 앞 front - Dequeue(큐의 프론트에서 자료 제거 후 반환) | ... | 뒤 rear - Enqueue(큐의 리어에 새로운 자료 추가)
+	- peek : 큐에서 프런트의 자료를 반환, 하지만 제거는 안함.
+
 # 알고리즘 이론
 
 ## 그래프를 탐색하는 방법
