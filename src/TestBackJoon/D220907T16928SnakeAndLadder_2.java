@@ -28,7 +28,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 import java.io.BufferedReader;
 
-public class D220907T16928SnakeAndLadder2 {
+public class D220907T16928SnakeAndLadder_2 {
 	static final int MAX = 101;
 	static int[] board = new int[MAX];
 	static boolean[] visited = new boolean[MAX];

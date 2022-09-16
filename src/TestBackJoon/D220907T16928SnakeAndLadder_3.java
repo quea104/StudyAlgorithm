@@ -26,7 +26,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.io.BufferedReader;
 
-public class D220907T16928SnakeAndLadder3 {
+public class D220907T16928SnakeAndLadder_3 {
 	
 	public static void main(String[] args) throws IOException {
 		final int MAX = 101;
