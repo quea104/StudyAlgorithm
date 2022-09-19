@@ -75,14 +75,14 @@ public class D220829T24444BFS1 {
 		queue.add(v);
 		
 		while(!queue.isEmpty()) {
-			int n = queue.poll();
+			v = queue.poll();
 
-			if(!visited[n]) {
-				visited[n] = true;
-				order[n] = depth++;
+			if(!visited[v]) {
+				visited[v] = true;
+				order[v] = depth++;
 				
-				for(int y: adjList[n]) {
-					queue.add(y);
+				for(int nv: adjList[v]) {
+					queue.add(nv);
 				}
 			}
 		}
