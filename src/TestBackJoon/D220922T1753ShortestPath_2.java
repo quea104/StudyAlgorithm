@@ -103,7 +103,7 @@ public class D220922T1753ShortestPath_2 {
 			Node curNode = queue.poll();
 			int curIndex = curNode.index;
 			
-			// K-정점의 거리값이 정점의 가중치보다 작다면 탐색 종료
+			// curIndex-K정점의 거리값이 정점의 가중치보다 작다면 탐색 종료 - 이미 이동했으므로 완료 처리 해주는 것과 동일
 			if(distance[curIndex] < curNode.weight)
 				continue;
 			
