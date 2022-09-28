@@ -5,17 +5,8 @@ package TestBackJoon;
  * 일자: 22.09.27.화
  * https://www.acmicpc.net/problem/9370
  * 문제풀이: Dijkstra
- 	반드시 v1과 v2 정점을 지나서 N 정점까지 가는 최단경로의 경우의 수는 두가지임.
-	즉, 	1. 1 → v1 → v2 → N
-	 	2. 1 → v2 → v1 → N
- 	해당 그래프는 양방향이므로 v1 → v2 = v2 → v1 임.
- 	
- 	최단 경로를 탐색할 경로는
-	 	1. 1 → v1, 1 → v2 최단 경로 탐색
-	 	2. v1 → v2(= v2 → v1), v1 → N 최단 경로 탐색 		
-	 	3. v2 → N 최단 경로 탐색
- 	즉 3번의 다이스트라 알고리즘 진행하면 됨. 	
- 	
+ 	s → d 의 최단거리가 s → g → h → d 또는 s → h → g → d 최단거리가 동일해야 함
+	왜냐하면 문제에서 '목적지까지 우회하지 않고 최단거리로 갈 것' 이라고 했기 때문 	
  * 입력:
 2
 5 4 2
@@ -59,7 +50,6 @@ public class D220927T9370UnconfimredDestination {
 	static int n, m, t, s, g, h;
 	static ArrayList<ArrayList<Node>> map;
 	static int[] distance;
-	static ArrayList<Integer> aList = new ArrayList<Integer>();
 	
 	public static void main(String[] args) throws IOException {
 		StringBuilder sb = new StringBuilder();
@@ -90,15 +80,17 @@ public class D220927T9370UnconfimredDestination {
 				map.get(y).add(new Node(x, w));
 			}
 			
+			ArrayList<Integer> aList = new ArrayList<Integer>();
 			while(t-- > 0) {				
 				// s → g → h → d
 				// s → h → g → d
 				int d = Integer.parseInt(br.readLine());
 				int shortestPath = INF; 
 				
-				// s → g, s → h
+				// s → g, s → h, s → d 
 				search(s);
 				int sTog = distance[g], sToh = distance[h];
+				int sTod = distance[d];
 				
 				// g → h, g → d
 				search(g);
@@ -112,7 +104,10 @@ public class D220927T9370UnconfimredDestination {
 				shortestPath = Math.min(shortestPath, sToh + gToh + gTod);				
 				if(shortestPath == INF || gToh == INF) continue;
 				
-				aList.add(d);
+				// s → d 의 최단거리가 s → g → h → d 또는 s → h → g → d 최단거리가 동일해야 함
+				// 왜냐하면 문제에서 '목적지까지 우회하지 않고 최단거리로 갈 것' 이라고 했기 때문
+				if(sTod == shortestPath)
+					aList.add(d);
 			}
 
 			Collections.sort(aList);
