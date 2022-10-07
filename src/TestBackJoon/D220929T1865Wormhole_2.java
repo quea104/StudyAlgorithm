@@ -16,7 +16,7 @@ package TestBackJoon;
 1 2 3
 2 3 4
 3 1 8
- * 출력1:  1g
+ * 출력1:
 NO
 YES
  */
