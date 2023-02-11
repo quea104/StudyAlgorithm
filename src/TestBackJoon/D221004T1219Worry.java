@@ -1,19 +1,19 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¿À¹Î½ÄÀÇ °í¹Î
- * ÀÏÀÚ: 22.10.04.È­~05.¼ö
+ * ë¬¸ì œëª…: ì˜¤ë¯¼ì‹ì˜ ê³ ë¯¼
+ * ì¼ìž: 22.10.04.í™”~05.ìˆ˜
  * https://www.acmicpc.net/problem/1219
- * ¹®Á¦Ç®ÀÌ: Bellman-Ford ¾Ë°í¸®Áò
+ * ë¬¸ì œí’€ì´: Bellman-Ford ì•Œê³ ë¦¬ì¦˜
  	https://www.crocus.co.kr/837
- 	1. µ·ÀÇ ÃÖ´ñ°ª°ú ±³Åë ¼ö´ÜÀÇ °¡°ÝÀº 1,000,000º¸´Ù ÀÛ°Å³ª °°Àº À½ÀÌ ¾Æ´Ñ Á¤¼öÀÌ¹Ç·Î 
- 		ÃÖ´ë ÀÌÀ± °ªÀº intÇü ¹üÀ§(-2147483647~2147483647)¸¦ ³ÑÀ» ¼ö ÀÖÀ¸¹Ç·Î ÃÖ´ë, ÃÖ¼Ò °ª ¼³Á¤Àº longÇüÀ¸·Î ÇØÁà¾ß ÇÔ.
- 	2. ¾ç¼ö °£¼± ¼øÈ¯ÀÌ Á¸ÀçÇÒ °æ¿ì °£¼±ÀÌ µµÂø Á¤Á¡À¸·Î ÀÌµ¿ÇÏ´ÂÁö È®ÀÎÇØ¾ß ÇÔ
- 		= ¾ç¼ö °£¼± ¼øÈ¯ÀÌ ¹ß»ýÇÏ´Â Á¤Á¡À» µû·Î ¸ð¾Æ °¢ ¼øÈ¯¿¡ ¿¬°üµÈ Á¤Á¡¿¡ ´ëÇØ bfs ¹æ¹ýÀ¸·Î Å½»öÇÏ¿© ¿¬°üµÈ Á¤Á¡ÀÌ µµÂø Á¤Á¡À¸·Î °¥ ¼ö ÀÖ´ÂÁö È®ÀÎ
- 			¡æ ¸¸¾à µµÂøÇÏ¸é gee
- 			¡æ ¸¸¾à µµÂøÇÏÁö ¾ÊÀ¸¸é µµÂøÁ¤Á¡¿¡¼­ ¹ø µ·ÀÇ ÃÖ´ë°ª
- 			¡æ °æ·Î¿¡ µµÂøÇÏÁöµµ ¸øÇÏ¸é gg
- * ÀÔ·Â1:
+ 	1. ëˆì˜ ìµœëŒ“ê°’ê³¼ êµí†µ ìˆ˜ë‹¨ì˜ ê°€ê²©ì€ 1,000,000ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ìŒì´ ì•„ë‹Œ ì •ìˆ˜ì´ë¯€ë¡œ 
+ 		ìµœëŒ€ ì´ìœ¤ ê°’ì€ intí˜• ë²”ìœ„(-2147483647~2147483647)ë¥¼ ë„˜ì„ ìˆ˜ ìžˆìœ¼ë¯€ë¡œ ìµœëŒ€, ìµœì†Œ ê°’ ì„¤ì •ì€ longí˜•ìœ¼ë¡œ í•´ì¤˜ì•¼ í•¨.
+ 	2. ì–‘ìˆ˜ ê°„ì„  ìˆœí™˜ì´ ì¡´ìž¬í•  ê²½ìš° ê°„ì„ ì´ ë„ì°© ì •ì ìœ¼ë¡œ ì´ë™í•˜ëŠ”ì§€ í™•ì¸í•´ì•¼ í•¨
+ 		= ì–‘ìˆ˜ ê°„ì„  ìˆœí™˜ì´ ë°œìƒí•˜ëŠ” ì •ì ì„ ë”°ë¡œ ëª¨ì•„ ê° ìˆœí™˜ì— ì—°ê´€ëœ ì •ì ì— ëŒ€í•´ bfs ë°©ë²•ìœ¼ë¡œ íƒìƒ‰í•˜ì—¬ ì—°ê´€ëœ ì •ì ì´ ë„ì°© ì •ì ìœ¼ë¡œ ê°ˆ ìˆ˜ ìžˆëŠ”ì§€ í™•ì¸
+ 			â†’ ë§Œì•½ ë„ì°©í•˜ë©´ gee
+ 			â†’ ë§Œì•½ ë„ì°©í•˜ì§€ ì•Šìœ¼ë©´ ë„ì°©ì •ì ì—ì„œ ë²ˆ ëˆì˜ ìµœëŒ€ê°’
+ 			â†’ ê²½ë¡œì— ë„ì°©í•˜ì§€ë„ ëª»í•˜ë©´ gg
+ * ìž…ë ¥1:
 5 0 4 7
 0 1 13
 1 2 17
@@ -23,7 +23,7 @@ package TestBackJoon;
 2 0 10
 3 4 10
 0 0 0 0 0
- * Ãâ·Â1:
+ * ì¶œë ¥1:
 -32
  */
 
@@ -68,15 +68,15 @@ public class D221004T1219Worry {
 		
 		String ans = null;
 		if(dist[E] == MIN)
-			ans = "gg"; // µµÂø µµ½Ã¿¡ µµÂøÇÏ´Â °ÍÀÌ ºÒ°¡´É
+			ans = "gg"; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
 		else {
 			if(cycleEdge.size() != 0) {
 				boolean[] visited = bfs(cycleEdge); 
 				
 				if(visited[E])
-					ans = "Gee"; // ¼øÈ¯ °£¼±ÀÌ µµÂø Á¤Á¡¿¡ µµÂøÇÏ¹Ç·Î ¹ø µ·ÀÌ ¹«ÇÑ´ë
+					ans = "Gee"; // ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½
 				else
-					ans = Long.toString(dist[E]); // ¼øÈ¯ °£¼±ÀÌ µµÂø Á¤Á¡¿¡ °¡Áö´Â ¾ÊÀ¸³ª ÀÌ¹Ì °è»êµÈ ÀÌÀ±°ªÀÌ Á¤´ä
+					ans = Long.toString(dist[E]); // ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 			else {
 				ans = Long.toString(dist[E]);
@@ -97,12 +97,12 @@ public class D221004T1219Worry {
 				Edge edge = list.get(j);
 				int x = edge.x, y = edge.y, w = edge.w;
 				
-				if(dist[x] == MIN) // x°¡ ÇÑ¹øµµ ¹æ¹®ÇÏÁö ¾ÊÀº °÷ÀÌ¸é Ã¼Å©ÇÒ ÇÊ¿ä ¾øÀ½. ¾ÆÁ÷ ´ÜÀýµÈ »óÅÂ 
+				if(dist[x] == MIN) // xï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½æ¹®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 					continue;
 				else if(dist[y] < dist[x] + w + earn[y]) {
 					dist[y] = dist[x] + w + earn[y];
 					
-					// ¾çÀÇ °£¼± ¼øÈ¯ÀÌ ¹ß»ýÇÑ Á¤Á¡ º¯¼ö¿¡ µû·Î ÀúÀå
+					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(i == N) {
 						cycleEdge.add(y);
 					}
@@ -116,7 +116,7 @@ public class D221004T1219Worry {
 	private static boolean[] bfs(ArrayList<Integer> cycleEdge) {
 		boolean[] visited = new boolean[N];
 		
-		// ¾çÀÇ °£¼± ¼øÈ¯°ú ¿¬°üµÈ Á¤Á¡ÀÌ µµÂø Á¤Á¡À¸·Î °¥ ¼ö ÀÖ´ÂÁö È®ÀÎ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 		for(int s: cycleEdge) {
 			if(!visited[s]) {
 				Queue<Integer> queue = new LinkedList<Integer>();
