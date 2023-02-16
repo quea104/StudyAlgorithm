@@ -39,7 +39,46 @@ public class D230210Step1_1 {
 		System.out.println(solution1(16, new int[]{9}, 2));
 		System.out.println(solution2(16, new int[]{9}, 2));
 		System.out.println(solution3(16, new int[]{9}, 2));
+		System.out.println(solution4(16, new int[]{9}, 2));
 	}
+	
+	// 방법 4 - 다른 풀이
+	static int solution5(int n, int[] stations, int w) {
+		int answer = 0;
+
+        int i = 1; // 1 부터 시작
+        int s = 0;
+        int distance = 2*w+1;
+        while(i <= n) {
+            if(s < stations.length && ( i >= Math.max(stations[s]-w, 1) && i <= Math.min(stations[s]+w, n))) {
+                i = Math.min(stations[s]+w+1, n+1);
+                s++;
+                continue;
+            }
+            answer++;
+            i = i+distance;
+        }
+
+        return answer;
+	}
+	static int solution4(int n, int[] stations, int w) {
+		int answer = 0;
+
+        int i = 0; // 0 부터 시작
+        int j = 0;
+        int distance = 2*w+1;
+        while(i < n) {
+            if(j < stations.length && ( i >= Math.max(stations[j]-1-w, 0) && i <= Math.min(stations[j]-1+w, n-1))) {
+                i = Math.min(stations[j]+w, n);
+                j++;
+                continue;
+            }
+            answer++;
+            i = i+distance;
+        }
+
+        return answer;
+	}	
 	
 	// 방법 3 - 최적의 알고리즘
 	static int solution3(int n, int[] stations, int w) {
