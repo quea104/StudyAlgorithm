@@ -1,8 +1,11 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/mikerri/StudyAlgorithm.git
 eclipse.preferences.version=1
-<<<<<<< HEAD
-encoding/<project>=UTF-8
-=======
+encoding//src/TestBackJoon/D221004T1219Worry.java=UTF-8
 encoding//src/TestProgrammers/D220602level1_81301.java=UTF-8
 encoding//src/TestProgrammers/D220602level2_42888.java=UTF-8
 encoding//src/TestProgrammers/D220602level2_60057.java=UTF-8
->>>>>>> branch 'master' of https://github.com/mikerri/StudyAlgorithm.git
+encoding//src/readme.md=UTF-8
+encoding/<project>=UTF-8
+encoding/src=UTF-8
