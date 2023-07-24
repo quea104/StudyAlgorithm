@@ -2,24 +2,24 @@ package Recursion;
 
 /*
  * https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/lecture/4076?tab=curriculum
- * '¿µ¸®ÇÑ ÇÁ·Î±×·¡¹ÖÀ» À§ÇÑ ¾Ë°í¸®Áò °­ÁÂ' °­ÀÇ ¼½¼Ç2 5. RecursionÀÇ ÀÀ¿ë: Counting Cells in a Blob
+ * 'ì˜ë¦¬í•œ í”„ë¡œê·¸ë˜ë°ì„ ìœ„í•œ ì•Œê³ ë¦¬ì¦˜ ê°•ì¢Œ' ê°•ì˜ ì„¹ì…˜2 5. Recursionì˜ ì‘ìš©: Counting Cells in a Blob
  */
 
 /*
- * ÀÏÀÚ: 21.03.23.È­
+ * ì¼ì: 21.03.23.í™”
  * Counting Cells in a Blob
- * 	- Binay ÀÌ¹ÌÁö
- * 	- °¢ ÇÈ¼¿Àº Background Pixel ÀÌ°Å³ª È¤Àº Image Pixel
- * 	- ¼­·Î ¿¬°áµÈ Image PixelÀ» Blob ÀÌ¶ó°í ÁöÄª 
- * 	- »óÇÏÁÂ¿ì, ´ë°¢¹æÇâÀ¸·Î ¿¬°áµÈ °ÍÀ¸·Î °£ÁÖ
+ * 	- Binay ì´ë¯¸ì§€
+ * 	- ê° í”½ì…€ì€ Background Pixel ì´ê±°ë‚˜ í˜¹ì€ Image Pixel
+ * 	- ì„œë¡œ ì—°ê²°ëœ Image Pixelì„ Blob ì´ë¼ê³  ì§€ì¹­ 
+ * 	- ìƒí•˜ì¢Œìš°, ëŒ€ê°ë°©í–¥ìœ¼ë¡œ ì—°ê²°ëœ ê²ƒìœ¼ë¡œ ê°„ì£¼
  * 
- * ÀÔ·Â: N*N Å©±âÀÇ 2Â÷¿ø Grid, ÁÂÇ¥ (x,y)
- * Ãâ·Â: ÇÈ¼¿(x,y)°¡ Æ÷ÇÔµÈ blobÀÇ Å©±â, ¼ÓÇÏÁö ¾Ê´Â °æ¿ì 0  
+ * ì…ë ¥: N*N í¬ê¸°ì˜ 2ì°¨ì› Grid, ì¢Œí‘œ (x,y)
+ * ì¶œë ¥: í”½ì…€(x,y)ê°€ í¬í•¨ëœ blobì˜ í¬ê¸°, ì†í•˜ì§€ ì•ŠëŠ” ê²½ìš° 0  
  */
 public class CountingCellsBlob {
 	private static final int BACKGROUD_COLOR = 0; // Background Pixel
 	private static final int IMAGE_COLOR = 1; // Image Pixel
-	private static final int CHECKED_COLOR = 2; // È®ÀÎÇÑ Pixel
+	private static final int CHECKED_COLOR = 2; // í™•ì¸í•œ Pixel
 
 	public static void main(String[] args) {
 		int[][] grid = {

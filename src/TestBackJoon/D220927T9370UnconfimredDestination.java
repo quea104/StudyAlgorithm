@@ -1,13 +1,13 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¹ÌÈ®ÀÎ µµÂøÁö
- * ÀÏÀÚ: 22.09.27.È­
+ * ë¬¸ì œëª…: ë¯¸í™•ì¸ ë„ì°©ì§€
+ * ì¼ì: 22.09.27.í™”
  * https://www.acmicpc.net/problem/9370
- * ¹®Á¦Ç®ÀÌ: Dijkstra
- 	s ¡æ d ÀÇ ÃÖ´Ü°Å¸®°¡ s ¡æ g ¡æ h ¡æ d ¶Ç´Â s ¡æ h ¡æ g ¡æ d ÃÖ´Ü°Å¸®°¡ µ¿ÀÏÇØ¾ß ÇÔ
-	¿Ö³ÄÇÏ¸é ¹®Á¦¿¡¼­ '¸ñÀûÁö±îÁö ¿ìÈ¸ÇÏÁö ¾Ê°í ÃÖ´Ü°Å¸®·Î °¥ °Í' ÀÌ¶ó°í Çß±â ¶§¹® 	
- * ÀÔ·Â:
+ * ë¬¸ì œí’€ì´: Dijkstra
+ 	s â†’ d ì˜ ìµœë‹¨ê±°ë¦¬ê°€ s â†’ g â†’ h â†’ d ë˜ëŠ” s â†’ h â†’ g â†’ d ìµœë‹¨ê±°ë¦¬ê°€ ë™ì¼í•´ì•¼ í•¨
+	ì™œëƒí•˜ë©´ ë¬¸ì œì—ì„œ 'ëª©ì ì§€ê¹Œì§€ ìš°íšŒí•˜ì§€ ì•Šê³  ìµœë‹¨ê±°ë¦¬ë¡œ ê°ˆ ê²ƒ' ì´ë¼ê³  í–ˆê¸° ë•Œë¬¸ 	
+ * ì…ë ¥:
 2
 5 4 2
 1 2 3
@@ -30,7 +30,7 @@ package TestBackJoon;
 5 6 7
 5
 6
- * Ãâ·Â:
+ * ì¶œë ¥:
 4 5
 6
  */
@@ -82,21 +82,21 @@ public class D220927T9370UnconfimredDestination {
 			
 			ArrayList<Integer> aList = new ArrayList<Integer>();
 			while(t-- > 0) {				
-				// s ¡æ g ¡æ h ¡æ d
-				// s ¡æ h ¡æ g ¡æ d
+				// s â†’ g â†’ h â†’ d
+				// s â†’ h â†’ g â†’ d
 				int d = Integer.parseInt(br.readLine());
 				int shortestPath = INF; 
 				
-				// s ¡æ g, s ¡æ h, s ¡æ d 
+				// s â†’ g, s â†’ h, s â†’ d 
 				search(s);
 				int sTog = distance[g], sToh = distance[h];
 				int sTod = distance[d];
 				
-				// g ¡æ h, g ¡æ d
+				// g â†’ h, g â†’ d
 				search(g);
 				int gToh = distance[h], gTod = distance[d];
 				
-				// h ¡æ d
+				// h â†’ d
 				search(h);
 				int hTod = distance[d];
 				
@@ -104,8 +104,8 @@ public class D220927T9370UnconfimredDestination {
 				shortestPath = Math.min(shortestPath, sToh + gToh + gTod);				
 				if(shortestPath == INF || gToh == INF) continue;
 				
-				// s ¡æ d ÀÇ ÃÖ´Ü°Å¸®°¡ s ¡æ g ¡æ h ¡æ d ¶Ç´Â s ¡æ h ¡æ g ¡æ d ÃÖ´Ü°Å¸®°¡ µ¿ÀÏÇØ¾ß ÇÔ
-				// ¿Ö³ÄÇÏ¸é ¹®Á¦¿¡¼­ '¸ñÀûÁö±îÁö ¿ìÈ¸ÇÏÁö ¾Ê°í ÃÖ´Ü°Å¸®·Î °¥ °Í' ÀÌ¶ó°í Çß±â ¶§¹®
+				// s â†’ d ì˜ ìµœë‹¨ê±°ë¦¬ê°€ s â†’ g â†’ h â†’ d ë˜ëŠ” s â†’ h â†’ g â†’ d ìµœë‹¨ê±°ë¦¬ê°€ ë™ì¼í•´ì•¼ í•¨
+				// ì™œëƒí•˜ë©´ ë¬¸ì œì—ì„œ 'ëª©ì ì§€ê¹Œì§€ ìš°íšŒí•˜ì§€ ì•Šê³  ìµœë‹¨ê±°ë¦¬ë¡œ ê°ˆ ê²ƒ' ì´ë¼ê³  í–ˆê¸° ë•Œë¬¸
 				if(sTod == shortestPath)
 					aList.add(d);
 			}
@@ -130,7 +130,7 @@ public class D220927T9370UnconfimredDestination {
 			Node curNode = queue.poll();
 			int cv = curNode.vertex;
 			
-			// Àç¹æ¹® ºÒ°¡
+			// ì¬ë°©ë¬¸ ë¶ˆê°€
 			if(curNode.weight > distance[cv])
 				continue;
 			

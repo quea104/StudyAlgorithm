@@ -1,10 +1,10 @@
 package SortAlgorithm;
 
 /*
- * Äü Á¤·Ä
- * Âû½º ¾ØÅÍ´Ï ¸®Ã³µå È£¾î
- * ½Ã°£º¹Àâµµ O(log n)
- * ÀÓÀÇÀÇ pivot °ªÀ» ±âÁØÀ¸·Î pivot ÀÇ ÁÂÃø¿¡´Â pivot º¸´Ù ÀÛÀº°ªÀ» µÎ°í ¿ìÃø¿¡´Â pivot º¸´Ù Å« °ªÀ» µÎ°íÀÚ ÇÑ´Ù.
+ * í€µ ì •ë ¬
+ * ì°°ìŠ¤ ì•¤í„°ë‹ˆ ë¦¬ì²˜ë“œ í˜¸ì–´
+ * ì‹œê°„ë³µìž¡ë„ O(log n)
+ * ìž„ì˜ì˜ pivot ê°’ì„ ê¸°ì¤€ìœ¼ë¡œ pivot ì˜ ì¢Œì¸¡ì—ëŠ” pivot ë³´ë‹¤ ìž‘ì€ê°’ì„ ë‘ê³  ìš°ì¸¡ì—ëŠ” pivot ë³´ë‹¤ í° ê°’ì„ ë‘ê³ ìž í•œë‹¤.
  */
 public class QuickSort {
 	public static void main(String[] args) {
@@ -30,19 +30,19 @@ public class QuickSort {
 		int i = s+1;
 		int j = e;
 		
-		// i¿Í j°¡ ±³Â÷ÇÒ ¶§±îÁö ¹Ýº¹(i<j)
+		// iì™€ jê°€ êµì°¨í•  ë•Œê¹Œì§€ ë°˜ë³µ(i<j)
 		while (i <= j) {
-			// arr[i]°¡ ÇÇ¹þº¸´Ù ÀÛÀ¸¸é °è¼Ó i¸¦ Áõ°¡
+			// arr[i]ê°€ í”¼ë²—ë³´ë‹¤ ìž‘ìœ¼ë©´ ê³„ì† ië¥¼ ì¦ê°€
 			while (i <= e && arr[i] < pivot) {
 				i++;
 			}
 
-			// arr[j]°¡ ÇÇ¹þº¸´Ù Å©¸é °è¼Ó j¸¦ °¨¼Ò
+			// arr[j]ê°€ í”¼ë²—ë³´ë‹¤ í¬ë©´ ê³„ì† jë¥¼ ê°ì†Œ
 			while (j >= s && arr[j] > pivot) {
 				j--;
 			}
 			
-			if (i < j) { // ¾ù°¥¸®Áö ¾Ê¾Ò´Ù¸é i¿Í j ¹øÂ° ¿ä¼Ò ±³Ã¼
+			if (i < j) { // ì—‡ê°ˆë¦¬ì§€ ì•Šì•˜ë‹¤ë©´ iì™€ j ë²ˆì§¸ ìš”ì†Œ êµì²´
 				int t = arr[i];
 				arr[i] = arr[j];
 				arr[j] = t;
@@ -51,7 +51,7 @@ public class QuickSort {
 			}
 		}
 		
-		// ÇöÀç ¾ù°¥¸° »óÅÂÀÌ¸é ÇÇ¹þ°ú ±³Ã¼
+		// í˜„ìž¬ ì—‡ê°ˆë¦° ìƒíƒœì´ë©´ í”¼ë²—ê³¼ êµì²´
 		int t = arr[j];
 		arr[j] = arr[s];
 		arr[s] = t;

@@ -1,15 +1,15 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: ¼ÕÀÍºÐ±âÁ¡
- * ÀÏÀÚ: 21.03.29.¿ù
+ * ë¬¸ì œëª…: ì†ìµë¶„ê¸°ì 
+ * ì¼ìž: 21.03.29.ì›”
  * https://www.acmicpc.net/problem/1712
- * ¹®Á¦³»¿ë:
- 		¿ùµåÀüÀÚ´Â ³ëÆ®ºÏÀ» Á¦Á¶ÇÏ°í ÆÇ¸ÅÇÏ´Â È¸»çÀÌ´Ù. ³ëÆ®ºÏ ÆÇ¸Å ´ë¼ö¿¡ »ó°ü¾øÀÌ ¸Å³â ÀÓ´ë·á, Àç»ê¼¼, º¸Çè·á, ±Þ¿© µî A¸¸¿øÀÇ °íÁ¤ ºñ¿ëÀÌ µé¸ç, ÇÑ ´ëÀÇ ³ëÆ®ºÏÀ» »ý»êÇÏ´Â µ¥¿¡´Â Àç·áºñ¿Í ÀÎ°Çºñ µî ÃÑ B¸¸¿øÀÇ °¡º¯ ºñ¿ëÀÌ µç´Ù°í ÇÑ´Ù.
-		¿¹¸¦ µé¾î A=1,000, B=70ÀÌ¶ó°í ÇÏÀÚ. ÀÌ °æ¿ì ³ëÆ®ºÏÀ» ÇÑ ´ë »ý»êÇÏ´Â µ¥´Â ÃÑ 1,070¸¸¿øÀÌ µé¸ç, ¿­ ´ë »ý»êÇÏ´Â µ¥´Â ÃÑ 1,700¸¸¿øÀÌ µç´Ù.		
-		³ëÆ®ºÏ °¡°ÝÀÌ C¸¸¿øÀ¸·Î Ã¥Á¤µÇ¾ú´Ù°í ÇÑ´Ù. ÀÏ¹ÝÀûÀ¸·Î »ý»ê ´ë¼ö¸¦ ´Ã·Á °¡´Ù º¸¸é ¾î´À ¼ø°£ ÃÑ ¼öÀÔ(ÆÇ¸Åºñ¿ë)ÀÌ ÃÑ ºñ¿ë(=°íÁ¤ºñ¿ë+°¡º¯ºñ¿ë)º¸´Ù ¸¹¾ÆÁö°Ô µÈ´Ù. ÃÖÃÊ·Î ÃÑ ¼öÀÔÀÌ ÃÑ ºñ¿ëº¸´Ù ¸¹¾ÆÁ® ÀÌÀÍÀÌ ¹ß»ýÇÏ´Â ÁöÁ¡À» ¼ÕÀÍºÐ±âÁ¡(BREAK-EVEN POINT)ÀÌ¶ó°í ÇÑ´Ù.		
-		A, B, C°¡ ÁÖ¾îÁ³À» ¶§, ¼ÕÀÍºÐ±âÁ¡À» ±¸ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
- * ÀÔ·Â: Ã¹Â° ÁÙ¿¡ A, B, C°¡ ºó Ä­À» »çÀÌ¿¡ µÎ°í ¼ø¼­´ë·Î ÁÖ¾îÁø´Ù. A, B, C´Â 21¾ï ÀÌÇÏÀÇ ÀÚ¿¬¼öÀÌ´Ù.
- * Ãâ·Â: Ã¹ ¹øÂ° ÁÙ¿¡ ¼ÕÀÍºÐ±âÁ¡ Áï ÃÖÃÊ·Î ÀÌÀÍÀÌ ¹ß»ýÇÏ´Â ÆÇ¸Å·®À» Ãâ·ÂÇÑ´Ù. ¼ÕÀÍºÐ±âÁ¡ÀÌ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é -1À» Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©:
+ 		ì›”ë“œì „ìžëŠ” ë…¸íŠ¸ë¶ì„ ì œì¡°í•˜ê³  íŒë§¤í•˜ëŠ” íšŒì‚¬ì´ë‹¤. ë…¸íŠ¸ë¶ íŒë§¤ ëŒ€ìˆ˜ì— ìƒê´€ì—†ì´ ë§¤ë…„ ìž„ëŒ€ë£Œ, ìž¬ì‚°ì„¸, ë³´í—˜ë£Œ, ê¸‰ì—¬ ë“± Aë§Œì›ì˜ ê³ ì • ë¹„ìš©ì´ ë“¤ë©°, í•œ ëŒ€ì˜ ë…¸íŠ¸ë¶ì„ ìƒì‚°í•˜ëŠ” ë°ì—ëŠ” ìž¬ë£Œë¹„ì™€ ì¸ê±´ë¹„ ë“± ì´ Bë§Œì›ì˜ ê°€ë³€ ë¹„ìš©ì´ ë“ ë‹¤ê³  í•œë‹¤.
+		ì˜ˆë¥¼ ë“¤ì–´ A=1,000, B=70ì´ë¼ê³  í•˜ìž. ì´ ê²½ìš° ë…¸íŠ¸ë¶ì„ í•œ ëŒ€ ìƒì‚°í•˜ëŠ” ë°ëŠ” ì´ 1,070ë§Œì›ì´ ë“¤ë©°, ì—´ ëŒ€ ìƒì‚°í•˜ëŠ” ë°ëŠ” ì´ 1,700ë§Œì›ì´ ë“ ë‹¤.		
+		ë…¸íŠ¸ë¶ ê°€ê²©ì´ Cë§Œì›ìœ¼ë¡œ ì±…ì •ë˜ì—ˆë‹¤ê³  í•œë‹¤. ì¼ë°˜ì ìœ¼ë¡œ ìƒì‚° ëŒ€ìˆ˜ë¥¼ ëŠ˜ë ¤ ê°€ë‹¤ ë³´ë©´ ì–´ëŠ ìˆœê°„ ì´ ìˆ˜ìž…(íŒë§¤ë¹„ìš©)ì´ ì´ ë¹„ìš©(=ê³ ì •ë¹„ìš©+ê°€ë³€ë¹„ìš©)ë³´ë‹¤ ë§Žì•„ì§€ê²Œ ëœë‹¤. ìµœì´ˆë¡œ ì´ ìˆ˜ìž…ì´ ì´ ë¹„ìš©ë³´ë‹¤ ë§Žì•„ì ¸ ì´ìµì´ ë°œìƒí•˜ëŠ” ì§€ì ì„ ì†ìµë¶„ê¸°ì (BREAK-EVEN POINT)ì´ë¼ê³  í•œë‹¤.		
+		A, B, Cê°€ ì£¼ì–´ì¡Œì„ ë•Œ, ì†ìµë¶„ê¸°ì ì„ êµ¬í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ì‹œì˜¤.
+ * ìž…ë ¥: ì²«ì§¸ ì¤„ì— A, B, Cê°€ ë¹ˆ ì¹¸ì„ ì‚¬ì´ì— ë‘ê³  ìˆœì„œëŒ€ë¡œ ì£¼ì–´ì§„ë‹¤. A, B, CëŠ” 21ì–µ ì´í•˜ì˜ ìžì—°ìˆ˜ì´ë‹¤.
+ * ì¶œë ¥: ì²« ë²ˆì§¸ ì¤„ì— ì†ìµë¶„ê¸°ì  ì¦‰ ìµœì´ˆë¡œ ì´ìµì´ ë°œìƒí•˜ëŠ” íŒë§¤ëŸ‰ì„ ì¶œë ¥í•œë‹¤. ì†ìµë¶„ê¸°ì ì´ ì¡´ìž¬í•˜ì§€ ì•Šìœ¼ë©´ -1ì„ ì¶œë ¥í•œë‹¤.
  */
 
 
@@ -21,15 +21,15 @@ public class D210329T1712BreakEvenPoint {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-		int a = Integer.parseInt(st.nextToken()); // °íÁ¤ºñ¿ë
-		int b = Integer.parseInt(st.nextToken()); // °¡º¯ºñ¿ë
-		int c = Integer.parseInt(st.nextToken()); // Á¦Ç°°¡°Ý
+		int a = Integer.parseInt(st.nextToken()); // ê³ ì •ë¹„ìš©
+		int b = Integer.parseInt(st.nextToken()); // ê°€ë³€ë¹„ìš©
+		int c = Integer.parseInt(st.nextToken()); // ì œí’ˆê°€ê²©
 				
-		if(b >= c) { // ¶È°°ÀÌ ÆÈ°Å³ª ¼ÕÇØ°¡ ³¯ °æ¿ì ¼ÕÀÍºÐ±âÁ¡ ¾øÀ½
+		if(b >= c) { // ë˜‘ê°™ì´ íŒ”ê±°ë‚˜ ì†í•´ê°€ ë‚  ê²½ìš° ì†ìµë¶„ê¸°ì  ì—†ìŒ
 			System.out.println(-1);
 		}
 		else {
-			// ¹Ýº¹¹®À¸·Î Ã³¸®ÇÏ¸é ½Ã°£Á¦ÇÑ ÃÊ°ú
+			// ë°˜ë³µë¬¸ìœ¼ë¡œ ì²˜ë¦¬í•˜ë©´ ì‹œê°„ì œí•œ ì´ˆê³¼
 			// a + b*count < c*count
 			// a < c*count - b*count
 			// a < (c-b)*count

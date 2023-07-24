@@ -1,22 +1,22 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: Æ¯Á¤ÇÑ ÃÖ´Ü°æ·Î
- * ÀÏÀÚ: 22.09.27.È­
+ * ë¬¸ì œëª…: íŠ¹ì •í•œ ìµœë‹¨ê²½ë¡œ
+ * ì¼ì: 22.09.27.í™”
  * https://www.acmicpc.net/problem/1504
- * ¹®Á¦Ç®ÀÌ: Dijkstra
- 	¹İµå½Ã v1°ú v2 Á¤Á¡À» Áö³ª¼­ N Á¤Á¡±îÁö °¡´Â ÃÖ´Ü°æ·ÎÀÇ °æ¿ìÀÇ ¼ö´Â µÎ°¡ÁöÀÓ.
-	Áï, 	1. 1 ¡æ v1 ¡æ v2 ¡æ N
-	 	2. 1 ¡æ v2 ¡æ v1 ¡æ N
- 	ÇØ´ç ±×·¡ÇÁ´Â ¾ç¹æÇâÀÌ¹Ç·Î v1 ¡æ v2 = v2 ¡æ v1 ÀÓ.
+ * ë¬¸ì œí’€ì´: Dijkstra
+ 	ë°˜ë“œì‹œ v1ê³¼ v2 ì •ì ì„ ì§€ë‚˜ì„œ N ì •ì ê¹Œì§€ ê°€ëŠ” ìµœë‹¨ê²½ë¡œì˜ ê²½ìš°ì˜ ìˆ˜ëŠ” ë‘ê°€ì§€ì„.
+	ì¦‰, 	1. 1 â†’ v1 â†’ v2 â†’ N
+	 	2. 1 â†’ v2 â†’ v1 â†’ N
+ 	í•´ë‹¹ ê·¸ë˜í”„ëŠ” ì–‘ë°©í–¥ì´ë¯€ë¡œ v1 â†’ v2 = v2 â†’ v1 ì„.
  	
- 	ÃÖ´Ü °æ·Î¸¦ Å½»öÇÒ °æ·Î´Â
-	 	1. 1 ¡æ v1, 1 ¡æ v2 ÃÖ´Ü °æ·Î Å½»ö
-	 	2. v1 ¡æ v2(= v2 ¡æ v1), v1 ¡æ N ÃÖ´Ü °æ·Î Å½»ö 		
-	 	3. v2 ¡æ N ÃÖ´Ü °æ·Î Å½»ö
- 	Áï 3¹øÀÇ ´ÙÀÌ½ºÆ®¶ó ¾Ë°í¸®Áò ÁøÇàÇÏ¸é µÊ. 	
+ 	ìµœë‹¨ ê²½ë¡œë¥¼ íƒìƒ‰í•  ê²½ë¡œëŠ”
+	 	1. 1 â†’ v1, 1 â†’ v2 ìµœë‹¨ ê²½ë¡œ íƒìƒ‰
+	 	2. v1 â†’ v2(= v2 â†’ v1), v1 â†’ N ìµœë‹¨ ê²½ë¡œ íƒìƒ‰ 		
+	 	3. v2 â†’ N ìµœë‹¨ ê²½ë¡œ íƒìƒ‰
+ 	ì¦‰ 3ë²ˆì˜ ë‹¤ì´ìŠ¤íŠ¸ë¼ ì•Œê³ ë¦¬ì¦˜ ì§„í–‰í•˜ë©´ ë¨. 	
  	
- * ÀÔ·Â:
+ * ì…ë ¥:
 4 6
 1 2 3
 2 3 3
@@ -25,7 +25,7 @@ package TestBackJoon;
 2 4 5
 1 4 4
 2 3
- * Ãâ·Â:
+ * ì¶œë ¥:
 7
  */
 
@@ -66,21 +66,21 @@ public class D220927T1504ParticularShortestPath {
 		v1 = Integer.parseInt(st.nextToken());
 		v2 = Integer.parseInt(st.nextToken());
 		
-		// s ¡æ v1, s ¡æ v2
+		// s â†’ v1, s â†’ v2
 		search(1);
 		int sToV1 = distance[v1], sToV2 = distance[v2];
 		
-		// v1 ¡æ v2, v1 ¡æ N
+		// v1 â†’ v2, v1 â†’ N
 		search(v1);
 		int v1ToV2 = distance[v2], v1ToN = distance[N];
 		
-		// v2 ¡æ N
+		// v2 â†’ N
 		search(v2);
 		int v2ToN = distance[N];
 		 
-		// s ¡æ v1 ¡æ v2 ¡æ N
+		// s â†’ v1 â†’ v2 â†’ N
 		shortestPath = Math.min(shortestPath, sToV1 + v1ToV2 + v2ToN);
-		// s ¡æ v2 ¡æ v1 ¡æ N
+		// s â†’ v2 â†’ v1 â†’ N
 		shortestPath = Math.min(shortestPath, sToV2 + v1ToV2 + v1ToN);
 		
 		System.out.print(v1ToV2 == INF || shortestPath == INF ? -1 : shortestPath);

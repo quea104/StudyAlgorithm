@@ -1,18 +1,18 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¼û¹Ù²ÀÁú2
- * ÀÏÀÚ: 22.08.30.È­~09.01.¸ñ
+ * ë¬¸ì œëª…: ìˆ¨ë°”ê¼­ì§ˆ2
+ * ì¼ìž: 22.08.30.í™”~09.01.ëª©
  * https://www.acmicpc.net/problem/1697
- * ¹®Á¦Ç®ÀÌ: BFS
- * ÀÔ·Â1: 
+ * ë¬¸ì œí’€ì´: BFS
+ * ìž…ë ¥1: 
 5 17
- * Ãâ·Â1:
+ * ì¶œë ¥1:
 4
 2
- * ÀÔ·Â2: 
+ * ìž…ë ¥2: 
 1 4
- * Ãâ·Â2:
+ * ì¶œë ¥2:
 2
 2
  */
@@ -36,9 +36,9 @@ public class D220830T12851HideAndSeek2 {
 		N = Integer.parseInt(st.nextToken());
 		K = Integer.parseInt(st.nextToken());
 		
-		// Çü À§Ä¡°¡ µ¿»ý À§Ä¡º¸´Ù ¸ÕÀúÀÌ°Å³ª °°À» °æ¿ì
+		// í˜• ìœ„ì¹˜ê°€ ë™ìƒ ìœ„ì¹˜ë³´ë‹¤ ë¨¼ì €ì´ê±°ë‚˜ ê°™ì„ ê²½ìš°
 		if(N >= K) {
-			// -1 ÀÌµ¿ ¹æ¹ýÀ¸·Î¸¸ ÀÌµ¿ °¡´ÉÇÔ.
+			// -1 ì´ë™ ë°©ë²•ìœ¼ë¡œë§Œ ì´ë™ ê°€ëŠ¥í•¨.
 			System.out.print((N-K)+"\n"+1);
 		}
 		else {
@@ -47,11 +47,11 @@ public class D220830T12851HideAndSeek2 {
 		}
 	}
 
-	// ¸Þ¸ð¸® 293840 KB, ½Ã°£ 412 ms
+	// ë©”ëª¨ë¦¬ 293840 KB, ì‹œê°„ 412 ms
 	static void bfs() {
 		Queue<Pair> queue = new LinkedList<Pair>();
 
-		// ¡Ú¡ÚQueue¿¡ °°Àº À§Ä¡¿¡ °É¸®´Â ½Ã°£ÀÇ °³¼ö°¡ ¿©·¯°³ÀÏ ¼ö ÀÖÀ¸¹Ç·Î À§Ä¡µµ ÇÔ²² ÀúÀåÇÔ
+		// â˜…â˜…Queueì— ê°™ì€ ìœ„ì¹˜ì— ê±¸ë¦¬ëŠ” ì‹œê°„ì˜ ê°œìˆ˜ê°€ ì—¬ëŸ¬ê°œì¼ ìˆ˜ ìžˆìœ¼ë¯€ë¡œ ìœ„ì¹˜ë„ í•¨ê»˜ ì €ìž¥í•¨
 		queue.add(new Pair(N, 0));
 
 		while(!queue.isEmpty()) {
@@ -59,22 +59,22 @@ public class D220830T12851HideAndSeek2 {
 			int x = now.x;
 			int move = now.move;
 			
-			// ¡Ú¡ÚÇöÀç À§Ä¡¸¦ ¹æ¹® Ã³¸® -> °°Àº ÁöÁ¡¿¡ °É¸° ½Ã°£ÀÌ ¿©·¯°³ Á¸ÀçÇÒ ¼ö ÀÖÀ¸¹Ç·Î ¹æ¹® ¿©ºÎ Ã³¸®¸¦ push°¡ ¾Æ´Ñ popÇÒ ¶§ ÇØÁÜ.
+			// â˜…â˜…í˜„ìž¬ ìœ„ì¹˜ë¥¼ ë°©ë¬¸ ì²˜ë¦¬ -> ê°™ì€ ì§€ì ì— ê±¸ë¦° ì‹œê°„ì´ ì—¬ëŸ¬ê°œ ì¡´ìž¬í•  ìˆ˜ ìžˆìœ¼ë¯€ë¡œ ë°©ë¬¸ ì—¬ë¶€ ì²˜ë¦¬ë¥¼ pushê°€ ì•„ë‹Œ popí•  ë•Œ í•´ì¤Œ.
 			visited[x] = true;
 
-			// ¡ÚÃÖ¼Ò½Ã°£º¸´Ù ÇöÀç °É¸° ½Ã°£ÀÌ ÀÌ»óÀÌ¸é Å½»ö Á¾·á
+			// â˜…ìµœì†Œì‹œê°„ë³´ë‹¤ í˜„ìž¬ ê±¸ë¦° ì‹œê°„ì´ ì´ìƒì´ë©´ íƒìƒ‰ ì¢…ë£Œ
 			if(min < move) return;
 			
 			if(x == K) {
 				System.out.println();
 				
 				if(min > move)
-					min = move; // °¡Àå ºü¸¥ ½Ã°£ 
+					min = move; // ê°€ìž¥ ë¹ ë¥¸ ì‹œê°„ 
 				 
 				if(move == min)
 					count++;
 				
-				continue; // µµÂø ÁöÁ¡ µµ´ÞÇßÀ¸¹Ç·Î ÇØ´ç Å½»öÀº Á¾·á
+				continue; // ë„ì°© ì§€ì  ë„ë‹¬í–ˆìœ¼ë¯€ë¡œ í•´ë‹¹ íƒìƒ‰ì€ ì¢…ë£Œ
 			}
 			
 			int[] moveArr = {x-1, x+1, x*2};
@@ -98,27 +98,27 @@ public class D220830T12851HideAndSeek2 {
 		}
 	}
 	
-	// ¸Þ¸ð¸® 123536 KB, ½Ã°£ 316 ms
+	// ë©”ëª¨ë¦¬ 123536 KB, ì‹œê°„ 316 ms
 	static void bfs2() {
 		Queue<Integer> queue = new LinkedList<Integer>();
 
 		queue.add(N);
 
-		// ¡Ú¡Úµ¿ÀÏÇÑ À§Ä¡¿¡ Àç¹æ¹®ÇØ¾ß ÇÏ¹Ç·Î ¹æ¹® ¿©ºÎ È®ÀÎ ¾ÈÇÔ
+		// â˜…â˜…ë™ì¼í•œ ìœ„ì¹˜ì— ìž¬ë°©ë¬¸í•´ì•¼ í•˜ë¯€ë¡œ ë°©ë¬¸ ì—¬ë¶€ í™•ì¸ ì•ˆí•¨
 		while(!queue.isEmpty()) {
 			int x = queue.poll();
 			
-			// ¡ÚÃÖ¼Ò½Ã°£º¸´Ù ÇöÀç °É¸° ½Ã°£ÀÌ ÀÌ»óÀÌ¸é Å½»ö Á¾·á
+			// â˜…ìµœì†Œì‹œê°„ë³´ë‹¤ í˜„ìž¬ ê±¸ë¦° ì‹œê°„ì´ ì´ìƒì´ë©´ íƒìƒ‰ ì¢…ë£Œ
 			if(min < map[x]) return;
 			
 			if(x == K) {
 				if(min > map[K])
-					min = map[K]; // °¡Àå ºü¸¥ ½Ã°£ 
+					min = map[K]; // ê°€ìž¥ ë¹ ë¥¸ ì‹œê°„ 
 				 
 				if(map[K] == min)
 					count++;
 				
-				continue; // µµÂø ÁöÁ¡ µµ´ÞÇßÀ¸¹Ç·Î ÇØ´ç Å½»öÀº Á¾·á
+				continue; // ë„ì°© ì§€ì  ë„ë‹¬í–ˆìœ¼ë¯€ë¡œ í•´ë‹¹ íƒìƒ‰ì€ ì¢…ë£Œ
 			}
 			
 			int[] moveArr = {x-1, x+1, x*2};
@@ -127,12 +127,12 @@ public class D220830T12851HideAndSeek2 {
 				
 				if(nx < 0 || nx >= MAX) continue;
 				
-				/* ¡Ú¡Ú nx·Î ÀÌµ¿ Àü¿¡ ÀÌµ¿ °¡´É ¿©ºÎ È®ÀÎ = push Á¶°Ç9
-				 * 1. Ã¹ ¹æ¹®
-				 * 2. 1->4·Î ÀÌµ¿ÇÒ ¶§ À§Ä¡1¿¡¼­ ÀÌµ¿ÇÏ¸é 2=1+1°ú 2=1*2 ·Î µÎ°¡Áö ¹æ¹ýÀ¸·Î °°Àº ÁöÁ¡À» ÀÌµ¿ÇÒ ¼ö ÀÖÀ½
-				 	Áï, ÇöÀç À§Ä¡ 1¿¡¼­ ÀÌµ¿ÇÏ´Â ¹æ¹ýÀÇ ¼ö¸¦ Á¡°ËÇÒ ¶§ 
-				 	1+1 ÀÌµ¿ÇÏ´Â ¹æ¹ý È®ÀÎ ½Ã À§Ä¡ 2¿¡ ÃÖÃÊ ¹æ¹®ÀÌ¹Ç·Î ÀÌµ¿ÀÌ °¡´ÉÇÏ¸ç map[2] °ª ÀúÀåÇØÁØ ÈÄ¿¡
-				 	1*2 ÀÌµ¿ÇÏ´Â ¹æ¹ý È®ÀÎ ½Ã 1+1¿¡¼­ À§Ä¡ 2¸¦ ÀÌ¹Ì ¹æ¹®ÇÏ¿´À¸¹Ç·Î map[2] °ªÀÌ ÇöÀç À§Ä¡ °ªÀÎ map[1]¿¡ 1À» ´õÇØÁØ °ªº¸´Ù Å©¸é ÃÖ¼Ò ÀÌµ¿ ¼ö¸¦ Ã£´Â°Å´Ï Àç¹æ¹® ÇÏÁö ¾ÊÀ½
+				/* â˜…â˜… nxë¡œ ì´ë™ ì „ì— ì´ë™ ê°€ëŠ¥ ì—¬ë¶€ í™•ì¸ = push ì¡°ê±´9
+				 * 1. ì²« ë°©ë¬¸
+				 * 2. 1->4ë¡œ ì´ë™í•  ë•Œ ìœ„ì¹˜1ì—ì„œ ì´ë™í•˜ë©´ 2=1+1ê³¼ 2=1*2 ë¡œ ë‘ê°€ì§€ ë°©ë²•ìœ¼ë¡œ ê°™ì€ ì§€ì ì„ ì´ë™í•  ìˆ˜ ìžˆìŒ
+				 	ì¦‰, í˜„ìž¬ ìœ„ì¹˜ 1ì—ì„œ ì´ë™í•˜ëŠ” ë°©ë²•ì˜ ìˆ˜ë¥¼ ì ê²€í•  ë•Œ 
+				 	1+1 ì´ë™í•˜ëŠ” ë°©ë²• í™•ì¸ ì‹œ ìœ„ì¹˜ 2ì— ìµœì´ˆ ë°©ë¬¸ì´ë¯€ë¡œ ì´ë™ì´ ê°€ëŠ¥í•˜ë©° map[2] ê°’ ì €ìž¥í•´ì¤€ í›„ì—
+				 	1*2 ì´ë™í•˜ëŠ” ë°©ë²• í™•ì¸ ì‹œ 1+1ì—ì„œ ìœ„ì¹˜ 2ë¥¼ ì´ë¯¸ ë°©ë¬¸í•˜ì˜€ìœ¼ë¯€ë¡œ map[2] ê°’ì´ í˜„ìž¬ ìœ„ì¹˜ ê°’ì¸ map[1]ì— 1ì„ ë”í•´ì¤€ ê°’ë³´ë‹¤ í¬ë©´ ìµœì†Œ ì´ë™ ìˆ˜ë¥¼ ì°¾ëŠ”ê±°ë‹ˆ ìž¬ë°©ë¬¸ í•˜ì§€ ì•ŠìŒ
 				 */ 
 				if(map[nx] == 0 || map[nx] == map[x] + 1) {
 					queue.add(nx);

@@ -1,11 +1,11 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: ¼Ò¼ö Ã£±â
- * ÀÏÀÚ: 21.03.31.¼ö
+ * ë¬¸ì œëª…: ì†Œìˆ˜ ì°¾ê¸°
+ * ì¼ì: 21.03.31.ìˆ˜
  * https://www.acmicpc.net/problem/1978
- * ¹®Á¦³»¿ë: ÁÖ¾îÁø ¼ö N°³ Áß¿¡¼­ ¼Ò¼ö°¡ ¸î °³ÀÎÁö Ã£¾Æ¼­ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
- * ÀÔ·Â: Ã¹ ÁÙ¿¡ ¼öÀÇ °³¼ö NÀÌ ÁÖ¾îÁø´Ù. NÀº 100ÀÌÇÏÀÌ´Ù. ´ÙÀ½À¸·Î N°³ÀÇ ¼ö°¡ ÁÖ¾îÁö´Âµ¥ ¼ö´Â 1,000 ÀÌÇÏÀÇ ÀÚ¿¬¼öÀÌ´Ù.
- * Ãâ·Â: ÁÖ¾îÁø ¼öµé Áß ¼Ò¼öÀÇ °³¼ö¸¦ Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: ì£¼ì–´ì§„ ìˆ˜ Nê°œ ì¤‘ì—ì„œ ì†Œìˆ˜ê°€ ëª‡ ê°œì¸ì§€ ì°¾ì•„ì„œ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.
+ * ì…ë ¥: ì²« ì¤„ì— ìˆ˜ì˜ ê°œìˆ˜ Nì´ ì£¼ì–´ì§„ë‹¤. Nì€ 100ì´í•˜ì´ë‹¤. ë‹¤ìŒìœ¼ë¡œ Nê°œì˜ ìˆ˜ê°€ ì£¼ì–´ì§€ëŠ”ë° ìˆ˜ëŠ” 1,000 ì´í•˜ì˜ ìì—°ìˆ˜ì´ë‹¤.
+ * ì¶œë ¥: ì£¼ì–´ì§„ ìˆ˜ë“¤ ì¤‘ ì†Œìˆ˜ì˜ ê°œìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.BufferedReader;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 public class D210331T1978SearchPrimeNumber {
 	public static void main(String[] args) throws IOException {
-		boolean[] primeCheck = new boolean[1001]; // true: ¼Ò¼ö¾Æ´Ô, false:¼Ò¼öÀÓ
+		boolean[] primeCheck = new boolean[1001]; // true: ì†Œìˆ˜ì•„ë‹˜, false:ì†Œìˆ˜ì„
 		primeCheck[0] = primeCheck[1] = true;
 		for(int i = 2; i < primeCheck.length; i++) {
 			for(int j = i-1; j >= 2; j--) {

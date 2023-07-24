@@ -2,11 +2,11 @@ package TestBackJoon;
 
 
 /*
- * ¹®Á¦¸í: ¹ÙÀÌ·¯½º
- * ÀÏÀÚ: 22.08.29.¿ù
+ * ë¬¸ì œëª…: ë°”ì´ëŸ¬ìŠ¤
+ * ì¼ì: 22.08.29.ì›”
  * https://www.acmicpc.net/problem/2606
- * ¹®Á¦Ç®ÀÌ: DFS
- * ÀÔ·Â: 
+ * ë¬¸ì œí’€ì´: DFS
+ * ì…ë ¥: 
 7
 6
 1 2
@@ -15,7 +15,7 @@ package TestBackJoon;
 5 2
 5 6
 4 7
- * Ãâ·Â:
+ * ì¶œë ¥:
 4
  */
 
@@ -31,8 +31,8 @@ public class D220829T2667BlockNumbering {
 	static int N;
 	static int[][] map;
 	static boolean[][] visited;
-	static int[] dirX = {0,0,-1,+1}; // XÁÂÇ¥ ¹æÇâ µ¿¼­³²ºÏ
-	static int[] dirY = {+1,-1,0,0}; // YÁÂÇ¥ ¹æÇâ µ¿¼­³²ºÏ
+	static int[] dirX = {0,0,-1,+1}; // Xì¢Œí‘œ ë°©í–¥ ë™ì„œë‚¨ë¶
+	static int[] dirY = {+1,-1,0,0}; // Yì¢Œí‘œ ë°©í–¥ ë™ì„œë‚¨ë¶
 	static int block = 0, count = 0;
 	static ArrayList<Integer> list = new ArrayList<Integer>();
 		

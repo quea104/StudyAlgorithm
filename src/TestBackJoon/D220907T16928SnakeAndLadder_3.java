@@ -1,11 +1,11 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¹ì°ú »ç´Ù¸® °ÔÀÓ
- * ÀÏÀÚ: 22.09.07.¼ö
+ * ë¬¸ì œëª…: ë±€ê³¼ ì‚¬ë‹¤ë¦¬ ê²Œìž„
+ * ì¼ìž: 22.09.07.ìˆ˜
  * https://www.acmicpc.net/problem/16928
- * ¹®Á¦Ç®ÀÌ: BFS
- * ÀÔ·Â:
+ * ë¬¸ì œí’€ì´: BFS
+ * ìž…ë ¥:
 3 7
 32 62
 42 68
@@ -17,7 +17,7 @@ package TestBackJoon;
 75 19
 49 47
 67 17
- * Ãâ·Â:
+ * ì¶œë ¥:
 3
  */
 
@@ -43,9 +43,9 @@ public class D220907T16928SnakeAndLadder_3 {
 		}
 		
 		final int MASK = 1023;
-		int[] queue = new int[MASK+1]; // -> FIFO ¼±ÀÔ¼±Ãâ
-		int head = -1; // ¾Õ front - ¾Õ¿¡¼­ ÀÚ·á ÃßÃâ
-		int tail = -1; // µÚ rear - µÚ¿¡¼­ ÀÚ·á Ãß°¡
+		int[] queue = new int[MASK+1]; // -> FIFO ì„ ìž…ì„ ì¶œ
+		int head = -1; // ì•ž front - ì•žì—ì„œ ìžë£Œ ì¶”ì¶œ
+		int tail = -1; // ë’¤ rear - ë’¤ì—ì„œ ìžë£Œ ì¶”ê°€
 		
 		visited[1] = true;
 		queue[++tail] = 1;
@@ -54,7 +54,7 @@ public class D220907T16928SnakeAndLadder_3 {
 			int size = tail - head;
 			
 			while(size-- > 0) {
-				int o = queue[++head & MASK]; // &: ºñÆ® ³í¸®°ö
+				int o = queue[++head & MASK]; // &: ë¹„íŠ¸ ë…¼ë¦¬ê³±
 				if(o == 100) {
 					System.out.print(time);
 					return;

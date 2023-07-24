@@ -1,11 +1,11 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: ¼Ò¼ö ±¸ÇÏ±â
- * ÀÏÀÚ: 21.04.01.¸ñ
+ * ë¬¸ì œëª…: ì†Œìˆ˜ êµ¬í•˜ê¸°
+ * ì¼ì: 21.04.01.ëª©
  * https://www.acmicpc.net/problem/1929
- * ¹®Á¦³»¿ë: MÀÌ»ó NÀÌÇÏÀÇ ¼Ò¼ö¸¦ ¸ğµÎ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
- * ÀÔ·Â: Ã¹Â° ÁÙ¿¡ ÀÚ¿¬¼ö M°ú NÀÌ ºó Ä­À» »çÀÌ¿¡ µÎ°í ÁÖ¾îÁø´Ù. (1 ¡Â M ¡Â N ¡Â 1,000,000) MÀÌ»ó NÀÌÇÏÀÇ ¼Ò¼ö°¡ ÇÏ³ª ÀÌ»ó ÀÖ´Â ÀÔ·Â¸¸ ÁÖ¾îÁø´Ù.
- * Ãâ·Â: ÇÑ ÁÙ¿¡ ÇÏ³ª¾¿, Áõ°¡ÇÏ´Â ¼ø¼­´ë·Î ¼Ò¼ö¸¦ Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: Mì´ìƒ Nì´í•˜ì˜ ì†Œìˆ˜ë¥¼ ëª¨ë‘ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.
+ * ì…ë ¥: ì²«ì§¸ ì¤„ì— ìì—°ìˆ˜ Mê³¼ Nì´ ë¹ˆ ì¹¸ì„ ì‚¬ì´ì— ë‘ê³  ì£¼ì–´ì§„ë‹¤. (1 â‰¤ M â‰¤ N â‰¤ 1,000,000) Mì´ìƒ Nì´í•˜ì˜ ì†Œìˆ˜ê°€ í•˜ë‚˜ ì´ìƒ ìˆëŠ” ì…ë ¥ë§Œ ì£¼ì–´ì§„ë‹¤.
+ * ì¶œë ¥: í•œ ì¤„ì— í•˜ë‚˜ì”©, ì¦ê°€í•˜ëŠ” ìˆœì„œëŒ€ë¡œ ì†Œìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.BufferedReader;
@@ -18,7 +18,7 @@ public class D210401T1929SolvePrimeNumber {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int M = Integer.parseInt(st.nextToken());
 		int N = Integer.parseInt(st.nextToken());
-		boolean[] primeCheck = new boolean[N+1]; // true:¼Ò¼öX, false:¼Ò¼öO
+		boolean[] primeCheck = new boolean[N+1]; // true:ì†Œìˆ˜X, false:ì†Œìˆ˜O
 		primeCheck[0] = primeCheck[1] = true;
 		StringBuilder sb = new StringBuilder();
 //		for(int i = 2; i <= N; i++) {

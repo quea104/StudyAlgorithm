@@ -1,9 +1,9 @@
 package DataStructure;
 
 /*
- * ¼±ÇüÀÚ·á±¸Á¶
- * ·£´ı Á¢±Ù ºÒ°¡´É
- * ¼±ÀÔ¼±Ãâ
+ * ì„ í˜•ìë£Œêµ¬ì¡°
+ * ëœë¤ ì ‘ê·¼ ë¶ˆê°€ëŠ¥
+ * ì„ ì…ì„ ì¶œ
  */
 class LinkedList {
 	private int value;

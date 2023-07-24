@@ -1,18 +1,18 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¾Ë°í¸®Áò ¼ö¾÷ - ±íÀÌ ¿ì¼± Å½»ö 2
- * ÀÏÀÚ: 22.08.29.¿ù
+ * ë¬¸ì œëª…: ì•Œê³ ë¦¬ì¦˜ ìˆ˜ì—… - ê¹Šì´ ìš°ì„  íƒìƒ‰ 2
+ * ì¼ìž: 22.08.29.ì›”
  * https://www.acmicpc.net/problem/24480
- * ¹®Á¦Ç®ÀÌ: DFS
- * ÀÔ·Â: 
+ * ë¬¸ì œí’€ì´: DFS
+ * ìž…ë ¥: 
 5 5 1
 1 4
 1 2
 2 3
 2 4
 3 4
- * Ãâ·Â:
+ * ì¶œë ¥:
 1
 4
 3
@@ -66,7 +66,7 @@ public class D220829T24480DFS2 {
 			adjList[y].add(x);
 		}
 		
-		// ÀÎÁ¢ Á¤Á¡Àº ³»¸²Â÷¼ø ¹æ¹®ÇØ¾ß ÇÔ - ÀÎÁ¢ ¸®½ºÆ® ³»¸²Â÷¼ø
+		// ì¸ì ‘ ì •ì ì€ ë‚´ë¦¼ì°¨ìˆœ ë°©ë¬¸í•´ì•¼ í•¨ - ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ ë‚´ë¦¼ì°¨ìˆœ
 		for(int i = 0; i < N; i++) {
 			Collections.sort(adjList[i], Comparator.reverseOrder());
 		}

@@ -1,12 +1,12 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: Å©·Î¾ÆÆ¼¾Æ ¾ËÆÄºª
- * ÀÏÀÚ: 21.03.26.±Ý
+ * ë¬¸ì œëª…: í¬ë¡œì•„í‹°ì•„ ì•ŒíŒŒë²³
+ * ì¼ìž: 21.03.26.ê¸ˆ
  * https://www.acmicpc.net/problem/2941
- * ¹®Á¦³»¿ë: ´Ü¾î°¡ ÁÖ¾îÁ³À» ¶§, ¸î °³ÀÇ Å©·Î¾ÆÆ¼¾Æ ¾ËÆÄºªÀ¸·Î ÀÌ·ç¾îÁ® ÀÖ´ÂÁö Ãâ·ÂÇÑ´Ù.
- * ÀÔ·Â: Ã¹Â° ÁÙ¿¡ ÃÖ´ë 100±ÛÀÚÀÇ ´Ü¾î°¡ ÁÖ¾îÁø´Ù. ¾ËÆÄºª ¼Ò¹®ÀÚ¿Í '-', '='·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ´Ù. ´Ü¾î´Â Å©·Î¾ÆÆ¼¾Æ ¾ËÆÄºªÀ¸·Î ÀÌ·ç¾îÁ® ÀÖ´Ù. ¹®Á¦ ¼³¸íÀÇ Ç¥¿¡ ³ª¿ÍÀÖ´Â ¾ËÆÄºªÀº º¯°æµÈ ÇüÅÂ·Î ÀÔ·ÂµÈ´Ù.
- * Ãâ·Â: ÀÔ·ÂÀ¸·Î ÁÖ¾îÁø ´Ü¾î°¡ ¸î °³ÀÇ Å©·Î¾ÆÆ¼¾Æ ¾ËÆÄºªÀ¸·Î ÀÌ·ç¾îÁ® ÀÖ´ÂÁö Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: ë‹¨ì–´ê°€ ì£¼ì–´ì¡Œì„ ë•Œ, ëª‡ ê°œì˜ í¬ë¡œì•„í‹°ì•„ ì•ŒíŒŒë²³ìœ¼ë¡œ ì´ë£¨ì–´ì ¸ ìžˆëŠ”ì§€ ì¶œë ¥í•œë‹¤.
+ * ìž…ë ¥: ì²«ì§¸ ì¤„ì— ìµœëŒ€ 100ê¸€ìžì˜ ë‹¨ì–´ê°€ ì£¼ì–´ì§„ë‹¤. ì•ŒíŒŒë²³ ì†Œë¬¸ìžì™€ '-', '='ë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆë‹¤. ë‹¨ì–´ëŠ” í¬ë¡œì•„í‹°ì•„ ì•ŒíŒŒë²³ìœ¼ë¡œ ì´ë£¨ì–´ì ¸ ìžˆë‹¤. ë¬¸ì œ ì„¤ëª…ì˜ í‘œì— ë‚˜ì™€ìžˆëŠ” ì•ŒíŒŒë²³ì€ ë³€ê²½ëœ í˜•íƒœë¡œ ìž…ë ¥ëœë‹¤.
+ * ì¶œë ¥: ìž…ë ¥ìœ¼ë¡œ ì£¼ì–´ì§„ ë‹¨ì–´ê°€ ëª‡ ê°œì˜ í¬ë¡œì•„í‹°ì•„ ì•ŒíŒŒë²³ìœ¼ë¡œ ì´ë£¨ì–´ì ¸ ìžˆëŠ”ì§€ ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.BufferedReader;
@@ -23,22 +23,22 @@ public class D210326T2941CroatiaAlphabet {
         for (int i = 0; i < len; i++) {
             char ch = str.charAt(i);
 
-            if (ch == 'c' && i < len - 1) { // ¸¸¾à ch °¡ c¶ó¸é?
+            if (ch == 'c' && i < len - 1) { // ë§Œì•½ ch ê°€ cë¼ë©´?
                 if (str.charAt(i + 1) == '=' || str.charAt(i + 1) == '-') {
-                    // i+1 ±îÁö°¡ ÇÏ³ªÀÇ ¹®ÀÚÀÌ¹Ç·Î ´ÙÀ½ ¹®ÀÚ¸¦ °Ç³Ê ¶Ù±â À§ÇØ 1 Áõ°¡
+                    // i+1 ê¹Œì§€ê°€ í•˜ë‚˜ì˜ ë¬¸ìžì´ë¯€ë¡œ ë‹¤ìŒ ë¬¸ìžë¥¼ ê±´ë„ˆ ë›°ê¸° ìœ„í•´ 1 ì¦ê°€
                     i++;
                 } else if (str.charAt(i + 1) == '-') {
                     i++;
                 }
-            } else if (ch == 'd' && i < len - 1) { // ¸¸¾à ch °¡ d¶ó¸é?
+            } else if (ch == 'd' && i < len - 1) { // ë§Œì•½ ch ê°€ dë¼ë©´?
                 if (str.charAt(i + 1) == '-') {
                     i++;
                 } else if (str.charAt(i + 1) == 'z' && i < len - 2) {
-                    if (str.charAt(i + 2) == '=') { // dz= ÀÏ °æ¿ì
+                    if (str.charAt(i + 2) == '=') { // dz= ì¼ ê²½ìš°
                         i += 2;
                     }
                 }
-            } else if (ch == 'l' && i < len - 1) { // ¸¸¾à ch °¡ l¶ó¸é?
+            } else if (ch == 'l' && i < len - 1) { // ë§Œì•½ ch ê°€ lë¼ë©´?
                 if (str.charAt(i + 1) == 'j') {
                     i++;
                 }

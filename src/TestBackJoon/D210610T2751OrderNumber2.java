@@ -1,12 +1,12 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: ¼ö Á¤·ÄÇÏ±â2
- * ÀÏÀÚ: 21.06.10.¸ñ
+ * ë¬¸ì œëª…: ìˆ˜ ì •ë ¬í•˜ê¸°2
+ * ì¼ìž: 21.06.10.ëª©
  * https://www.acmicpc.net/problem/2751
- * ¹®Á¦³»¿ë: N°³ÀÇ ¼ö°¡ ÁÖ¾îÁ³À» ¶§, ÀÌ¸¦ ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
- * ÀÔ·Â: Ã¹Â° ÁÙ¿¡ ¼öÀÇ °³¼ö N(1 ¡Â N ¡Â 1,000,000)ÀÌ ÁÖ¾îÁø´Ù. µÑÂ° ÁÙºÎÅÍ N°³ÀÇ ÁÙ¿¡´Â ¼ýÀÚ°¡ ÁÖ¾îÁø´Ù. ÀÌ ¼ö´Â Àý´ñ°ªÀÌ 1,000,000º¸´Ù ÀÛ°Å³ª °°Àº Á¤¼öÀÌ´Ù. ¼ö´Â Áßº¹µÇÁö ¾Ê´Â´Ù.
- * Ãâ·Â: Ã¹Â° ÁÙºÎÅÍ N°³ÀÇ ÁÙ¿¡ ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÑ °á°ú¸¦ ÇÑ ÁÙ¿¡ ÇÏ³ª¾¿ Ãâ·ÂÇÑ´Ù.
- * Ç®ÀÌ: ½Ã°£ º¹Àâµµ°¡ O(nlogn)ÀÎ Á¤·Ä ¾Ë°í¸®ÁòÀ¸·Î Ç® ¼ö ÀÖ½À´Ï´Ù. ¿¹¸¦ µé¸é º´ÇÕ Á¤·Ä, Èü Á¤·Ä µîÀÌ ÀÖÁö¸¸, ¾î·Á¿î ¾Ë°í¸®ÁòÀÌ¹Ç·Î Áö±ÝÀº ¾ð¾î¿¡ ³»ÀåµÈ Á¤·Ä ÇÔ¼ö¸¦ ¾²´Â °ÍÀ» ÃßÃµµå¸³´Ï´Ù.
+ * ë¬¸ì œë‚´ìš©: Nê°œì˜ ìˆ˜ê°€ ì£¼ì–´ì¡Œì„ ë•Œ, ì´ë¥¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ì‹œì˜¤.
+ * ìž…ë ¥: ì²«ì§¸ ì¤„ì— ìˆ˜ì˜ ê°œìˆ˜ N(1 â‰¤ N â‰¤ 1,000,000)ì´ ì£¼ì–´ì§„ë‹¤. ë‘˜ì§¸ ì¤„ë¶€í„° Nê°œì˜ ì¤„ì—ëŠ” ìˆ«ìžê°€ ì£¼ì–´ì§„ë‹¤. ì´ ìˆ˜ëŠ” ì ˆëŒ“ê°’ì´ 1,000,000ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ì •ìˆ˜ì´ë‹¤. ìˆ˜ëŠ” ì¤‘ë³µë˜ì§€ ì•ŠëŠ”ë‹¤.
+ * ì¶œë ¥: ì²«ì§¸ ì¤„ë¶€í„° Nê°œì˜ ì¤„ì— ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•œ ê²°ê³¼ë¥¼ í•œ ì¤„ì— í•˜ë‚˜ì”© ì¶œë ¥í•œë‹¤.
+ * í’€ì´: ì‹œê°„ ë³µìž¡ë„ê°€ O(nlogn)ì¸ ì •ë ¬ ì•Œê³ ë¦¬ì¦˜ìœ¼ë¡œ í’€ ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ì˜ˆë¥¼ ë“¤ë©´ ë³‘í•© ì •ë ¬, íž™ ì •ë ¬ ë“±ì´ ìžˆì§€ë§Œ, ì–´ë ¤ìš´ ì•Œê³ ë¦¬ì¦˜ì´ë¯€ë¡œ ì§€ê¸ˆì€ ì–¸ì–´ì— ë‚´ìž¥ëœ ì •ë ¬ í•¨ìˆ˜ë¥¼ ì“°ëŠ” ê²ƒì„ ì¶”ì²œë“œë¦½ë‹ˆë‹¤.
  */
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class D210610T2751OrderNumber2 {
 		StringBuilder sb = new StringBuilder();
 		int N = Integer.parseInt(br.readLine());
 		
-		// list °è¿­ Áß ÇÏ³ª¸¦ ¾²¸é µÈ´Ù.
+		// list ê³„ì—´ ì¤‘ í•˜ë‚˜ë¥¼ ì“°ë©´ ëœë‹¤.
 		ArrayList<Integer> list = new ArrayList<>();
 		
 		for(int i = 0; i < N; i++) {
@@ -37,7 +37,7 @@ public class D210610T2751OrderNumber2 {
 		System.out.println(sb);
 		
 		/*
-		// Counting Sort. ¼ö°¡ Áßº¹µÇÁöµµ ¾Ê±â ¶§¹®¿¡ boolean[] ¹è¿­¿¡ ÀÔ·Â ¹ÞÀº °ªÀ» index·Î ¾²¸é µÇ´Âµ¥, ¾Æ¹«·¡µµ Á÷Á¢ ºñ±³ Á¤·ÄÀÌ ¾Æ´Ï¹Ç·Î ½Ã°£º¹Àâµµ´Â O(n) À¸·Î ¸Å¿ì ºü¸¥ ¹æ¹ýÀÌ´Ù.
+		// Counting Sort. ìˆ˜ê°€ ì¤‘ë³µë˜ì§€ë„ ì•Šê¸° ë•Œë¬¸ì— boolean[] ë°°ì—´ì— ìž…ë ¥ ë°›ì€ ê°’ì„ indexë¡œ ì“°ë©´ ë˜ëŠ”ë°, ì•„ë¬´ëž˜ë„ ì§ì ‘ ë¹„êµ ì •ë ¬ì´ ì•„ë‹ˆë¯€ë¡œ ì‹œê°„ë³µìž¡ë„ëŠ” O(n) ìœ¼ë¡œ ë§¤ìš° ë¹ ë¥¸ ë°©ë²•ì´ë‹¤.
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		int N = Integer.parseInt(br.readLine());

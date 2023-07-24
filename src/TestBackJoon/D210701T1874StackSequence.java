@@ -1,14 +1,14 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: ½ºÅÃ ¼ö¿­
- * ÀÏÀÚ: 21.07.01.¸ñ
+ * ë¬¸ì œëª…: ìŠ¤íƒ ìˆ˜ì—´
+ * ì¼ìž: 21.07.01.ëª©
  * https://www.acmicpc.net/problem/1874
- * ¹®Á¦³»¿ë: ½ºÅÃ (stack)Àº ±âº»ÀûÀÎ ÀÚ·á±¸Á¶ Áß ÇÏ³ª·Î, ÄÄÇ»ÅÍ ÇÁ·Î±×·¥À» ÀÛ¼ºÇÒ ¶§ ÀÚÁÖ ÀÌ¿ëµÇ´Â °³³äÀÌ´Ù. 
-		½ºÅÃÀº ÀÚ·á¸¦ ³Ö´Â (push) ÀÔ±¸¿Í ÀÚ·á¸¦ »Ì´Â (pop) ÀÔ±¸°¡ °°¾Æ Á¦ÀÏ ³ªÁß¿¡ µé¾î°£ ÀÚ·á°¡ Á¦ÀÏ ¸ÕÀú ³ª¿À´Â (LIFO, Last in First out) Æ¯¼ºÀ» °¡Áö°í ÀÖ´Ù.
-		1ºÎÅÍ n±îÁöÀÇ ¼ö¸¦ ½ºÅÃ¿¡ ³Ö¾ú´Ù°¡ »Ì¾Æ ´Ã¾î³õÀ½À¸·Î½á, ÇÏ³ªÀÇ ¼ö¿­À» ¸¸µé ¼ö ÀÖ´Ù. ÀÌ¶§, ½ºÅÃ¿¡ pushÇÏ´Â ¼ø¼­´Â ¹Ýµå½Ã ¿À¸§Â÷¼øÀ» ÁöÅ°µµ·Ï ÇÑ´Ù°í ÇÏÀÚ. 
-		ÀÓÀÇÀÇ ¼ö¿­ÀÌ ÁÖ¾îÁ³À» ¶§ ½ºÅÃÀ» ÀÌ¿ëÇØ ±× ¼ö¿­À» ¸¸µé ¼ö ÀÖ´ÂÁö ¾ø´ÂÁö, ÀÖ´Ù¸é ¾î¶² ¼ø¼­·Î push¿Í pop ¿¬»êÀ» ¼öÇàÇØ¾ß ÇÏ´ÂÁö¸¦ ¾Ë¾Æ³¾ ¼ö ÀÖ´Ù. ÀÌ¸¦ °è»êÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ¶ó.
- * ÀÔ·Â: Ã¹ ÁÙ¿¡ n (1 ¡Â n ¡Â 100,000)ÀÌ ÁÖ¾îÁø´Ù. µÑÂ° ÁÙºÎÅÍ n°³ÀÇ ÁÙ¿¡´Â ¼ö¿­À» ÀÌ·ç´Â 1ÀÌ»ó nÀÌÇÏÀÇ Á¤¼ö°¡ ÇÏ³ª¾¿ ¼ø¼­´ë·Î ÁÖ¾îÁø´Ù. ¹°·Ð °°Àº Á¤¼ö°¡ µÎ ¹ø ³ª¿À´Â ÀÏÀº ¾ø´Ù.
- * Ãâ·Â: ÀÔ·ÂµÈ ¼ö¿­À» ¸¸µé±â À§ÇØ ÇÊ¿äÇÑ ¿¬»êÀ» ÇÑ ÁÙ¿¡ ÇÑ °³¾¿ Ãâ·ÂÇÑ´Ù. push¿¬»êÀº +·Î, pop ¿¬»êÀº -·Î Ç¥ÇöÇÏµµ·Ï ÇÑ´Ù. ºÒ°¡´ÉÇÑ °æ¿ì NO¸¦ Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: ìŠ¤íƒ (stack)ì€ ê¸°ë³¸ì ì¸ ìžë£Œêµ¬ì¡° ì¤‘ í•˜ë‚˜ë¡œ, ì»´í“¨í„° í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•  ë•Œ ìžì£¼ ì´ìš©ë˜ëŠ” ê°œë…ì´ë‹¤. 
+		ìŠ¤íƒì€ ìžë£Œë¥¼ ë„£ëŠ” (push) ìž…êµ¬ì™€ ìžë£Œë¥¼ ë½‘ëŠ” (pop) ìž…êµ¬ê°€ ê°™ì•„ ì œì¼ ë‚˜ì¤‘ì— ë“¤ì–´ê°„ ìžë£Œê°€ ì œì¼ ë¨¼ì € ë‚˜ì˜¤ëŠ” (LIFO, Last in First out) íŠ¹ì„±ì„ ê°€ì§€ê³  ìžˆë‹¤.
+		1ë¶€í„° nê¹Œì§€ì˜ ìˆ˜ë¥¼ ìŠ¤íƒì— ë„£ì—ˆë‹¤ê°€ ë½‘ì•„ ëŠ˜ì–´ë†“ìŒìœ¼ë¡œì¨, í•˜ë‚˜ì˜ ìˆ˜ì—´ì„ ë§Œë“¤ ìˆ˜ ìžˆë‹¤. ì´ë•Œ, ìŠ¤íƒì— pushí•˜ëŠ” ìˆœì„œëŠ” ë°˜ë“œì‹œ ì˜¤ë¦„ì°¨ìˆœì„ ì§€í‚¤ë„ë¡ í•œë‹¤ê³  í•˜ìž. 
+		ìž„ì˜ì˜ ìˆ˜ì—´ì´ ì£¼ì–´ì¡Œì„ ë•Œ ìŠ¤íƒì„ ì´ìš©í•´ ê·¸ ìˆ˜ì—´ì„ ë§Œë“¤ ìˆ˜ ìžˆëŠ”ì§€ ì—†ëŠ”ì§€, ìžˆë‹¤ë©´ ì–´ë–¤ ìˆœì„œë¡œ pushì™€ pop ì—°ì‚°ì„ ìˆ˜í–‰í•´ì•¼ í•˜ëŠ”ì§€ë¥¼ ì•Œì•„ë‚¼ ìˆ˜ ìžˆë‹¤. ì´ë¥¼ ê³„ì‚°í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ë¼.
+ * ìž…ë ¥: ì²« ì¤„ì— n (1 â‰¤ n â‰¤ 100,000)ì´ ì£¼ì–´ì§„ë‹¤. ë‘˜ì§¸ ì¤„ë¶€í„° nê°œì˜ ì¤„ì—ëŠ” ìˆ˜ì—´ì„ ì´ë£¨ëŠ” 1ì´ìƒ nì´í•˜ì˜ ì •ìˆ˜ê°€ í•˜ë‚˜ì”© ìˆœì„œëŒ€ë¡œ ì£¼ì–´ì§„ë‹¤. ë¬¼ë¡  ê°™ì€ ì •ìˆ˜ê°€ ë‘ ë²ˆ ë‚˜ì˜¤ëŠ” ì¼ì€ ì—†ë‹¤.
+ * ì¶œë ¥: ìž…ë ¥ëœ ìˆ˜ì—´ì„ ë§Œë“¤ê¸° ìœ„í•´ í•„ìš”í•œ ì—°ì‚°ì„ í•œ ì¤„ì— í•œ ê°œì”© ì¶œë ¥í•œë‹¤. pushì—°ì‚°ì€ +ë¡œ, pop ì—°ì‚°ì€ -ë¡œ í‘œí˜„í•˜ë„ë¡ í•œë‹¤. ë¶ˆê°€ëŠ¥í•œ ê²½ìš° NOë¥¼ ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.BufferedReader;
@@ -56,10 +56,10 @@ public class D210701T1874StackSequence {
         int top = -1;
         int idx = 0;
         for (int i = 1; i <= N; i++) {
-            // ÀÏ´Ü push
+            // ì¼ë‹¨ push
             stack[++top] = i;
             sb.append("+" + "\n");
-            // ÀÔ·ÂµÈ ¼ö¿­ÀÇ idx¹øÂ° ¼ö¿Í stackÀÇ peek°¡ °°´Ù¸é pop
+            // ìž…ë ¥ëœ ìˆ˜ì—´ì˜ idxë²ˆì§¸ ìˆ˜ì™€ stackì˜ peekê°€ ê°™ë‹¤ë©´ pop
             while(nums[idx] == stack[top]) {
                 sb.append("-" + "\n");
                 top--;

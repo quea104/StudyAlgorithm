@@ -1,15 +1,15 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: º£¸£Æ®¶û °øÁØ
- * ÀÏÀÚ: 21.04.01.¸ñ
+ * ë¬¸ì œëª…: ë² ë¥´íŠ¸ëž‘ ê³µì¤€
+ * ì¼ìž: 21.04.01.ëª©
  * https://www.acmicpc.net/problem/4948
- * ¹®Á¦³»¿ë: 
-  		º£¸£Æ®¶û °øÁØÀº ÀÓÀÇÀÇ ÀÚ¿¬¼ö n¿¡ ´ëÇÏ¿©, nº¸´Ù Å©°í, 2nº¸´Ù ÀÛ°Å³ª °°Àº ¼Ò¼ö´Â Àû¾îµµ ÇÏ³ª Á¸ÀçÇÑ´Ù´Â ³»¿ëÀ» ´ã°í ÀÖ´Ù.
-		ÀÌ ¸íÁ¦´Â Á¶Á¦ÇÁ º£¸£Æ®¶ûÀÌ 1845³â¿¡ ÃßÃøÇß°í, ÆÄÇÁ´©Æ¼ Ã¼ºñ¼îÇÁ°¡ 1850³â¿¡ Áõ¸íÇß´Ù.
-		¿¹¸¦ µé¾î, 10º¸´Ù Å©°í, 20º¸´Ù ÀÛ°Å³ª °°Àº ¼Ò¼ö´Â 4°³°¡ ÀÖ´Ù. (11, 13, 17, 19) ¶Ç, 14º¸´Ù Å©°í, 28º¸´Ù ÀÛ°Å³ª °°Àº ¼Ò¼ö´Â 3°³°¡ ÀÖ´Ù. (17,19, 23)
-		ÀÚ¿¬¼ö nÀÌ ÁÖ¾îÁ³À» ¶§, nº¸´Ù Å©°í, 2nº¸´Ù ÀÛ°Å³ª °°Àº ¼Ò¼öÀÇ °³¼ö¸¦ ±¸ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À. 
- * ÀÔ·Â: ÀÔ·ÂÀº ¿©·¯ °³ÀÇ Å×½ºÆ® ÄÉÀÌ½º·Î ÀÌ·ç¾îÁ® ÀÖ´Ù. °¢ ÄÉÀÌ½º´Â nÀ» Æ÷ÇÔÇÏ´Â ÇÑ ÁÙ·Î ÀÌ·ç¾îÁ® ÀÖ´Ù. ÀÔ·ÂÀÇ ¸¶Áö¸·¿¡´Â 0ÀÌ ÁÖ¾îÁø´Ù.
- * Ãâ·Â: °¢ Å×½ºÆ® ÄÉÀÌ½º¿¡ ´ëÇØ¼­, nº¸´Ù Å©°í, 2nº¸´Ù ÀÛ°Å³ª °°Àº ¼Ò¼öÀÇ °³¼ö¸¦ Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: 
+  		ë² ë¥´íŠ¸ëž‘ ê³µì¤€ì€ ìž„ì˜ì˜ ìžì—°ìˆ˜ nì— ëŒ€í•˜ì—¬, në³´ë‹¤ í¬ê³ , 2në³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ì†Œìˆ˜ëŠ” ì ì–´ë„ í•˜ë‚˜ ì¡´ìž¬í•œë‹¤ëŠ” ë‚´ìš©ì„ ë‹´ê³  ìžˆë‹¤.
+		ì´ ëª…ì œëŠ” ì¡°ì œí”„ ë² ë¥´íŠ¸ëž‘ì´ 1845ë…„ì— ì¶”ì¸¡í–ˆê³ , íŒŒí”„ëˆ„í‹° ì²´ë¹„ì‡¼í”„ê°€ 1850ë…„ì— ì¦ëª…í–ˆë‹¤.
+		ì˜ˆë¥¼ ë“¤ì–´, 10ë³´ë‹¤ í¬ê³ , 20ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ì†Œìˆ˜ëŠ” 4ê°œê°€ ìžˆë‹¤. (11, 13, 17, 19) ë˜, 14ë³´ë‹¤ í¬ê³ , 28ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ì†Œìˆ˜ëŠ” 3ê°œê°€ ìžˆë‹¤. (17,19, 23)
+		ìžì—°ìˆ˜ nì´ ì£¼ì–´ì¡Œì„ ë•Œ, në³´ë‹¤ í¬ê³ , 2në³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ì†Œìˆ˜ì˜ ê°œìˆ˜ë¥¼ êµ¬í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ì‹œì˜¤. 
+ * ìž…ë ¥: ìž…ë ¥ì€ ì—¬ëŸ¬ ê°œì˜ í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ë¡œ ì´ë£¨ì–´ì ¸ ìžˆë‹¤. ê° ì¼€ì´ìŠ¤ëŠ” nì„ í¬í•¨í•˜ëŠ” í•œ ì¤„ë¡œ ì´ë£¨ì–´ì ¸ ìžˆë‹¤. ìž…ë ¥ì˜ ë§ˆì§€ë§‰ì—ëŠ” 0ì´ ì£¼ì–´ì§„ë‹¤.
+ * ì¶œë ¥: ê° í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œ, në³´ë‹¤ í¬ê³ , 2në³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ì†Œìˆ˜ì˜ ê°œìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.BufferedReader;
@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 public class D210401T4948BertrandPostulate {
 	public static void main(String[] args) throws IOException {
-		boolean[] primeCheck = new boolean[(123456*2)+1]; // true:¼Ò¼öX, false:¼Ò½ºO
+		boolean[] primeCheck = new boolean[(123456*2)+1]; // true:ì†Œìˆ˜X, false:ì†ŒìŠ¤O
 		primeCheck[0] = primeCheck[1] = true;
 		for(int i = 2; i < Math.sqrt(primeCheck.length); i++) {
 			for(int j = 2; i*j <= primeCheck.length; j++) {
@@ -30,10 +30,10 @@ public class D210401T4948BertrandPostulate {
 		int[] count_arr = new int[primeCheck.length];
 		int count = 0;
 		for(int i = 2; i < primeCheck.length; i++) {
-			if(!primeCheck[i]) count++;	// ¼Ò¼öÀÏ °æ¿ì count¸¦ Áõ°¡½ÃÅ²´Ù
+			if(!primeCheck[i]) count++;	// ì†Œìˆ˜ì¼ ê²½ìš° countë¥¼ ì¦ê°€ì‹œí‚¨ë‹¤
 			/*
-			0 ~ i ±îÁö ¼Ò¼öÀÇ °³¼ö = count
-			count °ªÀ» count_arr ÀÇ i ¿¡ ÀúÀåÇÑ´Ù
+			0 ~ i ê¹Œì§€ ì†Œìˆ˜ì˜ ê°œìˆ˜ = count
+			count ê°’ì„ count_arr ì˜ i ì— ì €ìž¥í•œë‹¤
 			*/
 			count_arr[i] = count;	
 		}

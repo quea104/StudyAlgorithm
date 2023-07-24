@@ -1,14 +1,14 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: ¹®ÀÚ¿­ ¹Ýº¹
- * ÀÏÀÚ: 21.03.26.±Ý
+ * ë¬¸ì œëª…: ë¬¸ìžì—´ ë°˜ë³µ
+ * ì¼ìž: 21.03.26.ê¸ˆ
  * https://www.acmicpc.net/problem/2675
- * ¹®Á¦³»¿ë: 
- 		¹®ÀÚ¿­ S¸¦ ÀÔ·Â¹ÞÀº ÈÄ¿¡, °¢ ¹®ÀÚ¸¦ R¹ø ¹Ýº¹ÇØ »õ ¹®ÀÚ¿­ P¸¦ ¸¸µç ÈÄ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À. 
- 		Áï, Ã¹ ¹øÂ° ¹®ÀÚ¸¦ R¹ø ¹Ýº¹ÇÏ°í, µÎ ¹øÂ° ¹®ÀÚ¸¦ R¹ø ¹Ýº¹ÇÏ´Â ½ÄÀ¸·Î P¸¦ ¸¸µé¸é µÈ´Ù. S¿¡´Â QR Code "alphanumeric" ¹®ÀÚ¸¸ µé¾îÀÖ´Ù.
-		QR Code "alphanumeric" ¹®ÀÚ´Â 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\$%*+-./: ÀÌ´Ù.
- * ÀÔ·Â: Ã¹Â° ÁÙ¿¡ Å×½ºÆ® ÄÉÀÌ½ºÀÇ °³¼ö T(1 ¡Â T ¡Â 1,000)°¡ ÁÖ¾îÁø´Ù. °¢ Å×½ºÆ® ÄÉÀÌ½º´Â ¹Ýº¹ È½¼ö R(1 ¡Â R ¡Â 8), ¹®ÀÚ¿­ S°¡ °ø¹éÀ¸·Î ±¸ºÐµÇ¾î ÁÖ¾îÁø´Ù. SÀÇ ±æÀÌ´Â Àû¾îµµ 1ÀÌ¸ç, 20±ÛÀÚ¸¦ ³ÑÁö ¾Ê´Â´Ù. 
- * Ãâ·Â: °¢ Å×½ºÆ® ÄÉÀÌ½º¿¡ ´ëÇØ P¸¦ Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: 
+ 		ë¬¸ìžì—´ Së¥¼ ìž…ë ¥ë°›ì€ í›„ì—, ê° ë¬¸ìžë¥¼ Rë²ˆ ë°˜ë³µí•´ ìƒˆ ë¬¸ìžì—´ Pë¥¼ ë§Œë“  í›„ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ì‹œì˜¤. 
+ 		ì¦‰, ì²« ë²ˆì§¸ ë¬¸ìžë¥¼ Rë²ˆ ë°˜ë³µí•˜ê³ , ë‘ ë²ˆì§¸ ë¬¸ìžë¥¼ Rë²ˆ ë°˜ë³µí•˜ëŠ” ì‹ìœ¼ë¡œ Pë¥¼ ë§Œë“¤ë©´ ëœë‹¤. Sì—ëŠ” QR Code "alphanumeric" ë¬¸ìžë§Œ ë“¤ì–´ìžˆë‹¤.
+		QR Code "alphanumeric" ë¬¸ìžëŠ” 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\$%*+-./: ì´ë‹¤.
+ * ìž…ë ¥: ì²«ì§¸ ì¤„ì— í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ì˜ ê°œìˆ˜ T(1 â‰¤ T â‰¤ 1,000)ê°€ ì£¼ì–´ì§„ë‹¤. ê° í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ëŠ” ë°˜ë³µ íšŸìˆ˜ R(1 â‰¤ R â‰¤ 8), ë¬¸ìžì—´ Sê°€ ê³µë°±ìœ¼ë¡œ êµ¬ë¶„ë˜ì–´ ì£¼ì–´ì§„ë‹¤. Sì˜ ê¸¸ì´ëŠ” ì ì–´ë„ 1ì´ë©°, 20ê¸€ìžë¥¼ ë„˜ì§€ ì•ŠëŠ”ë‹¤. 
+ * ì¶œë ¥: ê° í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ì— ëŒ€í•´ Pë¥¼ ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.*;

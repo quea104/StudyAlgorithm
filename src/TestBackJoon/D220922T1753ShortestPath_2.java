@@ -1,11 +1,11 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ÃÖ´Ü°æ·Î
- * ÀÏÀÚ: 22.09.22.¸ñ
+ * ë¬¸ì œëª…: ìµœë‹¨ê²½ë¡œ
+ * ì¼ì: 22.09.22.ëª©
  * https://www.acmicpc.net/problem/1753
- * ¹®Á¦Ç®ÀÌ: BFS, DP
- * ÀÔ·Â1:
+ * ë¬¸ì œí’€ì´: BFS, DP
+ * ì…ë ¥1:
 5 6
 1
 5 1 1
@@ -14,13 +14,13 @@ package TestBackJoon;
 2 3 4
 2 4 5
 3 4 6
- * Ãâ·Â1:
+ * ì¶œë ¥1:
 0
 2
 3
 7
 INF
- * ÀÔ·Â2:
+ * ì…ë ¥2:
 6 9
 1
 1 2 7
@@ -32,7 +32,7 @@ INF
 3 6 2
 4 5 6
 5 6 9
- * Ãâ·Â2:
+ * ì¶œë ¥2:
 0
 7
 9
@@ -49,10 +49,10 @@ import java.util.StringTokenizer;
 import java.io.BufferedReader;
 
 public class D220922T1753ShortestPath_2 {
-	static final int INF = 987654321; // infinite ¹«ÇÑ´ë
+	static final int INF = 987654321; // infinite ë¬´í•œëŒ€
 	static int V, E, K;
 	static ArrayList<ArrayList<Node>> graph;
-	static int[] distance;  // ÃÖ´Ü °Å¸®¸¦ ÀúÀåÇÒ º¯¼ö
+	static int[] distance;  // ìµœë‹¨ ê±°ë¦¬ë¥¼ ì €ì¥í•  ë³€ìˆ˜
 	
 	public static void main(String[] args) throws IOException {
 		StringBuilder sb = new StringBuilder();
@@ -65,13 +65,13 @@ public class D220922T1753ShortestPath_2 {
 		graph = new ArrayList<ArrayList<Node>>();
 		distance = new int[V+1];
 		
-		// ÀÎÁ¢¸®½ºÆ®, distance°ª ¹«ÇÑ´ë·Î ÃÊ±âÈ­
+		// ì¸ì ‘ë¦¬ìŠ¤íŠ¸, distanceê°’ ë¬´í•œëŒ€ë¡œ ì´ˆê¸°í™”
 		for(int i = 0; i <= V; i++) {
 			graph.add(new ArrayList<Node>());
 			distance[i] = INF;
 		}
 		
-		// ÀÎÁ¢¸®½ºÆ®¿¡ °¡ÁßÄ¡ ³Ö±â
+		// ì¸ì ‘ë¦¬ìŠ¤íŠ¸ì— ê°€ì¤‘ì¹˜ ë„£ê¸°
 		for(int i = 0; i < E; i++) {
 			st = new StringTokenizer(br.readLine());
 			int u = Integer.parseInt(st.nextToken())
@@ -91,23 +91,23 @@ public class D220922T1753ShortestPath_2 {
 	}
 
 	private static void search() {
-		// ³ëµå±îÁöÀÇ °Å¸®¸¦ ÀúÀåÇÒ ¿ì¼±¼øÀ§ Å¥
+		// ë…¸ë“œê¹Œì§€ì˜ ê±°ë¦¬ë¥¼ ì €ì¥í•  ìš°ì„ ìˆœìœ„ í
 		PriorityQueue<Node> queue = new PriorityQueue<Node>((o1, o2) -> Integer.compare(o1.weight, o2.weight));
 		
-		// ½ÃÀÛ Á¤Á¡ ÃÊ±âÈ­ <- ½ÃÀÛ Á¤Á¡¿¡¼­ °¡Àå ÂªÀº Á¤Á¡Àº ½ÃÀÛ Á¤Á¡ÀÓ
+		// ì‹œì‘ ì •ì  ì´ˆê¸°í™” <- ì‹œì‘ ì •ì ì—ì„œ ê°€ì¥ ì§§ì€ ì •ì ì€ ì‹œì‘ ì •ì ì„
 		queue.add(new Node(K, 0));
 		distance[K] = 0;
 		
 		while(!queue.isEmpty()) {	
-			// ³ëµå ²¨³»±â
+			// ë…¸ë“œ êº¼ë‚´ê¸°
 			Node curNode = queue.poll();
 			int curIndex = curNode.index;
 			
-			// curIndex-KÁ¤Á¡ÀÇ °Å¸®°ªÀÌ Á¤Á¡ÀÇ °¡ÁßÄ¡º¸´Ù ÀÛ´Ù¸é Å½»ö Á¾·á - ÀÌ¹Ì ÀÌµ¿ÇßÀ¸¹Ç·Î ¿Ï·á Ã³¸® ÇØÁÖ´Â °Í°ú µ¿ÀÏ
+			// curIndex-Kì •ì ì˜ ê±°ë¦¬ê°’ì´ ì •ì ì˜ ê°€ì¤‘ì¹˜ë³´ë‹¤ ì‘ë‹¤ë©´ íƒìƒ‰ ì¢…ë£Œ - ì´ë¯¸ ì´ë™í–ˆìœ¼ë¯€ë¡œ ì™„ë£Œ ì²˜ë¦¬ í•´ì£¼ëŠ” ê²ƒê³¼ ë™ì¼
 			if(distance[curIndex] < curNode.weight)
 				continue;
 			
-			// ´Ù¸¥ ³ëµå¸¦ °ÅÃÄ¼­ °¡´Â °ÍÀÌ ´õ ºñ¿ëÀÌ ÀûÀºÁö È®ÀÎ
+			// ë‹¤ë¥¸ ë…¸ë“œë¥¼ ê±°ì³ì„œ ê°€ëŠ” ê²ƒì´ ë” ë¹„ìš©ì´ ì ì€ì§€ í™•ì¸
 			for(Node nextNode: graph.get(curIndex)) {				
 				if(distance[nextNode.index] > distance[curIndex] + nextNode.weight) {
 					distance[nextNode.index] = distance[curIndex] + nextNode.weight;
@@ -117,7 +117,7 @@ public class D220922T1753ShortestPath_2 {
 		}
 	}
 
-	// ¿ì¼±¼øÀ§¿¡ ³ÖÀ» ³ëµå Å¬·¡½º¸¦ ¼±¾ğ
+	// ìš°ì„ ìˆœìœ„ì— ë„£ì„ ë…¸ë“œ í´ë˜ìŠ¤ë¥¼ ì„ ì–¸
 	//static class Node implements Comparable<Node> {
 	static class Node {
 		private int index;
@@ -129,7 +129,7 @@ public class D220922T1753ShortestPath_2 {
 		}
 		
 		/*
-		 * // °¡ÁßÄ¡¸¦ ±âÁØÀ¸·Î ComparableÀ» ¼±¾ğ - ½Ã°£ ÃÊ°úµÊ
+		 * // ê°€ì¤‘ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ Comparableì„ ì„ ì–¸ - ì‹œê°„ ì´ˆê³¼ë¨
 		 * 
 		 * @Override public int compareTo(Node node) { return
 		 * Integer.compare(this.weight, weight); }

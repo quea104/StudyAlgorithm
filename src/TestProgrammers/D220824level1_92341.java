@@ -3,8 +3,8 @@
 package TestProgrammers;
 
 /*
- * ¹®Á¦¸í: ÁÖÂ÷ ¿ä±Ý °è»ê
- * ÀÏÀÚ: 22.08.23.È­-24.¼ö
+ * ë¬¸ì œëª…: ì£¼ì°¨ ìš”ê¸ˆ ê³„ì‚°
+ * ì¼ìž: 22.08.23.í™”-24.ìˆ˜
  * https://school.programmers.co.kr/learn/courses/30/lessons/92341
  */
 
@@ -12,9 +12,9 @@ import java.util.*;
 import java.time.*;
 
 class Record {
-	LocalTime inTime; // IN ½Ã°£
-	LocalTime outTime; // OUT ½Ã°£
-	int minute = 0; // ´©Àû ÁÖÂ÷ ½Ã°£
+	LocalTime inTime; // IN ì‹œê°„
+	LocalTime outTime; // OUT ì‹œê°„
+	int minute = 0; // ëˆ„ì  ì£¼ì°¨ ì‹œê°„
 
 	protected void setInTime(LocalTime inTime) {
 		this.inTime = inTime;
@@ -36,7 +36,7 @@ class Record {
 	}
 
 	protected void setMinute() {
-		// ´©Àû ½Ã°£ °è»ê
+		// ëˆ„ì  ì‹œê°„ ê³„ì‚°
 		long second = Duration.between(this.inTime, this.outTime).getSeconds();
 		int minute = (int)second/60;
 		
@@ -50,8 +50,8 @@ class Record {
 
 public class D220824level1_92341 {	
 	public static void main(String[] args) {
-		int[] fees = {180, 5000, 10, 600}; // ¿ä±ÝÇ¥: ±âº» ½Ã°£(ºÐ), ±âº» ¿ä±Ý(¿ø), ´ÜÀ§ ½Ã°£(ºÐ), ´ÜÀ§ ¿ä±Ý(¿ø)
-		// ÀÔ/ÃâÂ÷ ±â·Ï: ½Ã°¢(½Ã:ºÐ)	Â÷·® ¹øÈ£	³»¿ª
+		int[] fees = {180, 5000, 10, 600}; // ìš”ê¸ˆí‘œ: ê¸°ë³¸ ì‹œê°„(ë¶„), ê¸°ë³¸ ìš”ê¸ˆ(ì›), ë‹¨ìœ„ ì‹œê°„(ë¶„), ë‹¨ìœ„ ìš”ê¸ˆ(ì›)
+		// ìž…/ì¶œì°¨ ê¸°ë¡: ì‹œê°(ì‹œ:ë¶„)	ì°¨ëŸ‰ ë²ˆí˜¸	ë‚´ì—­
 		String[] records = {"05:34 5961 IN", "06:00 0000 IN", "06:34 0000 OUT", "07:59 5961 OUT", "07:59 0148 IN", "18:59 0000 IN", "19:09 0148 OUT", "22:59 5961 IN", "23:00 5961 OUT"};
 		int[] answer = {};
 		
@@ -87,12 +87,12 @@ public class D220824level1_92341 {
 		for(String number: numberList) {
 			Record record = recordTable.get(number);
 			
-			// ¹ÌÃâÂ÷ÇÑ Â÷·®Àº ¸¶°¨ ½Ã°£(23:59)À¸·Î ÀúÀå
+			// ë¯¸ì¶œì°¨í•œ ì°¨ëŸ‰ì€ ë§ˆê° ì‹œê°„(23:59)ìœ¼ë¡œ ì €ìž¥
 			if(record.getOutTime() == null) {
 				record.setOutTime(LocalTime.of(23, 59));
 			}
 
-			// ÁÖÂ÷ ¿ä±Ý °è»ê
+			// ì£¼ì°¨ ìš”ê¸ˆ ê³„ì‚°
 			int price = fees[1];
 			if(record.getMinute() > fees[0]) {
 				price += (int)Math.ceil((record.getMinute() - (double)fees[0])/fees[2]) * fees[3];

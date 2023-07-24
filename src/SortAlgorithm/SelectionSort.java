@@ -1,9 +1,9 @@
 package SortAlgorithm;
 
 /*
- * ¼±ÅÃÁ¤·Ä
- * ½Ã°£º¹Àâµµ O(n^2)
- * ¹öºíÁ¤·Ä°ú À¯»ç. ÇÑ¹ø ¼øÈ¸¸¦ ÇÏ¸é¼­ °¡Àå ÀÛÀº ¼ö¸¦ Ã£¾Æ¼­ ¾Õ À§Ä¡¿Í ±³È¯.
+ * ì„ íƒì •ë ¬
+ * ì‹œê°„ë³µìž¡ë„ O(n^2)
+ * ë²„ë¸”ì •ë ¬ê³¼ ìœ ì‚¬. í•œë²ˆ ìˆœíšŒë¥¼ í•˜ë©´ì„œ ê°€ìž¥ ìž‘ì€ ìˆ˜ë¥¼ ì°¾ì•„ì„œ ì•ž ìœ„ì¹˜ì™€ êµí™˜.
  */
 public class SelectionSort {
 	public static void main(String[] args) {

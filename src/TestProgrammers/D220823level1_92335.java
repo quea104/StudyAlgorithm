@@ -3,55 +3,55 @@ package TestProgrammers;
 import java.util.*;
 
 /*
- * ¹®Á¦¸í: kÁø¼ö¿¡¼­ ¼Ò¼ö °³¼ö ±¸ÇÏ±â
- * ÀÏÀÚ: 22.08.23.È­
+ * ë¬¸ì œëª…: kì§„ìˆ˜ì—ì„œ ì†Œìˆ˜ ê°œìˆ˜ êµ¬í•˜ê¸°
+ * ì¼ìž: 22.08.23.í™”
  * https://school.programmers.co.kr/learn/courses/30/lessons/92335
- * ¹®Á¦ ¼³¸í
-¾çÀÇ Á¤¼ö nÀÌ ÁÖ¾îÁý´Ï´Ù. ÀÌ ¼ýÀÚ¸¦ kÁø¼ö·Î ¹Ù²åÀ» ¶§, º¯È¯µÈ ¼ö ¾È¿¡ ¾Æ·¡ Á¶°Ç¿¡ ¸Â´Â ¼Ò¼ö(Prime number)°¡ ¸î °³ÀÎÁö ¾Ë¾Æº¸·Á ÇÕ´Ï´Ù.
+ * ë¬¸ì œ ì„¤ëª…
+ì–‘ì˜ ì •ìˆ˜ nì´ ì£¼ì–´ì§‘ë‹ˆë‹¤. ì´ ìˆ«ìžë¥¼ kì§„ìˆ˜ë¡œ ë°”ê¿¨ì„ ë•Œ, ë³€í™˜ëœ ìˆ˜ ì•ˆì— ì•„ëž˜ ì¡°ê±´ì— ë§žëŠ” ì†Œìˆ˜(Prime number)ê°€ ëª‡ ê°œì¸ì§€ ì•Œì•„ë³´ë ¤ í•©ë‹ˆë‹¤.
 
-0P0Ã³·³ ¼Ò¼ö ¾çÂÊ¿¡ 0ÀÌ ÀÖ´Â °æ¿ì
-P0Ã³·³ ¼Ò¼ö ¿À¸¥ÂÊ¿¡¸¸ 0ÀÌ ÀÖ°í ¿ÞÂÊ¿¡´Â ¾Æ¹«°Íµµ ¾ø´Â °æ¿ì
-0PÃ³·³ ¼Ò¼ö ¿ÞÂÊ¿¡¸¸ 0ÀÌ ÀÖ°í ¿À¸¥ÂÊ¿¡´Â ¾Æ¹«°Íµµ ¾ø´Â °æ¿ì
-PÃ³·³ ¼Ò¼ö ¾çÂÊ¿¡ ¾Æ¹«°Íµµ ¾ø´Â °æ¿ì
-´Ü, P´Â °¢ ÀÚ¸´¼ö¿¡ 0À» Æ÷ÇÔÇÏÁö ¾Ê´Â ¼Ò¼öÀÔ´Ï´Ù.
-¿¹¸¦ µé¾î, 101Àº P°¡ µÉ ¼ö ¾ø½À´Ï´Ù.
-¿¹¸¦ µé¾î, 437674À» 3Áø¼ö·Î ¹Ù²Ù¸é 211020101011ÀÔ´Ï´Ù. ¿©±â¼­ Ã£À» ¼ö ÀÖ´Â Á¶°Ç¿¡ ¸Â´Â ¼Ò¼ö´Â ¿ÞÂÊºÎÅÍ ¼ø¼­´ë·Î 211, 2, 11ÀÌ ÀÖÀ¸¸ç, ÃÑ 3°³ÀÔ´Ï´Ù. (211, 2, 11À» kÁø¹ýÀ¸·Î º¸¾ÒÀ» ¶§°¡ ¾Æ´Ñ, 10Áø¹ýÀ¸·Î º¸¾ÒÀ» ¶§ ¼Ò¼ö¿©¾ß ÇÑ´Ù´Â Á¡¿¡ ÁÖÀÇÇÕ´Ï´Ù.) 211Àº P0 ÇüÅÂ¿¡¼­ Ã£À» ¼ö ÀÖÀ¸¸ç, 2´Â 0P0¿¡¼­, 11Àº 0P¿¡¼­ Ã£À» ¼ö ÀÖ½À´Ï´Ù.
+0P0ì²˜ëŸ¼ ì†Œìˆ˜ ì–‘ìª½ì— 0ì´ ìžˆëŠ” ê²½ìš°
+P0ì²˜ëŸ¼ ì†Œìˆ˜ ì˜¤ë¥¸ìª½ì—ë§Œ 0ì´ ìžˆê³  ì™¼ìª½ì—ëŠ” ì•„ë¬´ê²ƒë„ ì—†ëŠ” ê²½ìš°
+0Pì²˜ëŸ¼ ì†Œìˆ˜ ì™¼ìª½ì—ë§Œ 0ì´ ìžˆê³  ì˜¤ë¥¸ìª½ì—ëŠ” ì•„ë¬´ê²ƒë„ ì—†ëŠ” ê²½ìš°
+Pì²˜ëŸ¼ ì†Œìˆ˜ ì–‘ìª½ì— ì•„ë¬´ê²ƒë„ ì—†ëŠ” ê²½ìš°
+ë‹¨, PëŠ” ê° ìžë¦¿ìˆ˜ì— 0ì„ í¬í•¨í•˜ì§€ ì•ŠëŠ” ì†Œìˆ˜ìž…ë‹ˆë‹¤.
+ì˜ˆë¥¼ ë“¤ì–´, 101ì€ Pê°€ ë  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+ì˜ˆë¥¼ ë“¤ì–´, 437674ì„ 3ì§„ìˆ˜ë¡œ ë°”ê¾¸ë©´ 211020101011ìž…ë‹ˆë‹¤. ì—¬ê¸°ì„œ ì°¾ì„ ìˆ˜ ìžˆëŠ” ì¡°ê±´ì— ë§žëŠ” ì†Œìˆ˜ëŠ” ì™¼ìª½ë¶€í„° ìˆœì„œëŒ€ë¡œ 211, 2, 11ì´ ìžˆìœ¼ë©°, ì´ 3ê°œìž…ë‹ˆë‹¤. (211, 2, 11ì„ kì§„ë²•ìœ¼ë¡œ ë³´ì•˜ì„ ë•Œê°€ ì•„ë‹Œ, 10ì§„ë²•ìœ¼ë¡œ ë³´ì•˜ì„ ë•Œ ì†Œìˆ˜ì—¬ì•¼ í•œë‹¤ëŠ” ì ì— ì£¼ì˜í•©ë‹ˆë‹¤.) 211ì€ P0 í˜•íƒœì—ì„œ ì°¾ì„ ìˆ˜ ìžˆìœ¼ë©°, 2ëŠ” 0P0ì—ì„œ, 11ì€ 0Pì—ì„œ ì°¾ì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-Á¤¼ö n°ú k°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁý´Ï´Ù. nÀ» kÁø¼ö·Î ¹Ù²åÀ» ¶§, º¯È¯µÈ ¼ö ¾È¿¡¼­ Ã£À» ¼ö ÀÖ´Â À§ Á¶°Ç¿¡ ¸Â´Â ¼Ò¼öÀÇ °³¼ö¸¦ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØ ÁÖ¼¼¿ä.
+ì •ìˆ˜ nê³¼ kê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§‘ë‹ˆë‹¤. nì„ kì§„ìˆ˜ë¡œ ë°”ê¿¨ì„ ë•Œ, ë³€í™˜ëœ ìˆ˜ ì•ˆì—ì„œ ì°¾ì„ ìˆ˜ ìžˆëŠ” ìœ„ ì¡°ê±´ì— ë§žëŠ” ì†Œìˆ˜ì˜ ê°œìˆ˜ë¥¼ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ ì£¼ì„¸ìš”.
 
-Á¦ÇÑ»çÇ×
-1 ¡Â n ¡Â 1,000,000
-3 ¡Â k ¡Â 10
-ÀÔÃâ·Â ¿¹
+ì œí•œì‚¬í•­
+1 â‰¤ n â‰¤ 1,000,000
+3 â‰¤ k â‰¤ 10
+ìž…ì¶œë ¥ ì˜ˆ
 n	k	result
 437674	3	3
 110011	10	2
-ÀÔÃâ·Â ¿¹ ¼³¸í
-ÀÔÃâ·Â ¿¹ #1
+ìž…ì¶œë ¥ ì˜ˆ ì„¤ëª…
+ìž…ì¶œë ¥ ì˜ˆ #1
 
-¹®Á¦ ¿¹½Ã¿Í °°½À´Ï´Ù.
+ë¬¸ì œ ì˜ˆì‹œì™€ ê°™ìŠµë‹ˆë‹¤.
 
-ÀÔÃâ·Â ¿¹ #2
+ìž…ì¶œë ¥ ì˜ˆ #2
 
-110011À» 10Áø¼ö·Î ¹Ù²Ù¸é 110011ÀÔ´Ï´Ù. ¿©±â¼­ Ã£À» ¼ö ÀÖ´Â Á¶°Ç¿¡ ¸Â´Â ¼Ò¼ö´Â 11, 11 2°³ÀÔ´Ï´Ù. ÀÌ¿Í °°ÀÌ, Áßº¹µÇ´Â ¼Ò¼ö¸¦ ¹ß°ßÇÏ´õ¶óµµ ¸ðµÎ µû·Î ¼¼¾î¾ß ÇÕ´Ï´Ù.
+110011ì„ 10ì§„ìˆ˜ë¡œ ë°”ê¾¸ë©´ 110011ìž…ë‹ˆë‹¤. ì—¬ê¸°ì„œ ì°¾ì„ ìˆ˜ ìžˆëŠ” ì¡°ê±´ì— ë§žëŠ” ì†Œìˆ˜ëŠ” 11, 11 2ê°œìž…ë‹ˆë‹¤. ì´ì™€ ê°™ì´, ì¤‘ë³µë˜ëŠ” ì†Œìˆ˜ë¥¼ ë°œê²¬í•˜ë”ë¼ë„ ëª¨ë‘ ë”°ë¡œ ì„¸ì–´ì•¼ í•©ë‹ˆë‹¤.
  */
 
 public class D220823level1_92335 {
-	// ¼Ò¼ö ÆÇº°
+	// ì†Œìˆ˜ íŒë³„
 	public static boolean isPrimeNumber(long number)
 	{
-		// 0 °ú 1 Àº ¼Ò¼ö ¾Æ´Ï¹Ç·Î Á¾·á
+		// 0 ê³¼ 1 ì€ ì†Œìˆ˜ ì•„ë‹ˆë¯€ë¡œ ì¢…ë£Œ
 		if(number < 2) {
 			return false;
 		}
 		
-		// 2 ´Â ¼Ò¼ö
+		// 2 ëŠ” ì†Œìˆ˜
 		if(number == 2) {
 			return true;
 		}
 		
 		for(long i = 2; i <= Math.sqrt(number); i++) {
-			// ¼Ò¼ö°¡ ¾Æ´Ò°æ¿ì Á¾·á
+			// ì†Œìˆ˜ê°€ ì•„ë‹ê²½ìš° ì¢…ë£Œ
 			if(number % i == 0) {
 				return false;
 			}
@@ -60,7 +60,7 @@ public class D220823level1_92335 {
 		return true;
 	}
 
-	// Áø¼ö º¯È¯
+	// ì§„ìˆ˜ ë³€í™˜
 	public static String reveseKNumber(int n, int k)
 	{
 		String kNumber = "";
@@ -79,7 +79,7 @@ public class D220823level1_92335 {
 
 		String kNumber = reveseKNumber(n, k);
 
-		// ¼Ò¼ö °³¼ö ±¸ÇÏ±â
+		// ì†Œìˆ˜ ê°œìˆ˜ êµ¬í•˜ê¸°
 		int start, end;
 		for(start = 0; start < kNumber.length();)
 		{
@@ -113,7 +113,7 @@ public class D220823level1_92335 {
 					kNumber = kNumber.substring(index+1);
 				}
 				else {
-					// ¼Ò¼ö È®ÀÎ
+					// ì†Œìˆ˜ í™•ì¸
 					long number = Long.parseLong(kNumber.substring(0, index));
 					kNumber = kNumber.substring(index);
 					if(isPrimeNumber(number)) {

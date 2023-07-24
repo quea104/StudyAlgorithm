@@ -1,11 +1,11 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: N-Queen
- * ÀÏÀÚ: 21.06.17.¸ñ
+ * ë¬¸ì œëª…: N-Queen
+ * ì¼ì: 21.06.17.ëª©
  * https://www.acmicpc.net/problem/9663
- * ¹®Á¦³»¿ë: N-Queen ¹®Á¦´Â Å©±â°¡ N ¡¿ NÀÎ Ã¼½ºÆÇ À§¿¡ Äı N°³¸¦ ¼­·Î °ø°İÇÒ ¼ö ¾ø°Ô ³õ´Â ¹®Á¦ÀÌ´Ù. NÀÌ ÁÖ¾îÁ³À» ¶§, ÄıÀ» ³õ´Â ¹æ¹ıÀÇ ¼ö¸¦ ±¸ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
- * ÀÔ·Â: Ã¹Â° ÁÙ¿¡ NÀÌ ÁÖ¾îÁø´Ù. (1 ¡Â N < 15)
- * Ãâ·Â: Ã¹Â° ÁÙ¿¡ Äı N°³¸¦ ¼­·Î °ø°İÇÒ ¼ö ¾ø°Ô ³õ´Â °æ¿ìÀÇ ¼ö¸¦ Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: N-Queen ë¬¸ì œëŠ” í¬ê¸°ê°€ N Ã— Nì¸ ì²´ìŠ¤íŒ ìœ„ì— í€¸ Nê°œë¥¼ ì„œë¡œ ê³µê²©í•  ìˆ˜ ì—†ê²Œ ë†“ëŠ” ë¬¸ì œì´ë‹¤. Nì´ ì£¼ì–´ì¡Œì„ ë•Œ, í€¸ì„ ë†“ëŠ” ë°©ë²•ì˜ ìˆ˜ë¥¼ êµ¬í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.
+ * ì…ë ¥: ì²«ì§¸ ì¤„ì— Nì´ ì£¼ì–´ì§„ë‹¤. (1 â‰¤ N < 15)
+ * ì¶œë ¥: ì²«ì§¸ ì¤„ì— í€¸ Nê°œë¥¼ ì„œë¡œ ê³µê²©í•  ìˆ˜ ì—†ê²Œ ë†“ëŠ” ê²½ìš°ì˜ ìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.BufferedReader;
@@ -33,8 +33,8 @@ public class D210617T9663NQueen {
 		}
 		
 		for(int column = 0; column < N; column++) {
-			chess[row] = column; // Çà row ¹øÂ° À§Ä¡¿¡ ¿­ column À§Ä¡¿¡ ÄıÀ» ³õÀ½ => (row, column) = Äı ³õ±â
-			if(promising(row)) { // (row, column)¿¡ ÄıÀ» ³õ¾Æµµ µÇ´ÂÁö È®ÀÎ 
+			chess[row] = column; // í–‰ row ë²ˆì§¸ ìœ„ì¹˜ì— ì—´ column ìœ„ì¹˜ì— í€¸ì„ ë†“ìŒ => (row, column) = í€¸ ë†“ê¸°
+			if(promising(row)) { // (row, column)ì— í€¸ì„ ë†“ì•„ë„ ë˜ëŠ”ì§€ í™•ì¸ 
 				dfs(row+1);
 			}
 		}
@@ -42,11 +42,11 @@ public class D210617T9663NQueen {
 	}
 	
 	static boolean promising(int currentRow) {
-		// ÀÌÀü ÄıµéÀÇ À§Ä¡ È®ÀÎ
+		// ì´ì „ í€¸ë“¤ì˜ ìœ„ì¹˜ í™•ì¸
 		for(int i = 0; i < currentRow; i++) {
-			if(chess[i] == chess[currentRow]) // °°Àº ¿­¿¡ ÄıÀÌ ÀÖ´ÂÁö È®ÀÎ
+			if(chess[i] == chess[currentRow]) // ê°™ì€ ì—´ì— í€¸ì´ ìˆëŠ”ì§€ í™•ì¸
 				return false;
-			if(Math.abs(chess[i] - chess[currentRow]) == currentRow - i) // ´ë°¢¼± »ó¿¡ ÄıÀÌ ÀÖ´ÂÁö È®ÀÎ
+			if(Math.abs(chess[i] - chess[currentRow]) == currentRow - i) // ëŒ€ê°ì„  ìƒì— í€¸ì´ ìˆëŠ”ì§€ í™•ì¸
 				return false;
 		}
 		

@@ -1,11 +1,11 @@
 package SortAlgorithm;
 
 /*
- * ¹öºíÁ¤·Ä
- * ½Ã°£º¹Àâµµ O(n^2) - for¹® µÎ¹ø
- * °ø°£º¹Àâµµ O(n) - ¹è¿­ ÇÑ °³¸¸ »ç¿ë
- * ¼­·Î ÀÎÁ¢ÇÑ µÎ ¿ø¼Ò¸¦ °Ë»çÇÏ¿© Á¤·ÄÇÏ´Â ¾Ë°í¸®Áò
- * °£´ÜÇÏÁö¸¸ ½Ã°£º¹Àâµµ°¡ ÁÁÁö ¾Ê¾Æ °ÅÀÇ »ç¿ë ¾ÈÇÔ.
+ * ë²„ë¸”ì •ë ¬
+ * ì‹œê°„ë³µìž¡ë„ O(n^2) - forë¬¸ ë‘ë²ˆ
+ * ê³µê°„ë³µìž¡ë„ O(n) - ë°°ì—´ í•œ ê°œë§Œ ì‚¬ìš©
+ * ì„œë¡œ ì¸ì ‘í•œ ë‘ ì›ì†Œë¥¼ ê²€ì‚¬í•˜ì—¬ ì •ë ¬í•˜ëŠ” ì•Œê³ ë¦¬ì¦˜
+ * ê°„ë‹¨í•˜ì§€ë§Œ ì‹œê°„ë³µìž¡ë„ê°€ ì¢‹ì§€ ì•Šì•„ ê±°ì˜ ì‚¬ìš© ì•ˆí•¨.
  */
 public class BubbleSort {
 	public static void main(String[] args) {

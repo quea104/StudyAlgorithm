@@ -2,28 +2,28 @@ package Recursion;
 
 /*
  * https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/lecture/4077?tab=curriculum
- * '¿µ¸®ÇÑ ÇÁ·Î±×·¡¹ÖÀ» À§ÇÑ ¾Ë°í¸®Áò °­ÁÂ' °­ÀÇ ¼½¼Ç2 6. RecursionÀÇ ÀÀ¿ë: n queens problem
+ * 'ì˜ë¦¬í•œ í”„ë¡œê·¸ëž˜ë°ì„ ìœ„í•œ ì•Œê³ ë¦¬ì¦˜ ê°•ì¢Œ' ê°•ì˜ ì„¹ì…˜2 6. Recursionì˜ ì‘ìš©: n queens problem
  */
 
 /*
- * ÀÏÀÚ: 21.03.23.È­~21.03.24.¼ö
+ * ì¼ìž: 21.03.23.í™”~21.03.24.ìˆ˜
  * n queens problem
- * 	- N*N Å©±âÀÇ Ã¼½ºÆÇ
- * 	- N ¡¿ NÀÎ Ã¼½ºÆÇ À§¿¡ Äý N°³¸¦ ¼­·Î °ø°ÝÇÒ ¼ö ¾ø°Ô ³õ´Â ¹®Á¦
- * 	- ÄýÀÌ ³õ¿´À» ¶§ Äý ÀÚ½ÅÀ» ±âÁØÀ¸·Î ÀÏÁ÷¼±»ó(°¡·Î ¹× ¼¼·Î)°ú ´ë°¢¼± ¹æÇâ¿¡´Â ¾Æ¹«°Íµµ ³õ¿©ÀÖÀ¸¸é ¾È µÊ
+ * 	- N*N í¬ê¸°ì˜ ì²´ìŠ¤íŒ
+ * 	- N Ã— Nì¸ ì²´ìŠ¤íŒ ìœ„ì— í€¸ Nê°œë¥¼ ì„œë¡œ ê³µê²©í•  ìˆ˜ ì—†ê²Œ ë†“ëŠ” ë¬¸ì œ
+ * 	- í€¸ì´ ë†“ì˜€ì„ ë•Œ í€¸ ìžì‹ ì„ ê¸°ì¤€ìœ¼ë¡œ ì¼ì§ì„ ìƒ(ê°€ë¡œ ë° ì„¸ë¡œ)ê³¼ ëŒ€ê°ì„  ë°©í–¥ì—ëŠ” ì•„ë¬´ê²ƒë„ ë†“ì—¬ìžˆìœ¼ë©´ ì•ˆ ë¨
  * 
- * Backtracking(µÇÃßÀû ±â¹ý)
- *  - ÃÖ±Ù¿¡ Áö³ª¿Â ±¥ÀûÀ» µÇµ¹¾Æ°¡¼­ ¹øº¹ÇÏ¿© ¹®Á¦¸¦ ÇØ°áÇÏ´Â ¹æ¹ý
- *  - »óÅÂ°ø°£ Æ®¸®¸¦ ±íÀÌ ¿ì¼± ¹æ½ÄÀ¸·Î Å½»öÇÏ¿© ÇØ¸¦ Ã£´Â ¾Ë°í¸®Áò
- * 	- »óÅÂ°ø°£Æ®¸®: 
- * 			Ã£´Â ÇØ¸¦ Æ÷ÇÔÇÏ´Â Æ®¸®. 
- * 			ÇØ°¡ Á¸ÀçÇÑ´Ù¸é ±×°ÍÀº ¹Ýµå½Ã ÀÌ Æ®¸®ÀÇ ¾î¶² ÇÑ ³ëµå¿¡ ÇØ´çÇÔ. 
- * 			µû¶ó¼­ ÀÌ Æ®¸®¸¦ Ã¼°èÀûÀ¸·Î Å½»öÇÏ¸é ÇØ¸¦ ±¸ÇÒ ¼ö ÀÖÀ½. 
- * 			(Æ®¸®¸¦ ¸¸µå´Â °ÍÀÌ ¾Æ´Ï¶ó ³í¸®ÀûÀÎ °³³äÀ» È°¿ëÇÏ¿© ¹®Á¦¸¦ ÇØ°áÇÏ´Â ¹æ¹ýÀÓ.)
- * 			Å½»ö ºÒ°¡ÇÑ Æ®¸®¸¦ Infeasible ¶Ç´Â non-promising »óÅÂ¿¡ ³õ¿©ÀÖ´Ù°í ÇÔ.
+ * Backtracking(ë˜ì¶”ì  ê¸°ë²•)
+ *  - ìµœê·¼ì— ì§€ë‚˜ì˜¨ ê´˜ì ì„ ë˜ëŒì•„ê°€ì„œ ë²ˆë³µí•˜ì—¬ ë¬¸ì œë¥¼ í•´ê²°í•˜ëŠ” ë°©ë²•
+ *  - ìƒíƒœê³µê°„ íŠ¸ë¦¬ë¥¼ ê¹Šì´ ìš°ì„  ë°©ì‹ìœ¼ë¡œ íƒìƒ‰í•˜ì—¬ í•´ë¥¼ ì°¾ëŠ” ì•Œê³ ë¦¬ì¦˜
+ * 	- ìƒíƒœê³µê°„íŠ¸ë¦¬: 
+ * 			ì°¾ëŠ” í•´ë¥¼ í¬í•¨í•˜ëŠ” íŠ¸ë¦¬. 
+ * 			í•´ê°€ ì¡´ìž¬í•œë‹¤ë©´ ê·¸ê²ƒì€ ë°˜ë“œì‹œ ì´ íŠ¸ë¦¬ì˜ ì–´ë–¤ í•œ ë…¸ë“œì— í•´ë‹¹í•¨. 
+ * 			ë”°ë¼ì„œ ì´ íŠ¸ë¦¬ë¥¼ ì²´ê³„ì ìœ¼ë¡œ íƒìƒ‰í•˜ë©´ í•´ë¥¼ êµ¬í•  ìˆ˜ ìžˆìŒ. 
+ * 			(íŠ¸ë¦¬ë¥¼ ë§Œë“œëŠ” ê²ƒì´ ì•„ë‹ˆë¼ ë…¼ë¦¬ì ì¸ ê°œë…ì„ í™œìš©í•˜ì—¬ ë¬¸ì œë¥¼ í•´ê²°í•˜ëŠ” ë°©ë²•ìž„.)
+ * 			íƒìƒ‰ ë¶ˆê°€í•œ íŠ¸ë¦¬ë¥¼ Infeasible ë˜ëŠ” non-promising ìƒíƒœì— ë†“ì—¬ìžˆë‹¤ê³  í•¨.
  * 
- * ÀÔ·Â: NÀÌ ÁÖ¾îÁø´Ù. (1 ¡Â N < 15)
- * Ãâ·Â: Äý N°³¸¦ ¼­·Î °ø°ÝÇÒ ¼ö ¾ø°Ô ³õ´Â °æ¿ìÀÇ ¼ö
+ * ìž…ë ¥: Nì´ ì£¼ì–´ì§„ë‹¤. (1 â‰¤ N < 15)
+ * ì¶œë ¥: í€¸ Nê°œë¥¼ ì„œë¡œ ê³µê²©í•  ìˆ˜ ì—†ê²Œ ë†“ëŠ” ê²½ìš°ì˜ ìˆ˜
  */
 public class NQueen {
 	public static int[] cols;
@@ -35,8 +35,8 @@ public class NQueen {
 		System.out.println(queens(0));
 	}
 
-	// ¸Å°³º¯¼ö level: ÇöÀç ³ëµåÀÇ À§Ä¡¸¦ Æ÷Çö
-	// Àü¿ªº¯¼ö ¹è¿­ cols: levelÀÇ ¸»ÀÌ ¾îµð¿¡ ³õ¿´´ÂÁö´Â Áö Ç¥Çö => cols[i]=j i¹ø ¸»ÀÌ (iÇà, j¿­)¿¡ ³õ¿´À½ ÀÇ¹Ì
+	// ë§¤ê°œë³€ìˆ˜ level: í˜„ìž¬ ë…¸ë“œì˜ ìœ„ì¹˜ë¥¼ í¬í˜„
+	// ì „ì—­ë³€ìˆ˜ ë°°ì—´ cols: levelì˜ ë§ì´ ì–´ë””ì— ë†“ì˜€ëŠ”ì§€ëŠ” ì§€ í‘œí˜„ => cols[i]=j ië²ˆ ë§ì´ (ií–‰, jì—´)ì— ë†“ì˜€ìŒ ì˜ë¯¸
 	public static boolean queens(int level) {
 		if(!promising(level)) // when state is non-promising(Infeasible)
 			return false;
@@ -49,21 +49,21 @@ public class NQueen {
 		else {
 			// visit children recursively
 			for(int i = 1; i <= N; i++) {
-				cols[level+1] = i; // (level+1Çà, i¿­)
+				cols[level+1] = i; // (level+1í–‰, iì—´)
 				if(queens(level+1))
 					return true;
 			}
 			
-			// N°³ÀÇ ¿­¿¡ ½ÃµµÇß´Âµ¥ ¸ðµÎ ½ÇÆÐÇÏ¿´À¸¹Ç·Î false ¹ÝÈ¯
+			// Nê°œì˜ ì—´ì— ì‹œë„í–ˆëŠ”ë° ëª¨ë‘ ì‹¤íŒ¨í•˜ì˜€ìœ¼ë¯€ë¡œ false ë°˜í™˜
 			return false;
 		}
 	}
 	
 	public static boolean promising(int level) {
 		for(int i = 1; i < level; i++) {
-			if(cols[i] == cols[level]) // °°Àº ¿­¿¡ ³õ¿´´ÂÁö È®ÀÎ 
+			if(cols[i] == cols[level]) // ê°™ì€ ì—´ì— ë†“ì˜€ëŠ”ì§€ í™•ì¸ 
 				return false;
-			else if(level - i == Math.abs(cols[i] - cols[level])) // °°Àº ´ë°¢¼±¿¡ ³õ¿´´ÂÁö °Ë»ç				
+			else if(level - i == Math.abs(cols[i] - cols[level])) // ê°™ì€ ëŒ€ê°ì„ ì— ë†“ì˜€ëŠ”ì§€ ê²€ì‚¬				
 				return false;
 		}
 		return true;

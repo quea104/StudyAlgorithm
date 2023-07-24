@@ -1,13 +1,13 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¼û¹Ù²ÀÁú
- * ÀÏÀÚ: 22.08.30.È­
+ * ë¬¸ì œëª…: ìˆ¨ë°”ê¼­ì§ˆ
+ * ì¼ìž: 22.08.30.í™”
  * https://www.acmicpc.net/problem/1697
- * ¹®Á¦Ç®ÀÌ: BFS
- * ÀÔ·Â: 
+ * ë¬¸ì œí’€ì´: BFS
+ * ìž…ë ¥: 
 5 17
- * Ãâ·Â:
+ * ì¶œë ¥:
 4
  */
 
@@ -42,7 +42,7 @@ public class D220830T1697HideAndSeek {
 		
 		while(!queue.isEmpty()) {
 			int x = queue.poll();
-			if(x == K) { // ¸ñÀûÁö µµ´Þ ½Ã break
+			if(x == K) { // ëª©ì ì§€ ë„ë‹¬ ì‹œ break
 				break;
 			}
 
@@ -55,7 +55,7 @@ public class D220830T1697HideAndSeek {
 				if(!visited[nx]) {
 					queue.add(nx);
 					map[nx] = map[x] + 1;	
-					visited[nx] = true; // push ÇÒ ¶§ ¹æ¹® Ã³¸® -> ÇÑ¹ø µµ´ÞÇÑ ÁöÁ¡Àº ´Ù½Ã ¹æ¹®ÇÏÁö ¾Êµµ·Ï						
+					visited[nx] = true; // push í•  ë•Œ ë°©ë¬¸ ì²˜ë¦¬ -> í•œë²ˆ ë„ë‹¬í•œ ì§€ì ì€ ë‹¤ì‹œ ë°©ë¬¸í•˜ì§€ ì•Šë„ë¡						
 				}
 			}
 		}

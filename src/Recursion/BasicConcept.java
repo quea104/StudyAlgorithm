@@ -2,8 +2,8 @@ package Recursion;
 
 /*
  * https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/lecture/4073?tab=curriculum
- * '¿µ¸®ÇÑ ÇÁ·Î±×·¡¹ÖÀ» À§ÇÑ ¾Ë°í¸®Áò °­ÁÂ' °­ÀÇ ¼½¼Ç2 1~3
- * ÀÏÀÚ: 21.03.22.¿ù~21.03.23.È­
+ * 'ì˜ë¦¬í•œ í”„ë¡œê·¸ë˜ë°ì„ ìœ„í•œ ì•Œê³ ë¦¬ì¦˜ ê°•ì¢Œ' ê°•ì˜ ì„¹ì…˜2 1~3
+ * ì¼ì: 21.03.22.ì›”~21.03.23.í™”
  */
 
 public class BasicConcept {
@@ -60,10 +60,10 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * Euclid Method - ÃÖ´ë°ø¾à¼ö
-	 * m>=nÀÎ µÎ ¾çÀÇ Á¤¼ö m & n¿¡ ´ëÇØ¼­ 
-	 * 	mÀÌ nÀÇ ¹è¼öÀÌ¸é gcd(m,n) = n,
-	 * 	±×·¸Áö ¾ÊÀ¸¸é gcd(m,n) = gcd(n, m%n)
+	 * Euclid Method - ìµœëŒ€ê³µì•½ìˆ˜
+	 * m>=nì¸ ë‘ ì–‘ì˜ ì •ìˆ˜ m & nì— ëŒ€í•´ì„œ 
+	 * 	mì´ nì˜ ë°°ìˆ˜ì´ë©´ gcd(m,n) = n,
+	 * 	ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ gcd(m,n) = gcd(n, m%n)
 	 */
 	public static int gcd(int m, int n) {
 		/*
@@ -91,14 +91,14 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * ÃÖ¼Ò°ø¹è¼ö
+	 * ìµœì†Œê³µë°°ìˆ˜
 	 */
 	public static int lcm(int m, int n) {
 		return m*n/gcd(m,n);
 	}
 	
 	/*
-	 * ¹®ÀÚ¿­ ±æÀÌ °è»ê
+	 * ë¬¸ìì—´ ê¸¸ì´ ê³„ì‚°
 	 */
 	public static int lengthOfString(String str) {
 		if (str.equals(""))
@@ -108,7 +108,7 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * ¹®ÀÚ¿­ Ãâ·Â
+	 * ë¬¸ìì—´ ì¶œë ¥
 	 */
 	public static void printChars(String str) {
 		if (str.length()==0)
@@ -120,7 +120,7 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * ¹®ÀÚ¿­ µÚÁı¾î Ãâ·Â
+	 * ë¬¸ìì—´ ë’¤ì§‘ì–´ ì¶œë ¥
 	 */
 	public static void printCharsReverse(String str) {
 		if (str.length()==0) {
@@ -133,7 +133,7 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * 2Áø¹ı
+	 * 2ì§„ë²•
 	 */
 	public static String numberInBinary(int n, String nStr) {
 		if (n<2) {
@@ -145,7 +145,7 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * ¹è¿­ÀÇ ÇÕ ±¸ÇÏ±â
+	 * ë°°ì—´ì˜ í•© êµ¬í•˜ê¸°
 	 */
 	public static int sum(int n, int[] data) {
 		if (n<=0)
@@ -155,7 +155,7 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * µ¥ÀÌÅÍÆÄÀÏ·ÎºÎÅÍ n°³ÀÇ Á¤¼ö ÀĞ¾î¿À±â
+	 * ë°ì´í„°íŒŒì¼ë¡œë¶€í„° nê°œì˜ ì •ìˆ˜ ì½ì–´ì˜¤ê¸°
 	 */
 	public static int[] readFrom(int n, int[] data, java.util.Scanner in) {
 		if (n == 0) 
@@ -167,9 +167,9 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * ¼øÂ÷Å½»ö
+	 * ìˆœì°¨íƒìƒ‰
 	 */
-	// ¾Ï½ÃÀû(Implicit) ¸Å°³º¯¼ö
+	// ì•”ì‹œì (Implicit) ë§¤ê°œë³€ìˆ˜
 	public static int search(int[] data, int n, int target) {
 		for (int i = 0; i < n; i++) {
 			if (data[i] == target) {
@@ -179,7 +179,7 @@ public class BasicConcept {
 		return -1;
 	}
 	
-	// ¸í½ÃÀû(Explicit) ¸Å°³º¯¼ö - °Ë»ö±¸°£ÀÇ Á¾·áÁ¡À» ¸í½ÃÀûÀ¸·Î ÁöÁ¤
+	// ëª…ì‹œì (Explicit) ë§¤ê°œë³€ìˆ˜ - ê²€ìƒ‰êµ¬ê°„ì˜ ì¢…ë£Œì ì„ ëª…ì‹œì ìœ¼ë¡œ ì§€ì •
 	public static int search(int[] data, int begin, int end, int target) {
 		if (begin > end) 
 			return -1;
@@ -188,7 +188,7 @@ public class BasicConcept {
 		else 
 			return search(data, begin+1, end, target);
 	}
-	// ¸í½ÃÀû(Explicit) ¸Å°³º¯¼ö - °Ë»ö±¸°£ÀÇ ½ÃÀÛÁ¡À» ¸í½ÃÀûÀ¸·Î ÁöÁ¤
+	// ëª…ì‹œì (Explicit) ë§¤ê°œë³€ìˆ˜ - ê²€ìƒ‰êµ¬ê°„ì˜ ì‹œì‘ì ì„ ëª…ì‹œì ìœ¼ë¡œ ì§€ì •
 	public static int search2(int[] data, int begin, int end, int target) {
 		if(begin > end) 
 			return -1;
@@ -198,17 +198,17 @@ public class BasicConcept {
 			return search(data, begin, end-1, target);
 	}
 	
-	// ÀÌºĞ Å½»ö È°¿ë
+	// ì´ë¶„ íƒìƒ‰ í™œìš©
 	public static int searchByDivide(int[] data, int begin, int end, int target) {
 		if (begin > end)
 			return -1;
 		else {
 			int middle = (begin+end)/2;
-			if (data[middle] == target) // ´ë»ó Ã£À½
+			if (data[middle] == target) // ëŒ€ìƒ ì°¾ìŒ
 				return middle;
 			
 			int index = searchByDivide(data, begin, middle-1, target);
-			if (index != -1) // ´ë»ó Ã£À½ 
+			if (index != -1) // ëŒ€ìƒ ì°¾ìŒ 
 				return index;
 			else {
 				return searchByDivide(data, middle+1, end, target);
@@ -217,10 +217,10 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * ÃÖ´ë°ª Ã£±â
+	 * ìµœëŒ€ê°’ ì°¾ê¸°
 	 * MAX(data[n]) = MAX( data[1], MAX(data[n-1]~data[2]) )
 	 */
-	// ¸í½ÃÀû ¸Å°³º¯¼ö	
+	// ëª…ì‹œì  ë§¤ê°œë³€ìˆ˜	
 	public static int findMax(int[] data, int begin, int end) {
 		if (begin == end)
 			return data[begin];
@@ -233,7 +233,7 @@ public class BasicConcept {
 		}
 	}
 	
-	// ÀÌºĞ Å½»ö È°¿ë
+	// ì´ë¶„ íƒìƒ‰ í™œìš©
 	public static int findMaxByDivde(int[] data, int begin, int end) {
 		if(begin == end)
 			return data[begin];
@@ -246,7 +246,7 @@ public class BasicConcept {
 	}
 	
 	/*
-	 * ÀÌÁø°Ë»ö - ´Ü, µ¥ÀÌÅÍ°¡ ¿À¸§Â÷¼ø Á¤·Ä µÇ¾î ÀÖ¾î¾ß ÇÔ.
+	 * ì´ì§„ê²€ìƒ‰ - ë‹¨, ë°ì´í„°ê°€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ ë˜ì–´ ìˆì–´ì•¼ í•¨.
 	 */
 	public static int binarySearch(int[] data, int begin, int end, int target) {
 		if (begin > end)

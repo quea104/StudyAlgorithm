@@ -1,11 +1,11 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: º® ºÎ¼ö°í ÀÌµ¿ÇÏ±â
- * ÀÏÀÚ: 22.09.14.¼ö
+ * ë¬¸ì œëª…: ë²½ ë¶€ìˆ˜ê³  ì´ë™í•˜ê¸°
+ * ì¼ì: 22.09.14.ìˆ˜
  * https://www.acmicpc.net/problem/2206
- * ¹®Á¦Ç®ÀÌ: BFS, https://kscodebase.tistory.com/66
- * ÀÔ·Â1:
+ * ë¬¸ì œí’€ì´: BFS, https://kscodebase.tistory.com/66
+ * ì…ë ¥1:
 6 4
 0100
 1110
@@ -13,10 +13,10 @@ package TestBackJoon;
 0000
 0111
 0000
- * Ãâ·Â:
+ * ì¶œë ¥:
 15
 
- * ÀÔ·Â2:
+ * ì…ë ¥2:
 10 2
 01
 00
@@ -28,7 +28,7 @@ package TestBackJoon;
 00
 01
 00
- * Ãâ·Â2:
+ * ì¶œë ¥2:
 13
  */
 
@@ -72,7 +72,7 @@ public class D220914T2206MoveCrushingTheWall {
 		
 		while(!queue.isEmpty()) {
 			int[] pos = queue.poll();
-			int x = pos[0], y = pos[1], state = pos[2]; // Áö±İ±îÁö º®À» ºÎ½¥´ÂÁö »óÅÂ(1:ºÎ¼û, 0:¾ÈºÎ¼û)
+			int x = pos[0], y = pos[1], state = pos[2]; // ì§€ê¸ˆê¹Œì§€ ë²½ì„ ë¶€ì‰ˆëŠ”ì§€ ìƒíƒœ(1:ë¶€ìˆ¨, 0:ì•ˆë¶€ìˆ¨)
 						
 			if(x == N-1 && y == M-1) {
 				return visited[x][y][state];

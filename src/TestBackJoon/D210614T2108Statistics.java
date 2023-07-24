@@ -1,19 +1,19 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: Åë°èÇÐ
- * ÀÏÀÚ: 21.06.14.¿ù
+ * ë¬¸ì œëª…: í†µê³„í•™
+ * ì¼ìž: 21.06.14.ì›”
  * https://www.acmicpc.net/problem/2108
- * ¹®Á¦³»¿ë: ¼ö¸¦ Ã³¸®ÇÏ´Â °ÍÀº Åë°èÇÐ¿¡¼­ »ó´çÈ÷ Áß¿äÇÑ ÀÏÀÌ´Ù. Åë°èÇÐ¿¡¼­ N°³ÀÇ ¼ö¸¦ ´ëÇ¥ÇÏ´Â ±âº» Åë°è°ª¿¡´Â ´ÙÀ½°ú °°Àº °ÍµéÀÌ ÀÖ´Ù. ´Ü, NÀº È¦¼ö¶ó°í °¡Á¤ÇÏÀÚ.
-			»ê¼úÆò±Õ : N°³ÀÇ ¼öµéÀÇ ÇÕÀ» NÀ¸·Î ³ª´« °ª
-			Áß¾Ó°ª : N°³ÀÇ ¼öµéÀ» Áõ°¡ÇÏ´Â ¼ø¼­·Î ³ª¿­ÇßÀ» °æ¿ì ±× Áß¾Ó¿¡ À§Ä¡ÇÏ´Â °ª
-			ÃÖºó°ª : N°³ÀÇ ¼öµé Áß °¡Àå ¸¹ÀÌ ³ªÅ¸³ª´Â °ª
-			¹üÀ§ : N°³ÀÇ ¼öµé Áß ÃÖ´ñ°ª°ú ÃÖ¼Ú°ªÀÇ Â÷ÀÌ
-			N°³ÀÇ ¼ö°¡ ÁÖ¾îÁ³À» ¶§, ³× °¡Áö ±âº» Åë°è°ªÀ» ±¸ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
- * ÀÔ·Â: Ã¹Â° ÁÙ¿¡ ¼öÀÇ °³¼ö N(1 ¡Â N ¡Â 500,000)ÀÌ ÁÖ¾îÁø´Ù. ´Ü, NÀº È¦¼öÀÌ´Ù. ±× ´ÙÀ½ N°³ÀÇ ÁÙ¿¡´Â Á¤¼öµéÀÌ ÁÖ¾îÁø´Ù. ÀÔ·ÂµÇ´Â Á¤¼öÀÇ Àý´ñ°ªÀº 4,000À» ³ÑÁö ¾Ê´Â´Ù.
- * Ãâ·Â: Ã¹Â° ÁÙ¿¡´Â »ê¼úÆò±ÕÀ» Ãâ·ÂÇÑ´Ù. ¼Ò¼öÁ¡ ÀÌÇÏ Ã¹Â° ÀÚ¸®¿¡¼­ ¹Ý¿Ã¸²ÇÑ °ªÀ» Ãâ·ÂÇÑ´Ù.
-		µÑÂ° ÁÙ¿¡´Â Áß¾Ó°ªÀ» Ãâ·ÂÇÑ´Ù.		
-		¼ÂÂ° ÁÙ¿¡´Â ÃÖºó°ªÀ» Ãâ·ÂÇÑ´Ù. ¿©·¯ °³ ÀÖÀ» ¶§¿¡´Â ÃÖºó°ª Áß µÎ ¹øÂ°·Î ÀÛÀº °ªÀ» Ãâ·ÂÇÑ´Ù.		
-		³ÝÂ° ÁÙ¿¡´Â ¹üÀ§¸¦ Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: ìˆ˜ë¥¼ ì²˜ë¦¬í•˜ëŠ” ê²ƒì€ í†µê³„í•™ì—ì„œ ìƒë‹¹ížˆ ì¤‘ìš”í•œ ì¼ì´ë‹¤. í†µê³„í•™ì—ì„œ Nê°œì˜ ìˆ˜ë¥¼ ëŒ€í‘œí•˜ëŠ” ê¸°ë³¸ í†µê³„ê°’ì—ëŠ” ë‹¤ìŒê³¼ ê°™ì€ ê²ƒë“¤ì´ ìžˆë‹¤. ë‹¨, Nì€ í™€ìˆ˜ë¼ê³  ê°€ì •í•˜ìž.
+			ì‚°ìˆ í‰ê·  : Nê°œì˜ ìˆ˜ë“¤ì˜ í•©ì„ Nìœ¼ë¡œ ë‚˜ëˆˆ ê°’
+			ì¤‘ì•™ê°’ : Nê°œì˜ ìˆ˜ë“¤ì„ ì¦ê°€í•˜ëŠ” ìˆœì„œë¡œ ë‚˜ì—´í–ˆì„ ê²½ìš° ê·¸ ì¤‘ì•™ì— ìœ„ì¹˜í•˜ëŠ” ê°’
+			ìµœë¹ˆê°’ : Nê°œì˜ ìˆ˜ë“¤ ì¤‘ ê°€ìž¥ ë§Žì´ ë‚˜íƒ€ë‚˜ëŠ” ê°’
+			ë²”ìœ„ : Nê°œì˜ ìˆ˜ë“¤ ì¤‘ ìµœëŒ“ê°’ê³¼ ìµœì†Ÿê°’ì˜ ì°¨ì´
+			Nê°œì˜ ìˆ˜ê°€ ì£¼ì–´ì¡Œì„ ë•Œ, ë„¤ ê°€ì§€ ê¸°ë³¸ í†µê³„ê°’ì„ êµ¬í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ì‹œì˜¤.
+ * ìž…ë ¥: ì²«ì§¸ ì¤„ì— ìˆ˜ì˜ ê°œìˆ˜ N(1 â‰¤ N â‰¤ 500,000)ì´ ì£¼ì–´ì§„ë‹¤. ë‹¨, Nì€ í™€ìˆ˜ì´ë‹¤. ê·¸ ë‹¤ìŒ Nê°œì˜ ì¤„ì—ëŠ” ì •ìˆ˜ë“¤ì´ ì£¼ì–´ì§„ë‹¤. ìž…ë ¥ë˜ëŠ” ì •ìˆ˜ì˜ ì ˆëŒ“ê°’ì€ 4,000ì„ ë„˜ì§€ ì•ŠëŠ”ë‹¤.
+ * ì¶œë ¥: ì²«ì§¸ ì¤„ì—ëŠ” ì‚°ìˆ í‰ê· ì„ ì¶œë ¥í•œë‹¤. ì†Œìˆ˜ì  ì´í•˜ ì²«ì§¸ ìžë¦¬ì—ì„œ ë°˜ì˜¬ë¦¼í•œ ê°’ì„ ì¶œë ¥í•œë‹¤.
+		ë‘˜ì§¸ ì¤„ì—ëŠ” ì¤‘ì•™ê°’ì„ ì¶œë ¥í•œë‹¤.		
+		ì…‹ì§¸ ì¤„ì—ëŠ” ìµœë¹ˆê°’ì„ ì¶œë ¥í•œë‹¤. ì—¬ëŸ¬ ê°œ ìžˆì„ ë•Œì—ëŠ” ìµœë¹ˆê°’ ì¤‘ ë‘ ë²ˆì§¸ë¡œ ìž‘ì€ ê°’ì„ ì¶œë ¥í•œë‹¤.		
+		ë„·ì§¸ ì¤„ì—ëŠ” ë²”ìœ„ë¥¼ ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.IOException;
@@ -53,9 +53,9 @@ public class D210614T2108Statistics {
 			}
 		}
         
-        sb.append((int)Math.round((double)sum / N)).append('\n'); // »ê¼úÆò±Õ - ¼Ò¼öÁ¡ ÀÌÇÏ Ã¹Â° ÀÚ¸®¿¡¼­ ¹Ý¿Ã¸²ÇÑ °ªÀ» Ãâ·ÂÇÑ´Ù.
-        sb.append(list.get(((N + 1) / 2) - 1)).append('\n'); // Áß¾Ó°ª
-        // ÃÖºó°ª
+        sb.append((int)Math.round((double)sum / N)).append('\n'); // ì‚°ìˆ í‰ê·  - ì†Œìˆ˜ì  ì´í•˜ ì²«ì§¸ ìžë¦¬ì—ì„œ ë°˜ì˜¬ë¦¼í•œ ê°’ì„ ì¶œë ¥í•œë‹¤.
+        sb.append(list.get(((N + 1) / 2) - 1)).append('\n'); // ì¤‘ì•™ê°’
+        // ìµœë¹ˆê°’
         if(repeatList.size() == 1) {
         	sb.append(repeatList.get(0)).append('\n');
         }
@@ -63,7 +63,7 @@ public class D210614T2108Statistics {
         	Collections.sort(repeatList);
     		sb.append(repeatList.get(1)).append('\n'); 
         }
-        sb.append(list.get(N-1) - list.get(0)); // ¹üÀ§
+        sb.append(list.get(N-1) - list.get(0)); // ë²”ìœ„
         
 		System.out.println(sb);
 	}

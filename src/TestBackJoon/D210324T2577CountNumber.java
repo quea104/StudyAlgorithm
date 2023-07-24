@@ -1,19 +1,19 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¼ıÀÚÀÇ °³¼ö
- * ÀÏÀÚ: 21.03.24.¼ö
+ * ë¬¸ì œëª…: ìˆ«ìì˜ ê°œìˆ˜
+ * ì¼ì: 21.03.24.ìˆ˜
  * https://www.acmicpc.net/problem/2577
- * ¹®Á¦³»¿ë: ¼¼ °³ÀÇ ÀÚ¿¬¼ö A, B, C°¡ ÁÖ¾îÁú ¶§ A ¡¿ B ¡¿ C¸¦ °è»êÇÑ °á°ú¿¡ 0ºÎÅÍ 9±îÁö °¢°¢ÀÇ ¼ıÀÚ°¡ ¸î ¹ø¾¿ ¾²¿´´ÂÁö¸¦ ±¸ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼º
- * ÀÔ·Â: Ã¹Â° ÁÙ¿¡ A, µÑÂ° ÁÙ¿¡ B, ¼ÂÂ° ÁÙ¿¡ C°¡ ÁÖ¾îÁø´Ù. A, B, C´Â ¸ğµÎ 100º¸´Ù °°°Å³ª Å©°í, 1,000º¸´Ù ÀÛÀº ÀÚ¿¬¼öÀÌ´Ù.
- * Ãâ·Â: Ã¹Â° ÁÙ¿¡´Â A ¡¿ B ¡¿ CÀÇ °á°ú¿¡ 0 ÀÌ ¸î ¹ø ¾²¿´´ÂÁö Ãâ·ÂÇÑ´Ù. ¸¶Âù°¡Áö·Î µÑÂ° ÁÙºÎÅÍ ¿­ ¹øÂ° ÁÙ±îÁö A ¡¿ B ¡¿ CÀÇ °á°ú¿¡ 1ºÎÅÍ 9±îÁöÀÇ ¼ıÀÚ°¡ °¢°¢ ¸î ¹ø ¾²¿´´ÂÁö Â÷·Ê·Î ÇÑ ÁÙ¿¡ ÇÏ³ª¾¿ Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: ì„¸ ê°œì˜ ìì—°ìˆ˜ A, B, Cê°€ ì£¼ì–´ì§ˆ ë•Œ A Ã— B Ã— Cë¥¼ ê³„ì‚°í•œ ê²°ê³¼ì— 0ë¶€í„° 9ê¹Œì§€ ê°ê°ì˜ ìˆ«ìê°€ ëª‡ ë²ˆì”© ì“°ì˜€ëŠ”ì§€ë¥¼ êµ¬í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±
+ * ì…ë ¥: ì²«ì§¸ ì¤„ì— A, ë‘˜ì§¸ ì¤„ì— B, ì…‹ì§¸ ì¤„ì— Cê°€ ì£¼ì–´ì§„ë‹¤. A, B, CëŠ” ëª¨ë‘ 100ë³´ë‹¤ ê°™ê±°ë‚˜ í¬ê³ , 1,000ë³´ë‹¤ ì‘ì€ ìì—°ìˆ˜ì´ë‹¤.
+ * ì¶œë ¥: ì²«ì§¸ ì¤„ì—ëŠ” A Ã— B Ã— Cì˜ ê²°ê³¼ì— 0 ì´ ëª‡ ë²ˆ ì“°ì˜€ëŠ”ì§€ ì¶œë ¥í•œë‹¤. ë§ˆì°¬ê°€ì§€ë¡œ ë‘˜ì§¸ ì¤„ë¶€í„° ì—´ ë²ˆì§¸ ì¤„ê¹Œì§€ A Ã— B Ã— Cì˜ ê²°ê³¼ì— 1ë¶€í„° 9ê¹Œì§€ì˜ ìˆ«ìê°€ ê°ê° ëª‡ ë²ˆ ì“°ì˜€ëŠ”ì§€ ì°¨ë¡€ë¡œ í•œ ì¤„ì— í•˜ë‚˜ì”© ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 public class D210324T2577CountNumber {
-	// ¹®ÀÚ¿­·Î ÇØ°á
+	// ë¬¸ìì—´ë¡œ í•´ê²°
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String result = Integer.toString(Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine()));
@@ -28,7 +28,7 @@ public class D210324T2577CountNumber {
 		}
 	}
 	
-//	¼ıÀÚ·Î ÇØ°á
+//	ìˆ«ìë¡œ í•´ê²°
 //	public void solution() {
 //		Scanner sc = new Scanner(System.in);		
 //		int result = sc.nextInt() * sc.nextInt() * sc.nextInt();

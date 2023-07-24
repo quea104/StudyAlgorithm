@@ -1,17 +1,17 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: ¾Ë°í¸®Áò ¼ö¾÷ - ±íÀÌ ¿ì¼± Å½»ö 1
- * ÀÏÀÚ: 22.08.26.±İ
+ * ë¬¸ì œëª…: ì•Œê³ ë¦¬ì¦˜ ìˆ˜ì—… - ê¹Šì´ ìš°ì„  íƒìƒ‰ 1
+ * ì¼ì: 22.08.26.ê¸ˆ
  * https://www.acmicpc.net/problem/24479
- * ¹®Á¦Ç®ÀÌ: DFS
- * ÀÔ·Â: 
+ * ë¬¸ì œí’€ì´: DFS
+ * ì…ë ¥: 
 5 5 1
 1 4
 1 2
 2 3
 2 4
 3 4
- * Ãâ·Â:
+ * ì¶œë ¥:
 1
 2
 3
@@ -27,10 +27,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class D220826T24479DFS1 {
-	static boolean[] visited; // ³ëµå ¹æ¹® ¿©ºÎ
-	static int[] order; // ³ëµå ¹æ¹® ¼ø¼­ ÀúÀå => order[i] = i Á¤Á¡ÀÌ ¸î¹ø Â° ¼ø¼­¿¡ ¹æ¹®ÇÏ´ÂÁö ÀúÀå 
-	static ArrayList<Integer>[] adjList; // ÀÎÁ¢ ¸®½ºÆ®·Î ±×·¡ÇÁ Ç¥Çö
-	static int depth = 1; // ÀüÃ¼ ÀÌµ¿ ¼ø¼­¸¦ ±¸ÇÏ´Â °ÍÀÌ¹Ç·Î Àü¿ª º¯¼ö·Î Ã³¸®ÇØ¾ß ÇÔ
+	static boolean[] visited; // ë…¸ë“œ ë°©ë¬¸ ì—¬ë¶€
+	static int[] order; // ë…¸ë“œ ë°©ë¬¸ ìˆœì„œ ì €ì¥ => order[i] = i ì •ì ì´ ëª‡ë²ˆ ì§¸ ìˆœì„œì— ë°©ë¬¸í•˜ëŠ”ì§€ ì €ì¥ 
+	static ArrayList<Integer>[] adjList; // ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ë¡œ ê·¸ë˜í”„ í‘œí˜„
+	static int depth = 1; // ì „ì²´ ì´ë™ ìˆœì„œë¥¼ êµ¬í•˜ëŠ” ê²ƒì´ë¯€ë¡œ ì „ì—­ ë³€ìˆ˜ë¡œ ì²˜ë¦¬í•´ì•¼ í•¨
 	
 	static void dfs(int v) {		
 		visited[v] = true;
@@ -47,11 +47,11 @@ public class D220826T24479DFS1 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken()) + 1; // Á¤Á¡ÀÇ ¼ö - ¹è¿­Àº 0ºÎÅÍ ½ÃÀÛÇÏ¹Ç·Î Á¤Á¡ÀÇ ¼ıÀÚ¸¦ ±×´ë·Î Ç¥ÇöÇÏ±â À§ÇØ¼± +1À» ÇØÁà¾ß ÇÔ.
-		int M = Integer.parseInt(st.nextToken()); // °£¼±ÀÇ ¼ö
-		int R = Integer.parseInt(st.nextToken()); // ½ÃÀÛ Á¤Á¡
+		int N = Integer.parseInt(st.nextToken()) + 1; // ì •ì ì˜ ìˆ˜ - ë°°ì—´ì€ 0ë¶€í„° ì‹œì‘í•˜ë¯€ë¡œ ì •ì ì˜ ìˆ«ìë¥¼ ê·¸ëŒ€ë¡œ í‘œí˜„í•˜ê¸° ìœ„í•´ì„  +1ì„ í•´ì¤˜ì•¼ í•¨.
+		int M = Integer.parseInt(st.nextToken()); // ê°„ì„ ì˜ ìˆ˜
+		int R = Integer.parseInt(st.nextToken()); // ì‹œì‘ ì •ì 
 		
-		adjList = new ArrayList[N]; // Á¤Á¡ ¼ö ¸¸Å­ ÀÎÁ¢ ¸®½ºÆ® Å©±â·Î ÃÊ±âÈ­
+		adjList = new ArrayList[N]; // ì •ì  ìˆ˜ ë§Œí¼ ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ í¬ê¸°ë¡œ ì´ˆê¸°í™”
 		for(int i = 0; i < N; i++) {
 			adjList[i] = new ArrayList<Integer>();
 		}
@@ -61,12 +61,12 @@ public class D220826T24479DFS1 {
 			int x = Integer.parseInt(st.nextToken());
 			int y = Integer.parseInt(st.nextToken());
 			
-			// ÇØ´ç ±×·¡ÇÁÀÇ °£¼±Àº ¾ç¹æÇâÀÌ¹Ç·Î ¾ç ³ëµåÀÇ ¸®½ºÆ®¿¡ Ç¥±âÇØÁà¾ß ÇÔ.
+			// í•´ë‹¹ ê·¸ë˜í”„ì˜ ê°„ì„ ì€ ì–‘ë°©í–¥ì´ë¯€ë¡œ ì–‘ ë…¸ë“œì˜ ë¦¬ìŠ¤íŠ¸ì— í‘œê¸°í•´ì¤˜ì•¼ í•¨.
 			adjList[x].add(y);
 			adjList[y].add(x);
 		}
 		
-		// ÀÎÁ¢ Á¤Á¡Àº ¿À¸§Â÷¼øÀ¸·Î ¹æ¹®ÇØ¾ß ÇÏ¹Ç·Î Á¤·Ä Ã³¸®
+		// ì¸ì ‘ ì •ì ì€ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ë°©ë¬¸í•´ì•¼ í•˜ë¯€ë¡œ ì •ë ¬ ì²˜ë¦¬
 		for(int i = 0; i < N; i++) {
 			Collections.sort(adjList[i]);
 		}

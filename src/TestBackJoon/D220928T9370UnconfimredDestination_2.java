@@ -1,13 +1,13 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¹ÌÈ®ÀÎ µµÂøÁö
- * ÀÏÀÚ: 22.09.28.¼ö
+ * ë¬¸ì œëª…: ë¯¸í™•ì¸ ë„ì°©ì§€
+ * ì¼ì: 22.09.28.ìˆ˜
  * https://www.acmicpc.net/problem/9370
- * ¹®Á¦Ç®ÀÌ: Dijkstra
- 	ÃÖ´Ü°Å¸® °ªÀ» ±¸ÇÏ´Â ¹®Á¦°¡ ¾Æ´Ï±â ¶§¹®¿¡ ¾Ë°í¸®ÁòÀ» ÇÑ¹ø¸¸ Å½»öÇÏ±â À§ÇØ
- 	Æ¯Á¤ °æ·Î Å½»ö ¿©ºÎ¸¦ ÃÖ´Ü°Å¸® °ªÀÌ Â¦¼ö, È¦¼ö ¿©ºÎ·Î ÆÇ´ÜÇÏ°Ô²û ÇØÁÜ
- * ÀÔ·Â:
+ * ë¬¸ì œí’€ì´: Dijkstra
+ 	ìµœë‹¨ê±°ë¦¬ ê°’ì„ êµ¬í•˜ëŠ” ë¬¸ì œê°€ ì•„ë‹ˆê¸° ë•Œë¬¸ì— ì•Œê³ ë¦¬ì¦˜ì„ í•œë²ˆë§Œ íƒìƒ‰í•˜ê¸° ìœ„í•´
+ 	íŠ¹ì • ê²½ë¡œ íƒìƒ‰ ì—¬ë¶€ë¥¼ ìµœë‹¨ê±°ë¦¬ ê°’ì´ ì§ìˆ˜, í™€ìˆ˜ ì—¬ë¶€ë¡œ íŒë‹¨í•˜ê²Œë” í•´ì¤Œ
+ * ì…ë ¥:
 2
 5 4 2
 1 2 3
@@ -30,7 +30,7 @@ package TestBackJoon;
 5 6 7
 5
 6
- * Ãâ·Â:
+ * ì¶œë ¥:
 4 5
 6
  */
@@ -47,8 +47,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
 public class D220928T9370UnconfimredDestination_2 {
-	// Integar.MAX_VALUE °ªÀ» ³ÖÀ¸¸é ¿À·ù ¹ß»ı - ÀÌÀ¯ ¸ğ¸£°ÚÀ½
-	static final int INF = 100_000_000; // ´ÜÀ§°¡ Å« ¼öÀÇ Ç¥Çö¿¡´Â Áß°£¿¡ ¾ğ´õ¹Ù¸¦ ³Ö´Â °Íµµ Çã¿ë
+	// Integar.MAX_VALUE ê°’ì„ ë„£ìœ¼ë©´ ì˜¤ë¥˜ ë°œìƒ - ì´ìœ  ëª¨ë¥´ê² ìŒ
+	static final int INF = 100_000_000; // ë‹¨ìœ„ê°€ í° ìˆ˜ì˜ í‘œí˜„ì—ëŠ” ì¤‘ê°„ì— ì–¸ë”ë°”ë¥¼ ë„£ëŠ” ê²ƒë„ í—ˆìš©
 	static ArrayList<ArrayList<Node>> map;
 	static int[] distance;
 	
@@ -82,10 +82,10 @@ public class D220928T9370UnconfimredDestination_2 {
 				int b = Integer.parseInt(st.nextToken());
 				int w = Integer.parseInt(st.nextToken());
 				
-				// Æ¯Á¤ ±¸°£(g ¡æ h, h ¡æ g)Àº °¡ÁßÄ¡ È¦¼öÈ­
+				// íŠ¹ì • êµ¬ê°„(g â†’ h, h â†’ g)ì€ ê°€ì¤‘ì¹˜ í™€ìˆ˜í™”
 				if((g == a && h == b) || (h == a && g == b))
 					w = w*2 - 1;
-				else // ±×¿Ü ±¸°£ Â¦¼öÈ­
+				else // ê·¸ì™¸ êµ¬ê°„ ì§ìˆ˜í™”
 					w = w*2;
 
 				map.get(a).add(new Node(b, w));

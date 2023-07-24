@@ -1,11 +1,11 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ÃÖ´Ü°æ·Î
- * ÀÏÀÚ: 22.09.20.È­~22.09.22.¸ñ
+ * ë¬¸ì œëª…: ìµœë‹¨ê²½ë¡œ
+ * ì¼ì: 22.09.20.í™”~22.09.22.ëª©
  * https://www.acmicpc.net/problem/1753
- * ¹®Á¦Ç®ÀÌ: BFS, DP
- * ÀÔ·Â1:
+ * ë¬¸ì œí’€ì´: BFS, DP
+ * ì…ë ¥1:
 5 6
 1
 5 1 1
@@ -14,13 +14,13 @@ package TestBackJoon;
 2 3 4
 2 4 5
 3 4 6
- * Ãâ·Â1:
+ * ì¶œë ¥1:
 0
 2
 3
 7555555 
 INF
- * ÀÔ·Â2:
+ * ì…ë ¥2:
 6 9
 1
 1 2 7
@@ -32,7 +32,7 @@ INF
 3 6 2
 4 5 6
 5 6 9
- * Ãâ·Â2:
+ * ì¶œë ¥2:
 0
 7
 9
@@ -47,11 +47,11 @@ import java.util.StringTokenizer;
 import java.io.BufferedReader;
 
 public class D220920T1753ShortestPath {
-	static final int INF = 987654321; // infinite ¹«ÇÑ´ë
+	static final int INF = 987654321; // infinite ë¬´í•œëŒ€
 	static int V, E, K;
 	static int[][] graph;
-	static boolean[] visited; // ÇØ´ç ³ëµå¸¦ ¹æ¹®Çß´ÂÁö Ã¼Å©ÇÒ º¯¼ö
-	static int[] distance;  // ÃÖ´Ü °Å¸®¸¦ ÀúÀåÇÒ º¯¼ö
+	static boolean[] visited; // í•´ë‹¹ ë…¸ë“œë¥¼ ë°©ë¬¸í–ˆëŠ”ì§€ ì²´í¬í•  ë³€ìˆ˜
+	static int[] distance;  // ìµœë‹¨ ê±°ë¦¬ë¥¼ ì €ì¥í•  ë³€ìˆ˜
 	
 	public static void main(String[] args) throws IOException {
 		StringBuilder sb = new StringBuilder();
@@ -65,7 +65,7 @@ public class D220920T1753ShortestPath {
 		visited = new boolean[V+1];
 		distance = new int[V+1];
 		
-		// ÀÎÁ¢Çà·Ä, distance°ª ¹«ÇÑ´ë·Î ÃÊ±âÈ­
+		// ì¸ì ‘í–‰ë ¬, distanceê°’ ë¬´í•œëŒ€ë¡œ ì´ˆê¸°í™”
 		for(int i = 1; i <= V; i++) {
 			distance[i] = INF;
 			for(int j = 1; j <= V; j++) {
@@ -73,7 +73,7 @@ public class D220920T1753ShortestPath {
 			}
 		}
 		
-		// ÀÎÁ¢Çà·Ä¿¡ °¡ÁßÄ¡ ³Ö±â
+		// ì¸ì ‘í–‰ë ¬ì— ê°€ì¤‘ì¹˜ ë„£ê¸°
 		for(int i = 0; i < E; i++) {
 			st = new StringTokenizer(br.readLine());
 			int u = Integer.parseInt(st.nextToken())
@@ -93,11 +93,11 @@ public class D220920T1753ShortestPath {
 	}
 
 	private static void dijkstra() {
-		// ½ÃÀÛ³ëµå°ª ÃÊ±âÈ­
+		// ì‹œì‘ë…¸ë“œê°’ ì´ˆê¸°í™”
 		distance[K] = 0;
 		visited[K] = true;
 
-		// ¿¬°á³ëµå distance°»½Å
+		// ì—°ê²°ë…¸ë“œ distanceê°±ì‹ 
 		for(int i = 1; i <= V; i++) {
 			if(!visited[i] && graph[K][i] != INF)
 				distance[i] = graph[K][i];
@@ -105,9 +105,9 @@ public class D220920T1753ShortestPath {
 		
 		print();
 		
-		// ¹İº¹¼ö´Â V-2¹ø
+		// ë°˜ë³µìˆ˜ëŠ” V-2ë²ˆ
 		for(int a = 0; a < V-1; a++) {
-			// ³ëµå ÃÖ¼Ò°ª Ã£±â
+			// ë…¸ë“œ ìµœì†Œê°’ ì°¾ê¸°
 			int minDist = INF, minIndex = -1;
 			for(int i = 1; i <= V; i++) {
 				if(visited[i]) continue;
@@ -122,7 +122,7 @@ public class D220920T1753ShortestPath {
 			
 			visited[minIndex] = true;
 			
-			// ´Ù¸¥ ³ëµå¸¦ °ÅÃÄ¼­ °¡´Â °ÍÀÌ ´õ ºñ¿ëÀÌ ÀûÀºÁö È®ÀÎ
+			// ë‹¤ë¥¸ ë…¸ë“œë¥¼ ê±°ì³ì„œ ê°€ëŠ” ê²ƒì´ ë” ë¹„ìš©ì´ ì ì€ì§€ í™•ì¸
 			for(int i = 1; i <= V; i++) {
 				if(visited[i]) continue;
 				if(graph[minIndex][i] == INF) continue;
@@ -138,7 +138,7 @@ public class D220920T1753ShortestPath {
 	}
 	
 	static void print() {
-		 // °á°ú°ª Ãâ·Â
+		 // ê²°ê³¼ê°’ ì¶œë ¥
         for(int i = 1; i <= V; ++i){
         	if(distance[i] == INF) System.out.print("INF ");
         	else System.out.print(distance[i]+" ");

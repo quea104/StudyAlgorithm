@@ -1,32 +1,32 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: Å¸ÀÓ¸Ó½Å
- * ÀÏÀÚ: 22.09.29.¸ñ
+ * ë¬¸ì œëª…: íƒ€ì„ë¨¸ì‹ 
+ * ì¼ì: 22.09.29.ëª©
  * https://www.acmicpc.net/problem/11657
- * ¹®Á¦Ç®ÀÌ: Bellman-Ford ¾Ë°í¸®Áò
- * ÀÔ·Â1:
+ * ë¬¸ì œí’€ì´: Bellman-Ford ì•Œê³ ë¦¬ì¦˜
+ * ì…ë ¥1:
 3 4
 1 2 4
 1 3 3
 2 3 -1
 3 1 -2
- * Ãâ·Â1:
+ * ì¶œë ¥1:
 4
 3
- * ÀÔ·Â2:
+ * ì…ë ¥2:
 3 4
 1 2 4
 1 3 3
 2 3 -4
 3 1 -2
- * Ãâ·Â2:
+ * ì¶œë ¥2:
 -1
- * ÀÔ·Â3:
+ * ì…ë ¥3:
 3 2
 1 2 4
 1 2 3
- * Ãâ·Â3:
+ * ì¶œë ¥3:
 3
 -1
  */
@@ -39,7 +39,7 @@ import java.util.StringTokenizer;
 import java.io.BufferedReader;
 
 public class D220929T11657TimeMachine {
-	// INF °ªÀÌ ÃæºĞÈ÷ Å©Áö ¸øÇÑ °æ¿ì ½Ã°£ÀÌ ¸Å¿ì °É¸®´Â °æ·Î·Î °¡´õ¶óµµ INF °ªÀ» ³ÑÁö ¸øÇÏµµ·Ï Å©°Ô ÀâÀ¸¼Å¾ß ÇÔ.
+	// INF ê°’ì´ ì¶©ë¶„íˆ í¬ì§€ ëª»í•œ ê²½ìš° ì‹œê°„ì´ ë§¤ìš° ê±¸ë¦¬ëŠ” ê²½ë¡œë¡œ ê°€ë”ë¼ë„ INF ê°’ì„ ë„˜ì§€ ëª»í•˜ë„ë¡ í¬ê²Œ ì¡ìœ¼ì…”ì•¼ í•¨.
 	static final long INF = Long.MAX_VALUE;
 	static int N, M;
 	static ArrayList<Edge> list = new ArrayList<Edge>();
@@ -77,7 +77,7 @@ public class D220929T11657TimeMachine {
 	static boolean search() {
 		distance[1] = 0;
 		
-		// Å½»ö
+		// íƒìƒ‰
 		for(int i = 1; i <= N; i++) {
 			for(int j = 0; j < M; j++) {
 				Edge edge = list.get(j);
@@ -86,7 +86,7 @@ public class D220929T11657TimeMachine {
 				if(distance[x] == INF) continue;
 				
 				if(distance[y] > distance[x] + w) {
-					// À½¼ö °£¼± ¼øÈ¯ ¹ß»ı
+					// ìŒìˆ˜ ê°„ì„  ìˆœí™˜ ë°œìƒ
 					if(i == N) {
 						return false;
 					}

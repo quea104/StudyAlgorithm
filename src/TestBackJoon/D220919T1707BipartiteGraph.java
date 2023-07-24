@@ -1,19 +1,19 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ÀÌºÐ ±×·¡ÇÁ
- * ÀÏÀÚ: 22.09.19.¿ù
+ * ë¬¸ì œëª…: ì´ë¶„ ê·¸ëž˜í”„
+ * ì¼ìž: 22.09.19.ì›”
  * https://www.acmicpc.net/problem/1707
- * ¹®Á¦Ç®ÀÌ: BFS, DFS
-  	1. ÃÖÃÊ Å½»ö ½ÃÀÛÇÒ Á¤Á¡ÀÇ »ö»óÀ» »¡°£»öÀ¸·Î Ä¥ÇÑ´Ù.(¼ýÀÚ 1·Î Ç¥Çö)
-	2. ÃÖÃÊ Á¤Á¡ÀÇ ÀÎÁ¢ Á¤Á¡ÀÇ »ö»óÀ» ÆÄ¶õ»öÀ¸·Î Ä¥ÇÑ´Ù.(¼ýÀÚ -1·Î Ç¥Çö)
-	3. ÇØ´ç ÀÎÁ¢ Á¤Á¡µéÀ» Â÷·Ê·Î Å½»öÀ» ½ÃÀÛÇÏ¸ç ÀÚ½Å°ú ÀÎÁ¢ÇÑ Á¤Á¡À» »¡°£»öÀ¸·Î Ä¥ÇÑ´Ù.(¼ýÀÚ 1·Î Ç¥Çö)
-	4. ÀÌ¿Í °°Àº ¹æ½ÄÀ» Å½»öÀ» Áö¼ÓÇÏ¸ç ¹Ýº¹ÇÏ¿© 2°³ÀÇ »ö»óÀ¸·Î ¸ðµÎ Ä¥ÇÑ´Ù.
-	5. »ö»óÀ» Ä¥ÇÏ´Ù°¡ ÀÌ¿ô Á¤Á¡ÀÌ °°Àº »öÀ¸·Î Ä¥ÇØÁ® ÀÖ´Ù¸é ÀÌºÐ ±×·¡ÇÁ°¡ µÉ ¼ö ¾ø´Ù.
- * ÂüÁ¶: 
+ * ë¬¸ì œí’€ì´: BFS, DFS
+  	1. ìµœì´ˆ íƒìƒ‰ ì‹œìž‘í•  ì •ì ì˜ ìƒ‰ìƒì„ ë¹¨ê°„ìƒ‰ìœ¼ë¡œ ì¹ í•œë‹¤.(ìˆ«ìž 1ë¡œ í‘œí˜„)
+	2. ìµœì´ˆ ì •ì ì˜ ì¸ì ‘ ì •ì ì˜ ìƒ‰ìƒì„ íŒŒëž€ìƒ‰ìœ¼ë¡œ ì¹ í•œë‹¤.(ìˆ«ìž -1ë¡œ í‘œí˜„)
+	3. í•´ë‹¹ ì¸ì ‘ ì •ì ë“¤ì„ ì°¨ë¡€ë¡œ íƒìƒ‰ì„ ì‹œìž‘í•˜ë©° ìžì‹ ê³¼ ì¸ì ‘í•œ ì •ì ì„ ë¹¨ê°„ìƒ‰ìœ¼ë¡œ ì¹ í•œë‹¤.(ìˆ«ìž 1ë¡œ í‘œí˜„)
+	4. ì´ì™€ ê°™ì€ ë°©ì‹ì„ íƒìƒ‰ì„ ì§€ì†í•˜ë©° ë°˜ë³µí•˜ì—¬ 2ê°œì˜ ìƒ‰ìƒìœ¼ë¡œ ëª¨ë‘ ì¹ í•œë‹¤.
+	5. ìƒ‰ìƒì„ ì¹ í•˜ë‹¤ê°€ ì´ì›ƒ ì •ì ì´ ê°™ì€ ìƒ‰ìœ¼ë¡œ ì¹ í•´ì ¸ ìžˆë‹¤ë©´ ì´ë¶„ ê·¸ëž˜í”„ê°€ ë  ìˆ˜ ì—†ë‹¤.
+ * ì°¸ì¡°: 
  	https://hongjw1938.tistory.com/117
  	https://gmlwjd9405.github.io/2018/08/23/algorithm-bipartite-graph.html
- * ÀÔ·Â:
+ * ìž…ë ¥:
 2
 3 2
 1 3
@@ -23,7 +23,7 @@ package TestBackJoon;
 2 3
 3 4
 4 2
- * Ãâ·Â:
+ * ì¶œë ¥:
 YES
 NO
  */
@@ -66,14 +66,14 @@ public class D220919T1707BipartiteGraph {
 				adjList.get(y).add(x);
 			}
 			
-            // ¿¬°á ±×·¡ÇÁ¿Í ºñ¿¬°á ±×·¡ÇÁ(¸ðµç Á¤Á¡À» µ¹¸é¼­ È®ÀÎ) ¸ðµÎ °í·Á
+            // ì—°ê²° ê·¸ëž˜í”„ì™€ ë¹„ì—°ê²° ê·¸ëž˜í”„(ëª¨ë“  ì •ì ì„ ëŒë©´ì„œ í™•ì¸) ëª¨ë‘ ê³ ë ¤
 			for(int v = 1; v < V+1; v++) {
 				if(!check) break;
 				
-				// ¹æ¹®ÇÏÁö ¾ÊÀº Á¤Á¡¿¡ ´ëÇØ¼­ Å½»ö ¼öÇà
+				// ë°©ë¬¸í•˜ì§€ ì•Šì€ ì •ì ì— ëŒ€í•´ì„œ íƒìƒ‰ ìˆ˜í–‰
 				if(visited[v] == 0) {
-					//bfs(v); // ³Êºñ ¿ì¼± Å½»ö
-					dfs(v, RED); // ±íÀÌ ¿ì¼± Å½»ö
+					//bfs(v); // ë„ˆë¹„ ìš°ì„  íƒìƒ‰
+					dfs(v, RED); // ê¹Šì´ ìš°ì„  íƒìƒ‰
 				}
 			}
 			sb.append(check ? "YES" : "NO").append("\n");

@@ -1,11 +1,11 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¹ì°ú »ç´Ù¸® °ÔÀÓ
- * ÀÏÀÚ: 22.09.07.¼ö
+ * ë¬¸ì œëª…: ë±€ê³¼ ì‚¬ë‹¤ë¦¬ ê²Œì„
+ * ì¼ì: 22.09.07.ìˆ˜
  * https://www.acmicpc.net/problem/16928
- * ¹®Á¦Ç®ÀÌ: BFS
- * ÀÔ·Â:
+ * ë¬¸ì œí’€ì´: BFS
+ * ì…ë ¥:
 3 7
 32 62
 42 68
@@ -17,7 +17,7 @@ package TestBackJoon;
 75 19
 49 47
 67 17
- * Ãâ·Â:
+ * ì¶œë ¥:
 3
  */
 
@@ -37,8 +37,8 @@ public class D220907T16928SnakeAndLadder {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		N = Integer.parseInt(st.nextToken()); // »ç´Ù¸® ¼ö
-		M = Integer.parseInt(st.nextToken()); // ¹ì ¼ö
+		N = Integer.parseInt(st.nextToken()); // ì‚¬ë‹¤ë¦¬ ìˆ˜
+		M = Integer.parseInt(st.nextToken()); // ë±€ ìˆ˜
 		
 		int sum = N+M;
 		while(sum-- > 0) {
@@ -67,7 +67,7 @@ public class D220907T16928SnakeAndLadder {
 				return;
 			}
 			
-			// ÁÖ»çÀ§ µ¹¸®±â
+			// ì£¼ì‚¬ìœ„ ëŒë¦¬ê¸°
 			for(int d = 1; d <= 6; d++) {
 				Pair np = getPair((getOrder(x, y) + d));
 				int nx = np.x, ny = np.y;
@@ -76,12 +76,12 @@ public class D220907T16928SnakeAndLadder {
 					continue;
 				
 				if(!visited[nx][ny]) {
-					visited[nx][ny] = true; // ÁÖ»çÀ§¸¦ ÅëÇØ ÀÌµ¿ÇÑ Ä­ ¹æ¹® Ã³¸®
-					if(board[nx][ny] != 0) { // »ç´Ù¸® ¶Ç´Â ¹ì Á¸Àç
+					visited[nx][ny] = true; // ì£¼ì‚¬ìœ„ë¥¼ í†µí•´ ì´ë™í•œ ì¹¸ ë°©ë¬¸ ì²˜ë¦¬
+					if(board[nx][ny] != 0) { // ì‚¬ë‹¤ë¦¬ ë˜ëŠ” ë±€ ì¡´ì¬
 						np = getPair(board[nx][ny]);
 						nx = np.x;
 						ny = np.y;
-						visited[nx][ny] = true; // »ç´Ù¸® ¶Ç´Â ¹ì ÅëÇØ ÀÌµ¿ÇÑ Ä­ ¹æ¹® Ã³¸®
+						visited[nx][ny] = true; // ì‚¬ë‹¤ë¦¬ ë˜ëŠ” ë±€ í†µí•´ ì´ë™í•œ ì¹¸ ë°©ë¬¸ ì²˜ë¦¬
 					}
 					queue.add(new Pair(nx,ny,count+1));
 				}

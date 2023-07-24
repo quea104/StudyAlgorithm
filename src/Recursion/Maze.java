@@ -2,23 +2,23 @@ package Recursion;
 
 /*
  * https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/lecture/4075?tab=curriculum
- * '¿µ¸®ÇÑ ÇÁ·Î±×·¡¹ÖÀ» À§ÇÑ ¾Ë°í¸®Áò °­ÁÂ' °­ÀÇ ¼½¼Ç2 4. RecursionÀÇ ÀÀ¿ë - ¹Ì·ÎÃ£±â 1
+ * 'ì˜ë¦¬í•œ í”„ë¡œê·¸ë˜ë°ì„ ìœ„í•œ ì•Œê³ ë¦¬ì¦˜ ê°•ì¢Œ' ê°•ì˜ ì„¹ì…˜2 4. Recursionì˜ ì‘ìš© - ë¯¸ë¡œì°¾ê¸° 1
  */
 
 /*
- * ÀÏÀÚ: 21.03.23.È­
- * ¹Ì·ÎÃ£±â
+ * ì¼ì: 21.03.23.í™”
+ * ë¯¸ë¡œì°¾ê¸°
  * N X N
- * pathway : Åë·Î
- * wall : ¸·Èù º®
+ * pathway : í†µë¡œ
+ * wall : ë§‰íŒ ë²½
  */
 public class Maze {
-	// Decision Problem : ´äÀÌ Yes ¶Ç´Â NoÀÎ ¹®Á¦
+	// Decision Problem : ë‹µì´ Yes ë˜ëŠ” Noì¸ ë¬¸ì œ
 	
-	public static final int PATHWAY_COLOR = 0; // white - ÀÌµ¿ °¡´ÉÇÑ Åë·Î
-	public static final int WALL_COLOR = 1; 	// blue - ¹Ì·ÎÀÇ º®
-	public static final int BLOCKED_COLOR = 2;	// red - Áö³ª°¡¸é ¾ÈµÇ´Â °æ·Î
-	public static final int PATH_COLOR = 3;	// green - ÀÌµ¿ °æ·Î
+	public static final int PATHWAY_COLOR = 0; // white - ì´ë™ ê°€ëŠ¥í•œ í†µë¡œ
+	public static final int WALL_COLOR = 1; 	// blue - ë¯¸ë¡œì˜ ë²½
+	public static final int BLOCKED_COLOR = 2;	// red - ì§€ë‚˜ê°€ë©´ ì•ˆë˜ëŠ” ê²½ë¡œ
+	public static final int PATH_COLOR = 3;	// green - ì´ë™ ê²½ë¡œ
 
 	public static void main(String[] args) {
 		int[][] maze = {

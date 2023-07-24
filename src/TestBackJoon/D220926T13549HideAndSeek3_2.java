@@ -1,17 +1,17 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¼û¹Ù²ÀÁú3
- * ÀÏÀÚ: 22.09.26.¿ù
+ * ë¬¸ì œëª…: ìˆ¨ë°”ê¼­ì§ˆ3
+ * ì¼ì: 22.09.26.ì›”
  * https://www.acmicpc.net/problem/13549
- * ¹®Á¦Ç®ÀÌ: Dijkstra
- * ÀÔ·Â1: 
+ * ë¬¸ì œí’€ì´: Dijkstra
+ * ì…ë ¥1: 
 5 17
- * Ãâ·Â1:
+ * ì¶œë ¥1:
 2
- * ÀÔ·Â2: 
+ * ì…ë ¥2: 
 1 2
- * Ãâ·Â2:
+ * ì¶œë ¥2:
 0
  */
 
@@ -50,7 +50,7 @@ public class D220926T13549HideAndSeek3_2 {
 			int curIndex = curNode.index;
 			System.out.print(curIndex + " / ");
 			
-			// ÀÌ¹Ì °»½ÅµÈ Á¤Á¡(map[curIndex]) Àº Á¦¿Ü
+			// ì´ë¯¸ ê°±ì‹ ëœ ì •ì (map[curIndex]) ì€ ì œì™¸
 			if(map[curIndex] < curNode.second)
 				continue;
 			

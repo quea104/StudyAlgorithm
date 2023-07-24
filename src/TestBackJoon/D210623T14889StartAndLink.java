@@ -1,23 +1,23 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: ½ºÅ¸Æ®¿Í ¸µÅ©
- * ÀÏÀÚ: 21.06.18.±Ý, 22.È­~23.¼ö
+ * ë¬¸ì œëª…: ìŠ¤íƒ€íŠ¸ì™€ ë§í¬
+ * ì¼ìž: 21.06.18.ê¸ˆ, 22.í™”~23.ìˆ˜
  * https://www.acmicpc.net/problem/14889
- * ¹®Á¦³»¿ë: ¿À´ÃÀº ½ºÅ¸Æ®¸µÅ©¿¡ ´Ù´Ï´Â »ç¶÷µéÀÌ ¸ð¿©¼­ Ãà±¸¸¦ ÇØº¸·Á°í ÇÑ´Ù. Ãà±¸´Â ÆòÀÏ ¿ÀÈÄ¿¡ ÇÏ°í ÀÇ¹« Âü¼®µµ ¾Æ´Ï´Ù. Ãà±¸¸¦ ÇÏ±â À§ÇØ ¸ðÀÎ »ç¶÷Àº ÃÑ N¸íÀÌ°í ½Å±âÇÏ°Ôµµ NÀº Â¦¼öÀÌ´Ù. ÀÌÁ¦ N/2¸íÀ¸·Î ÀÌ·ç¾îÁø ½ºÅ¸Æ® ÆÀ°ú ¸µÅ© ÆÀÀ¸·Î »ç¶÷µéÀ» ³ª´²¾ß ÇÑ´Ù.
-			BOJ¸¦ ¿î¿µÇÏ´Â È¸»ç ´ä°Ô »ç¶÷¿¡°Ô ¹øÈ£¸¦ 1ºÎÅÍ N±îÁö·Î ¹èÁ¤Çß°í, ¾Æ·¡¿Í °°Àº ´É·ÂÄ¡¸¦ Á¶»çÇß´Ù. ´É·ÂÄ¡ Sij´Â i¹ø »ç¶÷°ú j¹ø »ç¶÷ÀÌ °°Àº ÆÀ¿¡ ¼ÓÇßÀ» ¶§, ÆÀ¿¡ ´õÇØÁö´Â ´É·ÂÄ¡ÀÌ´Ù. 
-			ÆÀÀÇ ´É·ÂÄ¡´Â ÆÀ¿¡ ¼ÓÇÑ ¸ðµç ½ÖÀÇ ´É·ÂÄ¡ SijÀÇ ÇÕÀÌ´Ù. Sij´Â Sji¿Í ´Ù¸¦ ¼öµµ ÀÖÀ¸¸ç, i¹ø »ç¶÷°ú j¹ø »ç¶÷ÀÌ °°Àº ÆÀ¿¡ ¼ÓÇßÀ» ¶§, ÆÀ¿¡ ´õÇØÁö´Â ´É·ÂÄ¡´Â Sij¿Í SjiÀÌ´Ù.
-			¿¹¸¦ µé¾î, 1, 2¹øÀÌ ½ºÅ¸Æ® ÆÀ, 3, 4¹øÀÌ ¸µÅ© ÆÀ¿¡ ¼ÓÇÑ °æ¿ì¿¡ µÎ ÆÀÀÇ ´É·ÂÄ¡´Â ¾Æ·¡¿Í °°´Ù.
-				½ºÅ¸Æ® ÆÀ: S12 + S21 = 1 + 4 = 5
-				¸µÅ© ÆÀ: S34 + S43 = 2 + 5 = 7
-			1, 3¹øÀÌ ½ºÅ¸Æ® ÆÀ, 2, 4¹øÀÌ ¸µÅ© ÆÀ¿¡ ¼ÓÇÏ¸é, µÎ ÆÀÀÇ ´É·ÂÄ¡´Â ¾Æ·¡¿Í °°´Ù.
-				½ºÅ¸Æ® ÆÀ: S13 + S31 = 2 + 7 = 9
-				¸µÅ© ÆÀ: S24 + S42 = 6 + 4 = 10
-			Ãà±¸¸¦ Àç¹ÌÀÖ°Ô ÇÏ±â À§ÇØ¼­ ½ºÅ¸Æ® ÆÀÀÇ ´É·ÂÄ¡¿Í ¸µÅ© ÆÀÀÇ ´É·ÂÄ¡ÀÇ Â÷ÀÌ¸¦ ÃÖ¼Ò·Î ÇÏ·Á°í ÇÑ´Ù. À§ÀÇ ¿¹Á¦¿Í °°Àº °æ¿ì¿¡´Â 1, 4¹øÀÌ ½ºÅ¸Æ® ÆÀ, 2, 3¹ø ÆÀÀÌ ¸µÅ© ÆÀ¿¡ ¼ÓÇÏ¸é ½ºÅ¸Æ® ÆÀÀÇ ´É·ÂÄ¡´Â 6, ¸µÅ© ÆÀÀÇ ´É·ÂÄ¡´Â 6ÀÌ µÇ¾î¼­ Â÷ÀÌ°¡ 0ÀÌ µÇ°í ÀÌ °ªÀÌ ÃÖ¼ÒÀÌ´Ù.
- * ÀÔ·Â: Ã¹Â° ÁÙ¿¡ N(4 ¡Â N ¡Â 20, NÀº Â¦¼ö)ÀÌ ÁÖ¾îÁø´Ù. µÑÂ° ÁÙºÎÅÍ N°³ÀÇ ÁÙ¿¡ S°¡ ÁÖ¾îÁø´Ù. °¢ ÁÙÀº N°³ÀÇ ¼ö·Î ÀÌ·ç¾îÁ® ÀÖ°í, i¹ø ÁÙÀÇ j¹øÂ° ¼ö´Â Sij ÀÌ´Ù. Sii´Â Ç×»ó 0ÀÌ°í, ³ª¸ÓÁö Sij´Â 1º¸´Ù Å©°Å³ª °°°í, 100º¸´Ù ÀÛ°Å³ª °°Àº Á¤¼öÀÌ´Ù.
- * Ãâ·Â: Ã¹Â° ÁÙ¿¡ ½ºÅ¸Æ® ÆÀ°ú ¸µÅ© ÆÀÀÇ ´É·ÂÄ¡ÀÇ Â÷ÀÌÀÇ ÃÖ¼Ú°ªÀ» Ãâ·ÂÇÑ´Ù.
- * Ç®ÀÌ: https://velog.io/@leeinae/Algorithm-%EB%B0%B1%EC%A4%8014889-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%99%80-%EB%A7%81%ED%81%AC-java
- 		Á¶ÇÕ¹®Á¦Ã³·³ Ç®¸é µÊ
- 		»ç¶÷ÀÌ 6¸í(0¹ø~5¹ø)ÀÏ °æ¿ì 012, 013, 014, 015, 023, 024, 025, 034, 035, 045, 123, 124, 125, 134, 135, 145, 234, 235, 345 Á¶ÇÕ ¼øÀ¸·Î start ÆÀÀ¸·Î ³ª´©°Ô µÊ.
+ * ë¬¸ì œë‚´ìš©: ì˜¤ëŠ˜ì€ ìŠ¤íƒ€íŠ¸ë§í¬ì— ë‹¤ë‹ˆëŠ” ì‚¬ëžŒë“¤ì´ ëª¨ì—¬ì„œ ì¶•êµ¬ë¥¼ í•´ë³´ë ¤ê³  í•œë‹¤. ì¶•êµ¬ëŠ” í‰ì¼ ì˜¤í›„ì— í•˜ê³  ì˜ë¬´ ì°¸ì„ë„ ì•„ë‹ˆë‹¤. ì¶•êµ¬ë¥¼ í•˜ê¸° ìœ„í•´ ëª¨ì¸ ì‚¬ëžŒì€ ì´ Nëª…ì´ê³  ì‹ ê¸°í•˜ê²Œë„ Nì€ ì§ìˆ˜ì´ë‹¤. ì´ì œ N/2ëª…ìœ¼ë¡œ ì´ë£¨ì–´ì§„ ìŠ¤íƒ€íŠ¸ íŒ€ê³¼ ë§í¬ íŒ€ìœ¼ë¡œ ì‚¬ëžŒë“¤ì„ ë‚˜ëˆ ì•¼ í•œë‹¤.
+			BOJë¥¼ ìš´ì˜í•˜ëŠ” íšŒì‚¬ ë‹µê²Œ ì‚¬ëžŒì—ê²Œ ë²ˆí˜¸ë¥¼ 1ë¶€í„° Nê¹Œì§€ë¡œ ë°°ì •í–ˆê³ , ì•„ëž˜ì™€ ê°™ì€ ëŠ¥ë ¥ì¹˜ë¥¼ ì¡°ì‚¬í–ˆë‹¤. ëŠ¥ë ¥ì¹˜ SijëŠ” ië²ˆ ì‚¬ëžŒê³¼ jë²ˆ ì‚¬ëžŒì´ ê°™ì€ íŒ€ì— ì†í–ˆì„ ë•Œ, íŒ€ì— ë”í•´ì§€ëŠ” ëŠ¥ë ¥ì¹˜ì´ë‹¤. 
+			íŒ€ì˜ ëŠ¥ë ¥ì¹˜ëŠ” íŒ€ì— ì†í•œ ëª¨ë“  ìŒì˜ ëŠ¥ë ¥ì¹˜ Sijì˜ í•©ì´ë‹¤. SijëŠ” Sjiì™€ ë‹¤ë¥¼ ìˆ˜ë„ ìžˆìœ¼ë©°, ië²ˆ ì‚¬ëžŒê³¼ jë²ˆ ì‚¬ëžŒì´ ê°™ì€ íŒ€ì— ì†í–ˆì„ ë•Œ, íŒ€ì— ë”í•´ì§€ëŠ” ëŠ¥ë ¥ì¹˜ëŠ” Sijì™€ Sjiì´ë‹¤.
+			ì˜ˆë¥¼ ë“¤ì–´, 1, 2ë²ˆì´ ìŠ¤íƒ€íŠ¸ íŒ€, 3, 4ë²ˆì´ ë§í¬ íŒ€ì— ì†í•œ ê²½ìš°ì— ë‘ íŒ€ì˜ ëŠ¥ë ¥ì¹˜ëŠ” ì•„ëž˜ì™€ ê°™ë‹¤.
+				ìŠ¤íƒ€íŠ¸ íŒ€: S12 + S21 = 1 + 4 = 5
+				ë§í¬ íŒ€: S34 + S43 = 2 + 5 = 7
+			1, 3ë²ˆì´ ìŠ¤íƒ€íŠ¸ íŒ€, 2, 4ë²ˆì´ ë§í¬ íŒ€ì— ì†í•˜ë©´, ë‘ íŒ€ì˜ ëŠ¥ë ¥ì¹˜ëŠ” ì•„ëž˜ì™€ ê°™ë‹¤.
+				ìŠ¤íƒ€íŠ¸ íŒ€: S13 + S31 = 2 + 7 = 9
+				ë§í¬ íŒ€: S24 + S42 = 6 + 4 = 10
+			ì¶•êµ¬ë¥¼ ìž¬ë¯¸ìžˆê²Œ í•˜ê¸° ìœ„í•´ì„œ ìŠ¤íƒ€íŠ¸ íŒ€ì˜ ëŠ¥ë ¥ì¹˜ì™€ ë§í¬ íŒ€ì˜ ëŠ¥ë ¥ì¹˜ì˜ ì°¨ì´ë¥¼ ìµœì†Œë¡œ í•˜ë ¤ê³  í•œë‹¤. ìœ„ì˜ ì˜ˆì œì™€ ê°™ì€ ê²½ìš°ì—ëŠ” 1, 4ë²ˆì´ ìŠ¤íƒ€íŠ¸ íŒ€, 2, 3ë²ˆ íŒ€ì´ ë§í¬ íŒ€ì— ì†í•˜ë©´ ìŠ¤íƒ€íŠ¸ íŒ€ì˜ ëŠ¥ë ¥ì¹˜ëŠ” 6, ë§í¬ íŒ€ì˜ ëŠ¥ë ¥ì¹˜ëŠ” 6ì´ ë˜ì–´ì„œ ì°¨ì´ê°€ 0ì´ ë˜ê³  ì´ ê°’ì´ ìµœì†Œì´ë‹¤.
+ * ìž…ë ¥: ì²«ì§¸ ì¤„ì— N(4 â‰¤ N â‰¤ 20, Nì€ ì§ìˆ˜)ì´ ì£¼ì–´ì§„ë‹¤. ë‘˜ì§¸ ì¤„ë¶€í„° Nê°œì˜ ì¤„ì— Sê°€ ì£¼ì–´ì§„ë‹¤. ê° ì¤„ì€ Nê°œì˜ ìˆ˜ë¡œ ì´ë£¨ì–´ì ¸ ìžˆê³ , ië²ˆ ì¤„ì˜ jë²ˆì§¸ ìˆ˜ëŠ” Sij ì´ë‹¤. SiiëŠ” í•­ìƒ 0ì´ê³ , ë‚˜ë¨¸ì§€ SijëŠ” 1ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ê³ , 100ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ì •ìˆ˜ì´ë‹¤.
+ * ì¶œë ¥: ì²«ì§¸ ì¤„ì— ìŠ¤íƒ€íŠ¸ íŒ€ê³¼ ë§í¬ íŒ€ì˜ ëŠ¥ë ¥ì¹˜ì˜ ì°¨ì´ì˜ ìµœì†Ÿê°’ì„ ì¶œë ¥í•œë‹¤.
+ * í’€ì´: https://velog.io/@leeinae/Algorithm-%EB%B0%B1%EC%A4%8014889-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%99%80-%EB%A7%81%ED%81%AC-java
+ 		ì¡°í•©ë¬¸ì œì²˜ëŸ¼ í’€ë©´ ë¨
+ 		ì‚¬ëžŒì´ 6ëª…(0ë²ˆ~5ë²ˆ)ì¼ ê²½ìš° 012, 013, 014, 015, 023, 024, 025, 034, 035, 045, 123, 124, 125, 134, 135, 145, 234, 235, 345 ì¡°í•© ìˆœìœ¼ë¡œ start íŒ€ìœ¼ë¡œ ë‚˜ëˆ„ê²Œ ë¨.
  */
 
 import java.io.BufferedReader;
@@ -48,17 +48,17 @@ public class D210623T14889StartAndLink {
 	}
 
 	static void dfs(int round, int start) {
-		// ÀüÃ¼ ÀÎ¿øÀÇ ¹ÝÀý¾¿ ÆÀÀ¸·Î ³ª´©±â ¶§¹®¿¡ ÀÎ¿ø¼öÀÇ ¹ÝÀýÀÏ °æ¿ì ºÐ±â ÀÌµ¿ Áß´Ü
+		// ì „ì²´ ì¸ì›ì˜ ë°˜ì ˆì”© íŒ€ìœ¼ë¡œ ë‚˜ëˆ„ê¸° ë•Œë¬¸ì— ì¸ì›ìˆ˜ì˜ ë°˜ì ˆì¼ ê²½ìš° ë¶„ê¸° ì´ë™ ì¤‘ë‹¨
 		if(round == N/2) {
 			int[] startTeam = new int[N/2], linkTeam = new int[N/2];
 			int startIndex = 0, linkIndex = 0;
 			int sumStart = 0, sumLink = 0;
 			
 			for(int i = 0; i < N; i++) {
-				if(visited[i]) { // trueÀÏ °æ¿ì ½ºÅ¸Æ® ÆÀ ±Í¼Ó
+				if(visited[i]) { // trueì¼ ê²½ìš° ìŠ¤íƒ€íŠ¸ íŒ€ ê·€ì†
 					startTeam[startIndex++] = i;
 				}
-				else { // falseÀÏ °æ¿ì ¸µÅ© ÆÀ ±Í¼Ó
+				else { // falseì¼ ê²½ìš° ë§í¬ íŒ€ ê·€ì†
 					linkTeam[linkIndex++] = i;
 				}
 			}
@@ -72,7 +72,7 @@ public class D210623T14889StartAndLink {
 //				System.out.print(linkTeam[i]);
 //			}
 
-			// i=j ÀÏ °æ¿ì´Â °ªÀÌ 0ÀÌ¹Ç·Î j´Â i+1·Î ½ÃÀÛÇØÁÜ
+			// i=j ì¼ ê²½ìš°ëŠ” ê°’ì´ 0ì´ë¯€ë¡œ jëŠ” i+1ë¡œ ì‹œìž‘í•´ì¤Œ
 			for(int i = 0; i < N/2; i++) {
 				for(int j = i+1; j < N/2; j++) {
 					//System.out.print("\nI: " + i + "," + j);
@@ -88,9 +88,9 @@ public class D210623T14889StartAndLink {
 		}
 		else {
 			for(int i = start; i < N; i++) {
-				visited[i] = true; // trueÀÏ °æ¿ì ½ºÅ¸Æ® ÆÀ ±Í¼Ó
+				visited[i] = true; // trueì¼ ê²½ìš° ìŠ¤íƒ€íŠ¸ íŒ€ ê·€ì†
 				dfs(round+1, i+1);
-				visited[i] = false; // falseÀÏ °æ¿ì ¸µÅ© ÆÀ ±Í¼Ó
+				visited[i] = false; // falseì¼ ê²½ìš° ë§í¬ íŒ€ ê·€ì†
 			}
 		}
 	}

@@ -1,12 +1,12 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¿úÈ¦
- * ÀÏÀÚ: 22.09.29.¸ñ
+ * ë¬¸ì œëª…: ì›œí™€
+ * ì¼ì: 22.09.29.ëª©
  * https://www.acmicpc.net/problem/1865
- * ¹®Á¦Ç®ÀÌ: Bellman-Ford ¾Ë°í¸®Áò
+ * ë¬¸ì œí’€ì´: Bellman-Ford ì•Œê³ ë¦¬ì¦˜
  	https://backtony.github.io/algorithm/2021-02-13-algorithm-boj-class4-10/
- * ÀÔ·Â1:
+ * ì…ë ¥1:
 2
 3 3 1
 1 2 2
@@ -17,7 +17,7 @@ package TestBackJoon;
 1 2 3
 2 3 4
 3 1 8
- * Ãâ·Â1:
+ * ì¶œë ¥1:
 NO
 YES
  */
@@ -54,12 +54,12 @@ public class D220929T1865Wormhole {
     			int s = Integer.parseInt(st.nextToken()), e = Integer.parseInt(st.nextToken()), t = Integer.parseInt(st.nextToken());
     			
 	    		if(i < M) {
-	    			// µµ·Î - ¹æÇâÀÌ ¾øÀ½(¾ç¹æÇâ)
+	    			// ë„ë¡œ - ë°©í–¥ì´ ì—†ìŒ(ì–‘ë°©í–¥)
 	    			list.add(new Edge(s, e, t));
 	    			list.add(new Edge(e, s, t));
 	    		}
 	    		else {
-	    			// ¿úÈ¦ - ¹æÇâ Á¸Àç(´Ü¹æÇâ), À½¼ö °£¼±
+	    			// ì›œí™€ - ë°©í–¥ ì¡´ì¬(ë‹¨ë°©í–¥), ìŒìˆ˜ ê°„ì„ 
 	    			list.add(new Edge(s, e, -t));
 	    		}
 	    	}
@@ -80,11 +80,11 @@ public class D220929T1865Wormhole {
 				Edge edge = list.get(j);
 				int s = edge.s, e = edge.e, t = edge.t;
 				
-				// ¸ğµç ÁöÁ¡¿¡ ´ëÇØ¼­ ÃÖ´Ü °Å¸®¸¦ °»½ÅÇØ¾ß ÇÏ¹Ç·Î Ã¼Å© ¾ÈÇÔ
-				//if(distance[s] == INF) continue; // ÀÌµ¿ ºÒ°¡
+				// ëª¨ë“  ì§€ì ì— ëŒ€í•´ì„œ ìµœë‹¨ ê±°ë¦¬ë¥¼ ê°±ì‹ í•´ì•¼ í•˜ë¯€ë¡œ ì²´í¬ ì•ˆí•¨
+				//if(distance[s] == INF) continue; // ì´ë™ ë¶ˆê°€
 				
 				if(distance[e] > distance[s] + t) {
-					if(i == N) return true;	// À½¼ö °£¼± ¼øÈ¯ ¹ß»ı
+					if(i == N) return true;	// ìŒìˆ˜ ê°„ì„  ìˆœí™˜ ë°œìƒ
 					
 					distance[e] = distance[s] + t;
 				}

@@ -1,11 +1,11 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: ¿úÈ¦
- * ÀÏÀÚ: 22.09.29.¸ñ
+ * ë¬¸ì œëª…: ì›œí™€
+ * ì¼ì: 22.09.29.ëª©
  * https://www.acmicpc.net/problem/1865
- * ¹®Á¦Ç®ÀÌ: Bellman-Ford ¾Ë°í¸®Áò
- * ÀÔ·Â1:
+ * ë¬¸ì œí’€ì´: Bellman-Ford ì•Œê³ ë¦¬ì¦˜
+ * ì…ë ¥1:
 2
 3 3 1
 1 2 2
@@ -16,7 +16,7 @@ package TestBackJoon;
 1 2 3
 2 3 4
 3 1 8
- * Ãâ·Â1:
+ * ì¶œë ¥1:
 NO
 YES
  */
@@ -31,7 +31,7 @@ import java.io.BufferedReader;
 public class D220929T1865Wormhole_2 {
 	static final int INF = 987654321;
 	static int N, M, W;
-	// µÎ ÁöÁ¡À» ¿¬°áÇÏ´Â µµ·Î°¡ ÇÑ °³º¸´Ù ¸¹À» ¼öµµ ÀÖ¾î¼­ ÀÎÁ¢ ¸®½ºÆ®·Î ±¸ÇöÇØ¾ß ÇÔ
+	// ë‘ ì§€ì ì„ ì—°ê²°í•˜ëŠ” ë„ë¡œê°€ í•œ ê°œë³´ë‹¤ ë§ì„ ìˆ˜ë„ ìˆì–´ì„œ ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ë¡œ êµ¬í˜„í•´ì•¼ í•¨
 	static ArrayList<ArrayList<Edge>> adjList;
 	static int[] distance;
 	
@@ -57,12 +57,12 @@ public class D220929T1865Wormhole_2 {
     			int s = Integer.parseInt(st.nextToken()), e = Integer.parseInt(st.nextToken()), t = Integer.parseInt(st.nextToken());
     			
 	    		if(i < M) {
-	    			// µµ·Î - ¹æÇâÀÌ ¾øÀ½(¾ç¹æÇâ)
+	    			// ë„ë¡œ - ë°©í–¥ì´ ì—†ìŒ(ì–‘ë°©í–¥)
 	    			adjList.get(s).add(new Edge(e, t));
 	    			adjList.get(e).add(new Edge(s, t));
 	    		}
 	    		else {
-	    			// ¿úÈ¦ - ¹æÇâ Á¸Àç(´Ü¹æÇâ), À½¼ö °£¼±
+	    			// ì›œí™€ - ë°©í–¥ ì¡´ì¬(ë‹¨ë°©í–¥), ìŒìˆ˜ ê°„ì„ 
 	    			adjList.get(s).add(new Edge(e, -t));
 	    		}
 	    	}    	
@@ -84,7 +84,7 @@ public class D220929T1865Wormhole_2 {
 					int nv = edge.v, t = edge.t;
 					
 					if(distance[nv] > distance[j] + t) {
-						if(i == N) return true; // À½¼ö °£¼± ¼øÈ¯ ¹ß»ı
+						if(i == N) return true; // ìŒìˆ˜ ê°„ì„  ìˆœí™˜ ë°œìƒ
 						
 						distance[nv] = distance[j] + t;
 					}

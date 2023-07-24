@@ -1,9 +1,9 @@
 package DataStructure;
 
 /*
- * ¼±ÇüÀÚ·á±¸Á¶
- * ·£´ı Á¢±Ù ºÒ°¡´É
- * ÈÄÀÔ¼±Ãâ
+ * ì„ í˜•ìë£Œêµ¬ì¡°
+ * ëœë¤ ì ‘ê·¼ ë¶ˆê°€ëŠ¥
+ * í›„ì…ì„ ì¶œ
  */
 public class Stack {
 	static final int TOP_SIZE = 500;

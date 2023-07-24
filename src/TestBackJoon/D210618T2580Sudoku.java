@@ -1,12 +1,12 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: ½ºµµÄí
- * ÀÏÀÚ: 21.06.18.±Ý
+ * ë¬¸ì œëª…: ìŠ¤ë„ì¿ 
+ * ì¼ìž: 21.06.18.ê¸ˆ
  * https://www.acmicpc.net/problem/2580
- * ¹®Á¦³»¿ë: ½ºµµÄí´Â 18¼¼±â ½ºÀ§½º ¼öÇÐÀÚ°¡ ¸¸µç '¶óÆ¾ »ç°¢Çü'ÀÌ¶û ÆÛÁñ¿¡¼­ À¯·¡ÇÑ °ÍÀ¸·Î ÇöÀç ¸¹Àº ÀÎ±â¸¦ ´©¸®°í ÀÖ´Ù. 
-			ÀÌ °ÔÀÓÀº ¾Æ·¡ ±×¸²°ú °°ÀÌ °¡·Î, ¼¼·Î °¢°¢ 9°³¾¿ ÃÑ 81°³ÀÇ ÀÛÀº Ä­À¸·Î ÀÌ·ç¾îÁø Á¤»ç°¢Çü ÆÇ À§¿¡¼­ ÀÌ·ïÁö´Âµ¥, °ÔÀÓ ½ÃÀÛ Àü ÀÏºÎ Ä­¿¡´Â 1ºÎÅÍ 9±îÁöÀÇ ¼ýÀÚ Áß ÇÏ³ª°¡ ¾²¿© ÀÖ´Ù.
- * ÀÔ·Â: ¾ÆÈ© ÁÙ¿¡ °ÉÃÄ ÇÑ ÁÙ¿¡ 9°³¾¿ °ÔÀÓ ½ÃÀÛ Àü ½ºµµÄíÆÇ °¢ ÁÙ¿¡ ¾²¿© ÀÖ´Â ¼ýÀÚ°¡ ÇÑ Ä­¾¿ ¶ç¿ö¼­ Â÷·Ê·Î ÁÖ¾îÁø´Ù. ½ºµµÄí ÆÇÀÇ ºó Ä­ÀÇ °æ¿ì¿¡´Â 0ÀÌ ÁÖ¾îÁø´Ù. ½ºµµÄí ÆÇÀ» ±ÔÄ¢´ë·Î Ã¤¿ï ¼ö ¾ø´Â °æ¿ìÀÇ ÀÔ·ÂÀº ÁÖ¾îÁöÁö ¾Ê´Â´Ù.
- * Ãâ·Â: ¸ðµç ºó Ä­ÀÌ Ã¤¿öÁø ½ºµµÄí ÆÇÀÇ ÃÖÁ¾ ¸ð½ÀÀ» ¾ÆÈ© ÁÙ¿¡ °ÉÃÄ ÇÑ ÁÙ¿¡ 9°³¾¿ ÇÑ Ä­¾¿ ¶ç¿ö¼­ Ãâ·ÂÇÑ´Ù. ½ºµµÄí ÆÇÀ» Ã¤¿ì´Â ¹æ¹ýÀÌ ¿©·µÀÎ °æ¿ì´Â ±× Áß ÇÏ³ª¸¸À» Ãâ·ÂÇÑ´Ù.
+ * ë¬¸ì œë‚´ìš©: ìŠ¤ë„ì¿ ëŠ” 18ì„¸ê¸° ìŠ¤ìœ„ìŠ¤ ìˆ˜í•™ìžê°€ ë§Œë“  'ë¼í‹´ ì‚¬ê°í˜•'ì´ëž‘ í¼ì¦ì—ì„œ ìœ ëž˜í•œ ê²ƒìœ¼ë¡œ í˜„ìž¬ ë§Žì€ ì¸ê¸°ë¥¼ ëˆ„ë¦¬ê³  ìžˆë‹¤. 
+			ì´ ê²Œìž„ì€ ì•„ëž˜ ê·¸ë¦¼ê³¼ ê°™ì´ ê°€ë¡œ, ì„¸ë¡œ ê°ê° 9ê°œì”© ì´ 81ê°œì˜ ìž‘ì€ ì¹¸ìœ¼ë¡œ ì´ë£¨ì–´ì§„ ì •ì‚¬ê°í˜• íŒ ìœ„ì—ì„œ ì´ë¤„ì§€ëŠ”ë°, ê²Œìž„ ì‹œìž‘ ì „ ì¼ë¶€ ì¹¸ì—ëŠ” 1ë¶€í„° 9ê¹Œì§€ì˜ ìˆ«ìž ì¤‘ í•˜ë‚˜ê°€ ì“°ì—¬ ìžˆë‹¤.
+ * ìž…ë ¥: ì•„í™‰ ì¤„ì— ê±¸ì³ í•œ ì¤„ì— 9ê°œì”© ê²Œìž„ ì‹œìž‘ ì „ ìŠ¤ë„ì¿ íŒ ê° ì¤„ì— ì“°ì—¬ ìžˆëŠ” ìˆ«ìžê°€ í•œ ì¹¸ì”© ë„ì›Œì„œ ì°¨ë¡€ë¡œ ì£¼ì–´ì§„ë‹¤. ìŠ¤ë„ì¿  íŒì˜ ë¹ˆ ì¹¸ì˜ ê²½ìš°ì—ëŠ” 0ì´ ì£¼ì–´ì§„ë‹¤. ìŠ¤ë„ì¿  íŒì„ ê·œì¹™ëŒ€ë¡œ ì±„ìš¸ ìˆ˜ ì—†ëŠ” ê²½ìš°ì˜ ìž…ë ¥ì€ ì£¼ì–´ì§€ì§€ ì•ŠëŠ”ë‹¤.
+ * ì¶œë ¥: ëª¨ë“  ë¹ˆ ì¹¸ì´ ì±„ì›Œì§„ ìŠ¤ë„ì¿  íŒì˜ ìµœì¢… ëª¨ìŠµì„ ì•„í™‰ ì¤„ì— ê±¸ì³ í•œ ì¤„ì— 9ê°œì”© í•œ ì¹¸ì”© ë„ì›Œì„œ ì¶œë ¥í•œë‹¤. ìŠ¤ë„ì¿  íŒì„ ì±„ìš°ëŠ” ë°©ë²•ì´ ì—¬ëŸ¿ì¸ ê²½ìš°ëŠ” ê·¸ ì¤‘ í•˜ë‚˜ë§Œì„ ì¶œë ¥í•œë‹¤.
  */
 
 import java.io.BufferedReader;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 public class D210618T2580Sudoku {
-	// ½ºµµÄíÆÇÀº N-Queen ¹®Á¦Ã³·³ ÇÑ ÇàÀÌ³ª ¿­¿¡ ÇÏ³ªÀÇ Äý¸¸ÀÌ ¿À´Â °ÍÀÌ ¾Æ´Ï±â ¶§¹®¿¡ 2Â÷¿ø ¹è¿­·Î ÇØ¾ßÇÔ
+	// ìŠ¤ë„ì¿ íŒì€ N-Queen ë¬¸ì œì²˜ëŸ¼ í•œ í–‰ì´ë‚˜ ì—´ì— í•˜ë‚˜ì˜ í€¸ë§Œì´ ì˜¤ëŠ” ê²ƒì´ ì•„ë‹ˆê¸° ë•Œë¬¸ì— 2ì°¨ì› ë°°ì—´ë¡œ í•´ì•¼í•¨
 	static int[][] board = new int[9][9];
 
 	public static void main(String[] args) throws IOException {
@@ -46,9 +46,9 @@ public class D210618T2580Sudoku {
 				System.exit(0);
 			}
 			else {
-				// 0ÀÏ °æ¿ì¿¡¸¸ È®ÀÎÇÏ±â
+				// 0ì¼ ê²½ìš°ì—ë§Œ í™•ì¸í•˜ê¸°
 				if(board[row][column] == 0) {
-					// °¡´ÉÇÑ ¼ö Å½»ö
+					// ê°€ëŠ¥í•œ ìˆ˜ íƒìƒ‰
 					for(int i = 1; i <= 9; i++) {
 						if(promising(row, column, i)) {
 							board[row][column] = i;
@@ -58,28 +58,28 @@ public class D210618T2580Sudoku {
 					board[row][column] = 0;
 				}
 				else {
-					dfs(row, column+1); // ¾Æ´Ï¶ó¸é ¿­ ÀÌµ¿						
+					dfs(row, column+1); // ì•„ë‹ˆë¼ë©´ ì—´ ì´ë™						
 				}
 			}
 		}
 	}
 	
 	static boolean promising(int row, int column, int number) {		
-		// °¡·Î È®ÀÎ
+		// ê°€ë¡œ í™•ì¸
 		for(int i = 0; i < 9; i++) {
 			if(board[row][i] == number) {
 				return false;
 			}
 		}
 		
-		// ¼¼·Î È®ÀÎ
+		// ì„¸ë¡œ í™•ì¸
 		for(int i = 0; i < 9; i++) {
 			if(board[i][column] == number) {
 				return false;
 			}
 		}
 		
-		// 3X3 Á¤»ç°¢Çü È®ÀÎ
+		// 3X3 ì •ì‚¬ê°í˜• í™•ì¸
 		int x = (row/3)*3;
 		int y = (column/3)*3;
 		for(int i = x; i < x+3; i++) {

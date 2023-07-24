@@ -1,8 +1,8 @@
 package TestKakao;
 
 /*
- * ¹®Á¦: https://programmers.co.kr/learn/courses/30/lessons/72410?language=java
- * Âü°í: https://codechacha.com/ko/java-regex/
+ * ë¬¸ì œ: https://programmers.co.kr/learn/courses/30/lessons/72410?language=java
+ * ì°¸ê³ : https://codechacha.com/ko/java-regex/
  */
 
 public class NewId {	
@@ -31,30 +31,30 @@ public class NewId {
 		return str;
 	}
 	
-	// ¼Ò¹®ÀÚ·Î Ä¡È¯
+	// ì†Œë¬¸ìë¡œ ì¹˜í™˜
 	public static String changeLower(String str) {
 		return str.toLowerCase();
 	}
 	
-	// ¾ËÆÄºª ¼Ò¹®ÀÚ, ¼ıÀÚ, »©±â(-), ¹ØÁÙ(_), ¸¶Ä§Ç¥(.)¸¦ Á¦¿Ü
+	// ì•ŒíŒŒë²³ ì†Œë¬¸ì, ìˆ«ì, ë¹¼ê¸°(-), ë°‘ì¤„(_), ë§ˆì¹¨í‘œ(.)ë¥¼ ì œì™¸
 	public static String removeCharacter(String str) {
-		// [^abc] : a, b, c¸¦ Á¦¿ÜÇÑ ¹®ÀÚ 1°³
+		// [^abc] : a, b, cë¥¼ ì œì™¸í•œ ë¬¸ì 1ê°œ
 		str = str.replaceAll("[^0-9a-z-_.]", "");
 		return str;
 	}
 	
-	// '...'¿Í '..' °¡ '.'·Î ±³Ã¼
+	// '...'ì™€ '..' ê°€ '.'ë¡œ êµì²´
 	public static String changeDot(String str) {
-	    // + : 1È¸ ÀÌ»ó ¹İº¹
+	    // + : 1íšŒ ì´ìƒ ë°˜ë³µ
 		str = str.replaceAll("\\.+", ".");
 		return str;
 	}
 
-    // ¸¶Ä§Ç¥(.)´Â Ã³À½°ú ³¡¿¡ »ç¿ë ºÒ°¡
+    // ë§ˆì¹¨í‘œ(.)ëŠ” ì²˜ìŒê³¼ ëì— ì‚¬ìš© ë¶ˆê°€
 	public static String removeDotStartEnd(String str) {
-        // ^ : ¹®ÀÚ¿­ÀÇ ½ÃÀÛÁöÁ¡
-		// $ : ¹®ÀÚ¿­ÀÇ Á¾·áÁöÁ¡
-		// X|Z : X ¶Ç´Â Z
+        // ^ : ë¬¸ìì—´ì˜ ì‹œì‘ì§€ì 
+		// $ : ë¬¸ìì—´ì˜ ì¢…ë£Œì§€ì 
+		// X|Z : X ë˜ëŠ” Z
 		str = str.replaceAll("^[.]|[.]$", "");
 		return str;
 	}
@@ -67,7 +67,7 @@ public class NewId {
 	}
 
 	public static String paddingString(String str) {
-		// ³» Ç®ÀÌ
+		// ë‚´ í’€ì´
 		/*
 		if(str.length() < 3) {
         	String lastWord = "";
@@ -89,7 +89,7 @@ public class NewId {
         }
         */
 		
-		// ´Ù¸¥ »ç¶÷ Ç®ÀÌ
+		// ë‹¤ë¥¸ ì‚¬ëŒ í’€ì´
 		StringBuilder sBuilder = new StringBuilder(str);
         while (sBuilder.length() <= 2) {
             sBuilder.append(sBuilder.charAt(sBuilder.length() - 1));

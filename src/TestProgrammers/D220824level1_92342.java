@@ -1,10 +1,10 @@
 package TestProgrammers;
 
 /*
- * ¹®Á¦¸í: ¾ç±Ã´ëÈ¸
- * ÀÏÀÚ: 22.08.24.¼ö
+ * ë¬¸ì œëª…: ì–‘ê¶ëŒ€íšŒ
+ * ì¼ì: 22.08.24.ìˆ˜
  * https://school.programmers.co.kr/learn/courses/30/lessons/92342
- * Ç®ÀÌ: ¿ÏÀüÅ½»ö - BFS(Breadth-First Search), ¹éÆ®·¡Å·
+ * í’€ì´: ì™„ì „íƒìƒ‰ - BFS(Breadth-First Search), ë°±íŠ¸ë˜í‚¹
  */
 
 import java.util.*;
@@ -22,7 +22,7 @@ public class D220824level1_92342 {
 			int apeachScore = 0;
 			
 			for(int i = 0; i <= 10; i++) {
-				// ¾îÇÇÄ¡ ±âÁØÀ¸·Î °è»ê ÇØ¾ß ÇÔ
+				// ì–´í”¼ì¹˜ ê¸°ì¤€ìœ¼ë¡œ ê³„ì‚° í•´ì•¼ í•¨
 				if(apeach[i] > 0 || lion[i] > 0) {
 					if(lion[i] > apeach[i]) {
 						lionScore += 10-i;
@@ -33,7 +33,7 @@ public class D220824level1_92342 {
 				}
 			}
 			
-			// Á¡¼öÀÇ ÃÖ¼Ò°ªÀ» ±¸ÇØ¾ß ÇÏ¹Ç·Î ¶óÀÌ¾ğ°ú ¾îÇÇÄ¡ Á¡¼öÀÇ Â÷ÀÌ°ªÀ¸·Î ºñ±³
+			// ì ìˆ˜ì˜ ìµœì†Œê°’ì„ êµ¬í•´ì•¼ í•˜ë¯€ë¡œ ë¼ì´ì–¸ê³¼ ì–´í”¼ì¹˜ ì ìˆ˜ì˜ ì°¨ì´ê°’ìœ¼ë¡œ ë¹„êµ
 			if(apeachScore < lionScore && lionScore-apeachScore >= diff) {
 				diff = lionScore-apeachScore;
 				result = lion.clone();
@@ -43,7 +43,7 @@ public class D220824level1_92342 {
 		}
 		
 		for(int i = 0; i <= 10; i++) {
-			// ¹éÆ®·¡Å· ±¸°£ -> °¡Àå ³·Àº Á¡¼ö¸¦ ±¸ÇØ¾ß ÇÏ¹Ç·Î
+			// ë°±íŠ¸ë˜í‚¹ êµ¬ê°„ -> ê°€ì¥ ë‚®ì€ ì ìˆ˜ë¥¼ êµ¬í•´ì•¼ í•˜ë¯€ë¡œ
 			if(lion[i] > apeach[i])
 				break;
 			

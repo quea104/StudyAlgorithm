@@ -1,35 +1,35 @@
 package TestProgrammers;
 
 /*
- * ¹®Á¦¸í: ´õ ¸Ê°Ô
- * ÀÏÀÚ: 22.05.30.¿ù
+ * ë¬¸ì œëª…: ë” ë§µê²Œ
+ * ì¼ìž: 22.05.30.ì›”
  * https://programmers.co.kr/learn/courses/30/lessons/42626
- * µµ¿ò¸»: ArrayList¸¦ »ç¿ëÇÏ¸é ½Ã°£ÃÊ°ú ¹ß»ýÇÏ¹Ç·Î HeapÀ» »ç¿ëÇØ¾ß ÇÔ.
- * ¹®Á¦ ¼³¸í
-¸Å¿î °ÍÀ» ÁÁ¾ÆÇÏ´Â Leo´Â ¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ K ÀÌ»óÀ¸·Î ¸¸µé°í ½Í½À´Ï´Ù. ¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ K ÀÌ»óÀ¸·Î ¸¸µé±â À§ÇØ Leo´Â ½ºÄÚºô Áö¼ö°¡ °¡Àå ³·Àº µÎ °³ÀÇ À½½ÄÀ» ¾Æ·¡¿Í °°ÀÌ Æ¯º°ÇÑ ¹æ¹ýÀ¸·Î ¼¯¾î »õ·Î¿î À½½ÄÀ» ¸¸µì´Ï´Ù.
+ * ë„ì›€ë§: ArrayListë¥¼ ì‚¬ìš©í•˜ë©´ ì‹œê°„ì´ˆê³¼ ë°œìƒí•˜ë¯€ë¡œ Heapì„ ì‚¬ìš©í•´ì•¼ í•¨.
+ * ë¬¸ì œ ì„¤ëª…
+ë§¤ìš´ ê²ƒì„ ì¢‹ì•„í•˜ëŠ” LeoëŠ” ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ K ì´ìƒìœ¼ë¡œ ë§Œë“¤ê³  ì‹¶ìŠµë‹ˆë‹¤. ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ K ì´ìƒìœ¼ë¡œ ë§Œë“¤ê¸° ìœ„í•´ LeoëŠ” ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ ê°€ìž¥ ë‚®ì€ ë‘ ê°œì˜ ìŒì‹ì„ ì•„ëž˜ì™€ ê°™ì´ íŠ¹ë³„í•œ ë°©ë²•ìœ¼ë¡œ ì„žì–´ ìƒˆë¡œìš´ ìŒì‹ì„ ë§Œë“­ë‹ˆë‹¤.
 
-¼¯Àº À½½ÄÀÇ ½ºÄÚºô Áö¼ö = °¡Àå ¸ÊÁö ¾ÊÀº À½½ÄÀÇ ½ºÄÚºô Áö¼ö + (µÎ ¹øÂ°·Î ¸ÊÁö ¾ÊÀº À½½ÄÀÇ ½ºÄÚºô Áö¼ö * 2)
-Leo´Â ¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö°¡ K ÀÌ»óÀÌ µÉ ¶§±îÁö ¹Ýº¹ÇÏ¿© ¼¯½À´Ï´Ù.
-Leo°¡ °¡Áø À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ ´ãÀº ¹è¿­ scoville°ú ¿øÇÏ´Â ½ºÄÚºô Áö¼ö K°¡ ÁÖ¾îÁú ¶§, ¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ K ÀÌ»óÀ¸·Î ¸¸µé±â À§ÇØ ¼¯¾î¾ß ÇÏ´Â ÃÖ¼Ò È½¼ö¸¦ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+ì„žì€ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ = ê°€ìž¥ ë§µì§€ ì•Šì€ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ + (ë‘ ë²ˆì§¸ë¡œ ë§µì§€ ì•Šì€ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ * 2)
+LeoëŠ” ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ K ì´ìƒì´ ë  ë•Œê¹Œì§€ ë°˜ë³µí•˜ì—¬ ì„žìŠµë‹ˆë‹¤.
+Leoê°€ ê°€ì§„ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ ë‹´ì€ ë°°ì—´ scovilleê³¼ ì›í•˜ëŠ” ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ Kê°€ ì£¼ì–´ì§ˆ ë•Œ, ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ K ì´ìƒìœ¼ë¡œ ë§Œë“¤ê¸° ìœ„í•´ ì„žì–´ì•¼ í•˜ëŠ” ìµœì†Œ íšŸìˆ˜ë¥¼ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.
 
-Á¦ÇÑ »çÇ×
-scovilleÀÇ ±æÀÌ´Â 2 ÀÌ»ó 1,000,000 ÀÌÇÏÀÔ´Ï´Ù.
-K´Â 0 ÀÌ»ó 1,000,000,000 ÀÌÇÏÀÔ´Ï´Ù.
-scovilleÀÇ ¿ø¼Ò´Â °¢°¢ 0 ÀÌ»ó 1,000,000 ÀÌÇÏÀÔ´Ï´Ù.
-¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ K ÀÌ»óÀ¸·Î ¸¸µé ¼ö ¾ø´Â °æ¿ì¿¡´Â -1À» return ÇÕ´Ï´Ù.
-ÀÔÃâ·Â ¿¹
+ì œí•œ ì‚¬í•­
+scovilleì˜ ê¸¸ì´ëŠ” 2 ì´ìƒ 1,000,000 ì´í•˜ìž…ë‹ˆë‹¤.
+KëŠ” 0 ì´ìƒ 1,000,000,000 ì´í•˜ìž…ë‹ˆë‹¤.
+scovilleì˜ ì›ì†ŒëŠ” ê°ê° 0 ì´ìƒ 1,000,000 ì´í•˜ìž…ë‹ˆë‹¤.
+ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ K ì´ìƒìœ¼ë¡œ ë§Œë“¤ ìˆ˜ ì—†ëŠ” ê²½ìš°ì—ëŠ” -1ì„ return í•©ë‹ˆë‹¤.
+ìž…ì¶œë ¥ ì˜ˆ
 scoville	K	return
 [1, 2, 3, 9, 10, 12]	7	2
-ÀÔÃâ·Â ¿¹ ¼³¸í
-½ºÄÚºô Áö¼ö°¡ 1ÀÎ À½½Ä°ú 2ÀÎ À½½ÄÀ» ¼¯À¸¸é À½½ÄÀÇ ½ºÄÚºô Áö¼ö°¡ ¾Æ·¡¿Í °°ÀÌ µË´Ï´Ù.
-»õ·Î¿î À½½ÄÀÇ ½ºÄÚºô Áö¼ö = 1 + (2 * 2) = 5
-°¡Áø À½½ÄÀÇ ½ºÄÚºô Áö¼ö = [5, 3, 9, 10, 12]
+ìž…ì¶œë ¥ ì˜ˆ ì„¤ëª…
+ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ 1ì¸ ìŒì‹ê³¼ 2ì¸ ìŒì‹ì„ ì„žìœ¼ë©´ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ ì•„ëž˜ì™€ ê°™ì´ ë©ë‹ˆë‹¤.
+ìƒˆë¡œìš´ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ = 1 + (2 * 2) = 5
+ê°€ì§„ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ = [5, 3, 9, 10, 12]
 
-½ºÄÚºô Áö¼ö°¡ 3ÀÎ À½½Ä°ú 5ÀÎ À½½ÄÀ» ¼¯À¸¸é À½½ÄÀÇ ½ºÄÚºô Áö¼ö°¡ ¾Æ·¡¿Í °°ÀÌ µË´Ï´Ù.
-»õ·Î¿î À½½ÄÀÇ ½ºÄÚºô Áö¼ö = 3 + (5 * 2) = 13
-°¡Áø À½½ÄÀÇ ½ºÄÚºô Áö¼ö = [13, 9, 10, 12]
+ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ 3ì¸ ìŒì‹ê³¼ 5ì¸ ìŒì‹ì„ ì„žìœ¼ë©´ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ ì•„ëž˜ì™€ ê°™ì´ ë©ë‹ˆë‹¤.
+ìƒˆë¡œìš´ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ = 3 + (5 * 2) = 13
+ê°€ì§„ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ = [13, 9, 10, 12]
 
-¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö°¡ 7 ÀÌ»óÀÌ µÇ¾ú°í ÀÌ¶§ ¼¯Àº È½¼ö´Â 2È¸ÀÔ´Ï´Ù.
+ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ 7 ì´ìƒì´ ë˜ì—ˆê³  ì´ë•Œ ì„žì€ íšŸìˆ˜ëŠ” 2íšŒìž…ë‹ˆë‹¤.
  */
 
 import java.util.*;
@@ -40,7 +40,7 @@ public class D220530level2_42626 {
 		int K = 7;
 		int answer = 0;
 
-		// ÀÚ¹Ù¿¡¼­´Â PriorityQueue (¿ì¼±¼øÀ§ Å¥)·Î ÁÖ¾îÁö¸ç ÀÚµ¿À¸·Î ÃÖ¼Ò ÈüÀ¸·Î ¸¸µé¾îÁø´Ù.
+		// ìžë°”ì—ì„œëŠ” PriorityQueue (ìš°ì„ ìˆœìœ„ í)ë¡œ ì£¼ì–´ì§€ë©° ìžë™ìœ¼ë¡œ ìµœì†Œ íž™ìœ¼ë¡œ ë§Œë“¤ì–´ì§„ë‹¤.
 		PriorityQueue<Integer> heap = new PriorityQueue<Integer>();
 		for(int num: scoville) {
 			heap.offer(num);
@@ -49,14 +49,14 @@ public class D220530level2_42626 {
 		
 		while(heap.peek() < K) {
 			try {
-				// °ªÀ» ³Ö´Â ¼ø¼­¿¡ »ó°ü¾øÀÌ poll()À» ÇÏ¸é ÃÖ¼Ú°ªÀÌ ¼ø¼­´ë·Î ³ª¿Â´Ù.
+				// ê°’ì„ ë„£ëŠ” ìˆœì„œì— ìƒê´€ì—†ì´ poll()ì„ í•˜ë©´ ìµœì†Ÿê°’ì´ ìˆœì„œëŒ€ë¡œ ë‚˜ì˜¨ë‹¤.
 				int mixFood = heap.poll() + heap.poll()*2;
 				heap.offer(mixFood);
 				answer++;
 				
 				if(heap.peek() >= K) break;
 				
-				// Èü »çÀÌÁî°¡ 1ÀÌ ‰ç´Âµ¥ ½ºÄÚºôÀÌ Kº¸´Ù ÀÛÀ¸¸é ´õ ÀÌ»ó ¸¸µé ¼ö ¾øÀ¸¹Ç·Î answer = -1À» ÇÑ´Ù.
+				// íž™ ì‚¬ì´ì¦ˆê°€ 1ì´ æ¦®ì¨‰ ìŠ¤ì½”ë¹Œì´ Kë³´ë‹¤ ìž‘ìœ¼ë©´ ë” ì´ìƒ ë§Œë“¤ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ answer = -1ì„ í•œë‹¤.
 				if(heap.size() == 1 && heap.peek() < K) {
 					answer = -1;
 					break;
@@ -72,7 +72,7 @@ public class D220530level2_42626 {
 	}
 
 	/*
-	ArrayList ¹æ½Ä
+	ArrayList ë°©ì‹
 	static int limit;
 	static int answer = 0;
 	static ArrayList<Integer> scovilleList = new ArrayList<Integer>();

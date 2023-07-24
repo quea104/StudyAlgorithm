@@ -6,91 +6,91 @@ import java.util.Iterator;
 import java.util.StringTokenizer;
 
 /*
- * ¹®Á¦¸í: ½Å°í °á°ú ¹Þ±â
- * ÀÏÀÚ: 22.08.23.È­
+ * ë¬¸ì œëª…: ì‹ ê³  ê²°ê³¼ ë°›ê¸°
+ * ì¼ìž: 22.08.23.í™”
  * https://school.programmers.co.kr/learn/courses/30/lessons/92334
- * ¹®Á¦ ¼³¸í
-½ÅÀÔ»ç¿ø ¹«Áö´Â °Ô½ÃÆÇ ºÒ·® ÀÌ¿ëÀÚ¸¦ ½Å°íÇÏ°í Ã³¸® °á°ú¸¦ ¸ÞÀÏ·Î ¹ß¼ÛÇÏ´Â ½Ã½ºÅÛÀ» °³¹ßÇÏ·Á ÇÕ´Ï´Ù. ¹«Áö°¡ °³¹ßÇÏ·Á´Â ½Ã½ºÅÛÀº ´ÙÀ½°ú °°½À´Ï´Ù.
+ * ë¬¸ì œ ì„¤ëª…
+ì‹ ìž…ì‚¬ì› ë¬´ì§€ëŠ” ê²Œì‹œíŒ ë¶ˆëŸ‰ ì´ìš©ìžë¥¼ ì‹ ê³ í•˜ê³  ì²˜ë¦¬ ê²°ê³¼ë¥¼ ë©”ì¼ë¡œ ë°œì†¡í•˜ëŠ” ì‹œìŠ¤í…œì„ ê°œë°œí•˜ë ¤ í•©ë‹ˆë‹¤. ë¬´ì§€ê°€ ê°œë°œí•˜ë ¤ëŠ” ì‹œìŠ¤í…œì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
 
-°¢ À¯Àú´Â ÇÑ ¹ø¿¡ ÇÑ ¸íÀÇ À¯Àú¸¦ ½Å°íÇÒ ¼ö ÀÖ½À´Ï´Ù.
-½Å°í È½¼ö¿¡ Á¦ÇÑÀº ¾ø½À´Ï´Ù. ¼­·Î ´Ù¸¥ À¯Àú¸¦ °è¼ÓÇØ¼­ ½Å°íÇÒ ¼ö ÀÖ½À´Ï´Ù.
-ÇÑ À¯Àú¸¦ ¿©·¯ ¹ø ½Å°íÇÒ ¼öµµ ÀÖÁö¸¸, µ¿ÀÏÇÑ À¯Àú¿¡ ´ëÇÑ ½Å°í È½¼ö´Â 1È¸·Î Ã³¸®µË´Ï´Ù.
-k¹ø ÀÌ»ó ½Å°íµÈ À¯Àú´Â °Ô½ÃÆÇ ÀÌ¿ëÀÌ Á¤ÁöµÇ¸ç, ÇØ´ç À¯Àú¸¦ ½Å°íÇÑ ¸ðµç À¯Àú¿¡°Ô Á¤Áö »ç½ÇÀ» ¸ÞÀÏ·Î ¹ß¼ÛÇÕ´Ï´Ù.
-À¯Àú°¡ ½Å°íÇÑ ¸ðµç ³»¿ëÀ» ÃëÇÕÇÏ¿© ¸¶Áö¸·¿¡ ÇÑ²¨¹ø¿¡ °Ô½ÃÆÇ ÀÌ¿ë Á¤Áö¸¦ ½ÃÅ°¸é¼­ Á¤Áö ¸ÞÀÏÀ» ¹ß¼ÛÇÕ´Ï´Ù.
-´ÙÀ½Àº ÀüÃ¼ À¯Àú ¸ñ·ÏÀÌ ["muzi", "frodo", "apeach", "neo"]ÀÌ°í, k = 2(Áï, 2¹ø ÀÌ»ó ½Å°í´çÇÏ¸é ÀÌ¿ë Á¤Áö)ÀÎ °æ¿ìÀÇ ¿¹½ÃÀÔ´Ï´Ù.
+ê° ìœ ì €ëŠ” í•œ ë²ˆì— í•œ ëª…ì˜ ìœ ì €ë¥¼ ì‹ ê³ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+ì‹ ê³  íšŸìˆ˜ì— ì œí•œì€ ì—†ìŠµë‹ˆë‹¤. ì„œë¡œ ë‹¤ë¥¸ ìœ ì €ë¥¼ ê³„ì†í•´ì„œ ì‹ ê³ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+í•œ ìœ ì €ë¥¼ ì—¬ëŸ¬ ë²ˆ ì‹ ê³ í•  ìˆ˜ë„ ìžˆì§€ë§Œ, ë™ì¼í•œ ìœ ì €ì— ëŒ€í•œ ì‹ ê³  íšŸìˆ˜ëŠ” 1íšŒë¡œ ì²˜ë¦¬ë©ë‹ˆë‹¤.
+kë²ˆ ì´ìƒ ì‹ ê³ ëœ ìœ ì €ëŠ” ê²Œì‹œíŒ ì´ìš©ì´ ì •ì§€ë˜ë©°, í•´ë‹¹ ìœ ì €ë¥¼ ì‹ ê³ í•œ ëª¨ë“  ìœ ì €ì—ê²Œ ì •ì§€ ì‚¬ì‹¤ì„ ë©”ì¼ë¡œ ë°œì†¡í•©ë‹ˆë‹¤.
+ìœ ì €ê°€ ì‹ ê³ í•œ ëª¨ë“  ë‚´ìš©ì„ ì·¨í•©í•˜ì—¬ ë§ˆì§€ë§‰ì— í•œêº¼ë²ˆì— ê²Œì‹œíŒ ì´ìš© ì •ì§€ë¥¼ ì‹œí‚¤ë©´ì„œ ì •ì§€ ë©”ì¼ì„ ë°œì†¡í•©ë‹ˆë‹¤.
+ë‹¤ìŒì€ ì „ì²´ ìœ ì € ëª©ë¡ì´ ["muzi", "frodo", "apeach", "neo"]ì´ê³ , k = 2(ì¦‰, 2ë²ˆ ì´ìƒ ì‹ ê³ ë‹¹í•˜ë©´ ì´ìš© ì •ì§€)ì¸ ê²½ìš°ì˜ ì˜ˆì‹œìž…ë‹ˆë‹¤.
 
-À¯Àú ID	À¯Àú°¡ ½Å°íÇÑ ID	¼³¸í
-"muzi"	"frodo"	"muzi"°¡ "frodo"¸¦ ½Å°íÇß½À´Ï´Ù.
-"apeach"	"frodo"	"apeach"°¡ "frodo"¸¦ ½Å°íÇß½À´Ï´Ù.
-"frodo"	"neo"	"frodo"°¡ "neo"¸¦ ½Å°íÇß½À´Ï´Ù.
-"muzi"	"neo"	"muzi"°¡ "neo"¸¦ ½Å°íÇß½À´Ï´Ù.
-"apeach"	"muzi"	"apeach"°¡ "muzi"¸¦ ½Å°íÇß½À´Ï´Ù.
-°¢ À¯Àúº°·Î ½Å°í´çÇÑ È½¼ö´Â ´ÙÀ½°ú °°½À´Ï´Ù.
+ìœ ì € ID	ìœ ì €ê°€ ì‹ ê³ í•œ ID	ì„¤ëª…
+"muzi"	"frodo"	"muzi"ê°€ "frodo"ë¥¼ ì‹ ê³ í–ˆìŠµë‹ˆë‹¤.
+"apeach"	"frodo"	"apeach"ê°€ "frodo"ë¥¼ ì‹ ê³ í–ˆìŠµë‹ˆë‹¤.
+"frodo"	"neo"	"frodo"ê°€ "neo"ë¥¼ ì‹ ê³ í–ˆìŠµë‹ˆë‹¤.
+"muzi"	"neo"	"muzi"ê°€ "neo"ë¥¼ ì‹ ê³ í–ˆìŠµë‹ˆë‹¤.
+"apeach"	"muzi"	"apeach"ê°€ "muzi"ë¥¼ ì‹ ê³ í–ˆìŠµë‹ˆë‹¤.
+ê° ìœ ì €ë³„ë¡œ ì‹ ê³ ë‹¹í•œ íšŸìˆ˜ëŠ” ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
 
-À¯Àú ID	½Å°í´çÇÑ È½¼ö
+ìœ ì € ID	ì‹ ê³ ë‹¹í•œ íšŸìˆ˜
 "muzi"	1
 "frodo"	2
 "apeach"	0
 "neo"	2
-À§ ¿¹½Ã¿¡¼­´Â 2¹ø ÀÌ»ó ½Å°í´çÇÑ "frodo"¿Í "neo"ÀÇ °Ô½ÃÆÇ ÀÌ¿ëÀÌ Á¤ÁöµË´Ï´Ù. ÀÌ¶§, °¢ À¯Àúº°·Î ½Å°íÇÑ ¾ÆÀÌµð¿Í Á¤ÁöµÈ ¾ÆÀÌµð¸¦ Á¤¸®ÇÏ¸é ´ÙÀ½°ú °°½À´Ï´Ù.
+ìœ„ ì˜ˆì‹œì—ì„œëŠ” 2ë²ˆ ì´ìƒ ì‹ ê³ ë‹¹í•œ "frodo"ì™€ "neo"ì˜ ê²Œì‹œíŒ ì´ìš©ì´ ì •ì§€ë©ë‹ˆë‹¤. ì´ë•Œ, ê° ìœ ì €ë³„ë¡œ ì‹ ê³ í•œ ì•„ì´ë””ì™€ ì •ì§€ëœ ì•„ì´ë””ë¥¼ ì •ë¦¬í•˜ë©´ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
 
-À¯Àú ID	À¯Àú°¡ ½Å°íÇÑ ID	Á¤ÁöµÈ ID
+ìœ ì € ID	ìœ ì €ê°€ ì‹ ê³ í•œ ID	ì •ì§€ëœ ID
 "muzi"	["frodo", "neo"]	["frodo", "neo"]
 "frodo"	["neo"]	["neo"]
 "apeach"	["muzi", "frodo"]	["frodo"]
-"neo"	¾øÀ½	¾øÀ½
-µû¶ó¼­ "muzi"´Â Ã³¸® °á°ú ¸ÞÀÏÀ» 2È¸, "frodo"¿Í "apeach"´Â °¢°¢ Ã³¸® °á°ú ¸ÞÀÏÀ» 1È¸ ¹Þ°Ô µË´Ï´Ù.
+"neo"	ì—†ìŒ	ì—†ìŒ
+ë”°ë¼ì„œ "muzi"ëŠ” ì²˜ë¦¬ ê²°ê³¼ ë©”ì¼ì„ 2íšŒ, "frodo"ì™€ "apeach"ëŠ” ê°ê° ì²˜ë¦¬ ê²°ê³¼ ë©”ì¼ì„ 1íšŒ ë°›ê²Œ ë©ë‹ˆë‹¤.
 
-ÀÌ¿ëÀÚÀÇ ID°¡ ´ã±ä ¹®ÀÚ¿­ ¹è¿­ id_list, °¢ ÀÌ¿ëÀÚ°¡ ½Å°íÇÑ ÀÌ¿ëÀÚÀÇ ID Á¤º¸°¡ ´ã±ä ¹®ÀÚ¿­ ¹è¿­ report, Á¤Áö ±âÁØÀÌ µÇ´Â ½Å°í È½¼ö k°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, °¢ À¯Àúº°·Î Ã³¸® °á°ú ¸ÞÀÏÀ» ¹ÞÀº È½¼ö¸¦ ¹è¿­¿¡ ´ã¾Æ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.
+ì´ìš©ìžì˜ IDê°€ ë‹´ê¸´ ë¬¸ìžì—´ ë°°ì—´ id_list, ê° ì´ìš©ìžê°€ ì‹ ê³ í•œ ì´ìš©ìžì˜ ID ì •ë³´ê°€ ë‹´ê¸´ ë¬¸ìžì—´ ë°°ì—´ report, ì •ì§€ ê¸°ì¤€ì´ ë˜ëŠ” ì‹ ê³  íšŸìˆ˜ kê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ, ê° ìœ ì €ë³„ë¡œ ì²˜ë¦¬ ê²°ê³¼ ë©”ì¼ì„ ë°›ì€ íšŸìˆ˜ë¥¼ ë°°ì—´ì— ë‹´ì•„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.
 
-Á¦ÇÑ»çÇ×
-2 ¡Â id_listÀÇ ±æÀÌ ¡Â 1,000
-1 ¡Â id_listÀÇ ¿ø¼Ò ±æÀÌ ¡Â 10
-id_listÀÇ ¿ø¼Ò´Â ÀÌ¿ëÀÚÀÇ id¸¦ ³ªÅ¸³»´Â ¹®ÀÚ¿­ÀÌ¸ç ¾ËÆÄºª ¼Ò¹®ÀÚ·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ½À´Ï´Ù.
-id_list¿¡´Â °°Àº ¾ÆÀÌµð°¡ Áßº¹ÇØ¼­ µé¾îÀÖÁö ¾Ê½À´Ï´Ù.
-1 ¡Â reportÀÇ ±æÀÌ ¡Â 200,000
-3 ¡Â reportÀÇ ¿ø¼Ò ±æÀÌ ¡Â 21
-reportÀÇ ¿ø¼Ò´Â "ÀÌ¿ëÀÚid ½Å°íÇÑid"ÇüÅÂÀÇ ¹®ÀÚ¿­ÀÔ´Ï´Ù.
-¿¹¸¦ µé¾î "muzi frodo"ÀÇ °æ¿ì "muzi"°¡ "frodo"¸¦ ½Å°íÇß´Ù´Â ÀÇ¹ÌÀÔ´Ï´Ù.
-id´Â ¾ËÆÄºª ¼Ò¹®ÀÚ·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ½À´Ï´Ù.
-ÀÌ¿ëÀÚid¿Í ½Å°íÇÑid´Â °ø¹é(½ºÆäÀÌ½º)ÇÏ³ª·Î ±¸ºÐµÇ¾î ÀÖ½À´Ï´Ù.
-ÀÚ±â ÀÚ½ÅÀ» ½Å°íÇÏ´Â °æ¿ì´Â ¾ø½À´Ï´Ù.
-1 ¡Â k ¡Â 200, k´Â ÀÚ¿¬¼öÀÔ´Ï´Ù.
-return ÇÏ´Â ¹è¿­Àº id_list¿¡ ´ã±ä id ¼ø¼­´ë·Î °¢ À¯Àú°¡ ¹ÞÀº °á°ú ¸ÞÀÏ ¼ö¸¦ ´ãÀ¸¸é µË´Ï´Ù.
-ÀÔÃâ·Â ¿¹
+ì œí•œì‚¬í•­
+2 â‰¤ id_listì˜ ê¸¸ì´ â‰¤ 1,000
+1 â‰¤ id_listì˜ ì›ì†Œ ê¸¸ì´ â‰¤ 10
+id_listì˜ ì›ì†ŒëŠ” ì´ìš©ìžì˜ idë¥¼ ë‚˜íƒ€ë‚´ëŠ” ë¬¸ìžì—´ì´ë©° ì•ŒíŒŒë²³ ì†Œë¬¸ìžë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆìŠµë‹ˆë‹¤.
+id_listì—ëŠ” ê°™ì€ ì•„ì´ë””ê°€ ì¤‘ë³µí•´ì„œ ë“¤ì–´ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤.
+1 â‰¤ reportì˜ ê¸¸ì´ â‰¤ 200,000
+3 â‰¤ reportì˜ ì›ì†Œ ê¸¸ì´ â‰¤ 21
+reportì˜ ì›ì†ŒëŠ” "ì´ìš©ìžid ì‹ ê³ í•œid"í˜•íƒœì˜ ë¬¸ìžì—´ìž…ë‹ˆë‹¤.
+ì˜ˆë¥¼ ë“¤ì–´ "muzi frodo"ì˜ ê²½ìš° "muzi"ê°€ "frodo"ë¥¼ ì‹ ê³ í–ˆë‹¤ëŠ” ì˜ë¯¸ìž…ë‹ˆë‹¤.
+idëŠ” ì•ŒíŒŒë²³ ì†Œë¬¸ìžë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆìŠµë‹ˆë‹¤.
+ì´ìš©ìžidì™€ ì‹ ê³ í•œidëŠ” ê³µë°±(ìŠ¤íŽ˜ì´ìŠ¤)í•˜ë‚˜ë¡œ êµ¬ë¶„ë˜ì–´ ìžˆìŠµë‹ˆë‹¤.
+ìžê¸° ìžì‹ ì„ ì‹ ê³ í•˜ëŠ” ê²½ìš°ëŠ” ì—†ìŠµë‹ˆë‹¤.
+1 â‰¤ k â‰¤ 200, këŠ” ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+return í•˜ëŠ” ë°°ì—´ì€ id_listì— ë‹´ê¸´ id ìˆœì„œëŒ€ë¡œ ê° ìœ ì €ê°€ ë°›ì€ ê²°ê³¼ ë©”ì¼ ìˆ˜ë¥¼ ë‹´ìœ¼ë©´ ë©ë‹ˆë‹¤.
+ìž…ì¶œë ¥ ì˜ˆ
 id_list	report	k	result
 ["muzi", "frodo", "apeach", "neo"]	["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]	2	[2,1,1,0]
 ["con", "ryan"]	["ryan con", "ryan con", "ryan con", "ryan con"]	3	[0,0]
-ÀÔÃâ·Â ¿¹ ¼³¸í
-ÀÔÃâ·Â ¿¹ #1
+ìž…ì¶œë ¥ ì˜ˆ ì„¤ëª…
+ìž…ì¶œë ¥ ì˜ˆ #1
 
-¹®Á¦ÀÇ ¿¹½Ã¿Í °°½À´Ï´Ù.
+ë¬¸ì œì˜ ì˜ˆì‹œì™€ ê°™ìŠµë‹ˆë‹¤.
 
-ÀÔÃâ·Â ¿¹ #2
+ìž…ì¶œë ¥ ì˜ˆ #2
 
-"ryan"ÀÌ "con"À» 4¹ø ½Å°íÇßÀ¸³ª, ÁÖ¾îÁø Á¶°Ç¿¡ µû¶ó ÇÑ À¯Àú°¡ °°Àº À¯Àú¸¦ ¿©·¯ ¹ø ½Å°íÇÑ °æ¿ì´Â ½Å°í È½¼ö 1È¸·Î Ã³¸®ÇÕ´Ï´Ù. µû¶ó¼­ "con"Àº 1È¸ ½Å°í´çÇß½À´Ï´Ù. 3¹ø ÀÌ»ó ½Å°í´çÇÑ ÀÌ¿ëÀÚ´Â ¾øÀ¸¸ç, "con"°ú "ryan"Àº °á°ú ¸ÞÀÏÀ» ¹ÞÁö ¾Ê½À´Ï´Ù. µû¶ó¼­ [0, 0]À» return ÇÕ´Ï´Ù.
+"ryan"ì´ "con"ì„ 4ë²ˆ ì‹ ê³ í–ˆìœ¼ë‚˜, ì£¼ì–´ì§„ ì¡°ê±´ì— ë”°ë¼ í•œ ìœ ì €ê°€ ê°™ì€ ìœ ì €ë¥¼ ì—¬ëŸ¬ ë²ˆ ì‹ ê³ í•œ ê²½ìš°ëŠ” ì‹ ê³  íšŸìˆ˜ 1íšŒë¡œ ì²˜ë¦¬í•©ë‹ˆë‹¤. ë”°ë¼ì„œ "con"ì€ 1íšŒ ì‹ ê³ ë‹¹í–ˆìŠµë‹ˆë‹¤. 3ë²ˆ ì´ìƒ ì‹ ê³ ë‹¹í•œ ì´ìš©ìžëŠ” ì—†ìœ¼ë©°, "con"ê³¼ "ryan"ì€ ê²°ê³¼ ë©”ì¼ì„ ë°›ì§€ ì•ŠìŠµë‹ˆë‹¤. ë”°ë¼ì„œ [0, 0]ì„ return í•©ë‹ˆë‹¤.
  */
 
 public class D220823level1_92334_re_re {
 	public static void main(String[] args) {
-		String[] id_list = {"muzi", "frodo", "apeach", "neo"}; // »ç¿ëÀÚ ID ¸ñ·Ï
-		String[] report = {"muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"}; // ½Å°í ³»¿ë ¸ñ·Ï
+		String[] id_list = {"muzi", "frodo", "apeach", "neo"}; // ì‚¬ìš©ìž ID ëª©ë¡
+		String[] report = {"muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"}; // ì‹ ê³  ë‚´ìš© ëª©ë¡
 		int k = 2;
 		
-		// µ¥ÀÌÅÍ º¯¼öÈ­
-		int[] answer = new int[id_list.length]; // °¢ »ç¿ëÀÚID¿¡°Ô ½Å°í °á°ú ¸ÞÀÏ Àü¼Û È½¼ö
-		Hashtable<String, HashSet<String>> reportList = new Hashtable<String, HashSet<String>>(); // »ç¿ëÀÚID°¡ ½Å°íÇÑ ID ¸ñ·Ï
-		Hashtable<String, HashSet<String>> reportedList = new Hashtable<String, HashSet<String>>(); // »ç¿ëÀÚID¸¦ ½Å°íÇÑ ID ¸ñ·Ï
+		// ë°ì´í„° ë³€ìˆ˜í™”
+		int[] answer = new int[id_list.length]; // ê° ì‚¬ìš©ìžIDì—ê²Œ ì‹ ê³  ê²°ê³¼ ë©”ì¼ ì „ì†¡ íšŸìˆ˜
+		Hashtable<String, HashSet<String>> reportList = new Hashtable<String, HashSet<String>>(); // ì‚¬ìš©ìžIDê°€ ì‹ ê³ í•œ ID ëª©ë¡
+		Hashtable<String, HashSet<String>> reportedList = new Hashtable<String, HashSet<String>>(); // ì‚¬ìš©ìžIDë¥¼ ì‹ ê³ í•œ ID ëª©ë¡
 		for(int i = 0; i < id_list.length; i++) {
 			reportList.put(id_list[i], new HashSet<String>());
 			reportedList.put(id_list[i], new HashSet<String>());
 		}
 
-		// µ¥ÀÌÅÍ Ã³¸®
+		// ë°ì´í„° ì²˜ë¦¬
 		for(int i = 0; i < report.length; i++) {
 			StringTokenizer st = new StringTokenizer(report[i]);
-			String id = st.nextToken(); // »ç¿ëÀÚID
-			String target = st.nextToken(); // »ç¿ëÀÚID°¡ ½Å°íÇÑ ID
+			String id = st.nextToken(); // ì‚¬ìš©ìžID
+			String target = st.nextToken(); // ì‚¬ìš©ìžIDê°€ ì‹ ê³ í•œ ID
 			
 			if(reportList.containsKey(id)) {
 				HashSet<String> list = reportList.get(id);
@@ -104,7 +104,7 @@ public class D220823level1_92334_re_re {
 			}
 		}
 
-		Hashtable<String, Boolean> stop_list = new Hashtable<String, Boolean>(); // »ç¿ëÀÚIDº° Á¤Áö ¿©ºÎ ¸ñ·Ï
+		Hashtable<String, Boolean> stop_list = new Hashtable<String, Boolean>(); // ì‚¬ìš©ìžIDë³„ ì •ì§€ ì—¬ë¶€ ëª©ë¡
 		for(int i = 0; i < id_list.length; i++) {
 			int count = reportedList.get(id_list[i]).size();			
 			stop_list.put(id_list[i], (count >= k ? true : false));

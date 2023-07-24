@@ -1,18 +1,18 @@
 package TestBackJoon;
 /*
- * ¹®Á¦¸í: DFS¿Í BFS
- * ÀÏÀÚ: 22.08.25.¸ñ
+ * ë¬¸ì œëª…: DFSì™€ BFS
+ * ì¼ì: 22.08.25.ëª©
  * https://www.acmicpc.net/problem/1260
- * ¹®Á¦³»¿ë: ±×·¡ÇÁ¸¦ DFS·Î Å½»öÇÑ °á°ú¿Í BFS·Î Å½»öÇÑ °á°ú¸¦ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À. ´Ü, ¹æ¹®ÇÒ ¼ö ÀÖ´Â Á¤Á¡ÀÌ ¿©·¯ °³ÀÎ °æ¿ì¿¡´Â Á¤Á¡ ¹øÈ£°¡ ÀÛÀº °ÍÀ» ¸ÕÀú ¹æ¹®ÇÏ°í, ´õ ÀÌ»ó ¹æ¹®ÇÒ ¼ö ÀÖ´Â Á¡ÀÌ ¾ø´Â °æ¿ì Á¾·áÇÑ´Ù. Á¤Á¡ ¹øÈ£´Â 1¹øºÎÅÍ N¹ø±îÁöÀÌ´Ù.
- * ¹®Á¦Ç®ÀÌ: DFS, BFS ±âÃÊ
- * ÀÔ·Â: 
+ * ë¬¸ì œë‚´ìš©: ê·¸ë˜í”„ë¥¼ DFSë¡œ íƒìƒ‰í•œ ê²°ê³¼ì™€ BFSë¡œ íƒìƒ‰í•œ ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤. ë‹¨, ë°©ë¬¸í•  ìˆ˜ ìˆëŠ” ì •ì ì´ ì—¬ëŸ¬ ê°œì¸ ê²½ìš°ì—ëŠ” ì •ì  ë²ˆí˜¸ê°€ ì‘ì€ ê²ƒì„ ë¨¼ì € ë°©ë¬¸í•˜ê³ , ë” ì´ìƒ ë°©ë¬¸í•  ìˆ˜ ìˆëŠ” ì ì´ ì—†ëŠ” ê²½ìš° ì¢…ë£Œí•œë‹¤. ì •ì  ë²ˆí˜¸ëŠ” 1ë²ˆë¶€í„° Në²ˆê¹Œì§€ì´ë‹¤.
+ * ë¬¸ì œí’€ì´: DFS, BFS ê¸°ì´ˆ
+ * ì…ë ¥: 
 4 5 1
 1 2
 1 3
 1 4
 2 4
 3 4
- * Ãâ·Â:
+ * ì¶œë ¥:
 1 2 4 3
 1 2 3 4
  */
@@ -28,52 +28,52 @@ public class D220825T1260DFSAndBFS {
 		adjList[n].add(e);
 	}
 	
-	// Depth First Search; ±íÀÌ ¿ì¼± Å½»ö
+	// Depth First Search; ê¹Šì´ ìš°ì„  íƒìƒ‰
 	static void dfs(int v, int depth) {
 		if(depth == visited.length) {
 			return;
 		}
 		
-		// v Á¤Á¡ ¹æ¹® Ã³¸®
+		// v ì •ì  ë°©ë¬¸ ì²˜ë¦¬
 		visited[v] = true;
-		// v Ãâ·Â
+		// v ì¶œë ¥
 		System.out.print(v + " ");
 		
-		// ¹æ¹®ÇÑ ³ëµå¿Í ÀÎÁ¢ÇÑ ¸ğµç ³ëµå °¡Á®¿À±â
+		// ë°©ë¬¸í•œ ë…¸ë“œì™€ ì¸ì ‘í•œ ëª¨ë“  ë…¸ë“œ ê°€ì ¸ì˜¤ê¸°
 		Iterator<Integer> it = adjList[v].listIterator();
 		while(it.hasNext()) {
 			int n = it.next();
 			
-			// ºñ¹æ¹®ÇÑ ³ëµåÀÌ¸é ÇØ´ç ³ëµå¸¦ ½ÃÀÛ ³ëµå·Î ´Ù½Ã dfs() È£Ãâ
+			// ë¹„ë°©ë¬¸í•œ ë…¸ë“œì´ë©´ í•´ë‹¹ ë…¸ë“œë¥¼ ì‹œì‘ ë…¸ë“œë¡œ ë‹¤ì‹œ dfs() í˜¸ì¶œ
 			if(!visited[n]) {
 				dfs(n, depth+1);
 			}
 		}
 	}
 	
-	// Breadth First Search; ³Êºñ ¿ì¼± Å½»ö
+	// Breadth First Search; ë„ˆë¹„ ìš°ì„  íƒìƒ‰
 	static void bfs(int v) {
 		Queue<Integer> queue = new LinkedList<Integer>();
 				
-		// v Á¤Á¡ ¹æ¹® Ã³¸®
+		// v ì •ì  ë°©ë¬¸ ì²˜ë¦¬
 		visited[v] = true;
 		
-		// ¹æ¹®ÇÒ v Á¤Á¡ Ãß°¡
+		// ë°©ë¬¸í•  v ì •ì  ì¶”ê°€
 		queue.add(v);
 		
 		while(!queue.isEmpty()) {
-			// ¹æ¹®ÇÑ ³ëµå¸¦ Å¥¿¡¼­ ÃßÃâ(dequeue Ã³¸®) ÇÏ°í °ªÀ» Ãâ·Â
+			// ë°©ë¬¸í•œ ë…¸ë“œë¥¼ íì—ì„œ ì¶”ì¶œ(dequeue ì²˜ë¦¬) í•˜ê³  ê°’ì„ ì¶œë ¥
 			v = queue.poll();
-			// v Ãâ·Â
+			// v ì¶œë ¥
 			System.out.print(v + " ");
 			
-			// ¹æ¹®ÇÑ ³ëµå¿Í ÀÎÁ¢ÇÑ ¸ğµç ³ëµå °¡Á®¿À±â
+			// ë°©ë¬¸í•œ ë…¸ë“œì™€ ì¸ì ‘í•œ ëª¨ë“  ë…¸ë“œ ê°€ì ¸ì˜¤ê¸°
 			Iterator<Integer> it = adjList[v].listIterator();
 			while(it.hasNext()) {
 				int n = it.next();
 				if(!visited[n]) {
-					visited[n] = true; // n Á¤Á¡ ¹æ¹® Ã³¸®
-					queue.add(n); // ¹æ¹®ÇÒ n Á¤Á¡ Ãß°¡
+					visited[n] = true; // n ì •ì  ë°©ë¬¸ ì²˜ë¦¬
+					queue.add(n); // ë°©ë¬¸í•  n ì •ì  ì¶”ê°€
 				}
 			}
 		}
@@ -83,11 +83,11 @@ public class D220825T1260DFSAndBFS {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken()) + 1; // Á¤Á¡ÀÇ ¼ö - ¹è¿­ÀÌ 0ºÎÅÍ ½ÃÀÛÇÏ¹Ç·Î Á¤Á¡ ¼ö ±×´ë·Î Ç¥ÇöÇÏ±â À§ÇØ¼± +1 ÇØÁà¾ß ÇÔ
-		int m = Integer.parseInt(st.nextToken()); // °£¼±ÀÇ ¼ö
-		int v = Integer.parseInt(st.nextToken()); // ½ÃÀÛ Á¤Á¡
+		int n = Integer.parseInt(st.nextToken()) + 1; // ì •ì ì˜ ìˆ˜ - ë°°ì—´ì´ 0ë¶€í„° ì‹œì‘í•˜ë¯€ë¡œ ì •ì  ìˆ˜ ê·¸ëŒ€ë¡œ í‘œí˜„í•˜ê¸° ìœ„í•´ì„  +1 í•´ì¤˜ì•¼ í•¨
+		int m = Integer.parseInt(st.nextToken()); // ê°„ì„ ì˜ ìˆ˜
+		int v = Integer.parseInt(st.nextToken()); // ì‹œì‘ ì •ì 
 
-		adjList = new LinkedList[n]; // Á¤Á¡ ¼ö ¸¸Å­ ÀÎÁ¢ ¸®½ºÆ® Å©±â·Î ÃÊ±âÈ­
+		adjList = new LinkedList[n]; // ì •ì  ìˆ˜ ë§Œí¼ ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ í¬ê¸°ë¡œ ì´ˆê¸°í™”
 		for(int i = 0; i < n; i++) {
 			adjList[i] = new LinkedList<Integer>();
 		}
@@ -97,12 +97,12 @@ public class D220825T1260DFSAndBFS {
 			int x = Integer.parseInt(st.nextToken());
 			int y = Integer.parseInt(st.nextToken());
 			
-			// °£¼±Àº ¾ç¹æÇâ ÀÌ¹Ç·Î ¾ç Á¤Á¡ ¸®½ºÆ®¿¡ Ç¥±âÇØÁà¾ß ÇÔ
+			// ê°„ì„ ì€ ì–‘ë°©í–¥ ì´ë¯€ë¡œ ì–‘ ì •ì  ë¦¬ìŠ¤íŠ¸ì— í‘œê¸°í•´ì¤˜ì•¼ í•¨
 			addEdge(x, y);
 			addEdge(y, x);
 		}
 
-		// ÀÎÁ¢ Á¤Á¡Àº ¿À¸§Â÷¼øÀ¸·Î ¹æ¹®ÇØ¾ß ÇÏ¹Ç·Î Á¤·Ä Ã³¸®
+		// ì¸ì ‘ ì •ì ì€ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ë°©ë¬¸í•´ì•¼ í•˜ë¯€ë¡œ ì •ë ¬ ì²˜ë¦¬
 		for(int i = 0; i < n; i++) {
 			Collections.sort(adjList[i]);
 		}

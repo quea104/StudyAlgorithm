@@ -1,11 +1,11 @@
 package TestBackJoon;
 
 /*
- * ¹®Á¦¸í: Åä¸¶Åä
- * ÀÏÀÚ: 22.09.06.È­
+ * ë¬¸ì œëª…: í† ë§ˆí† 
+ * ì¼ì: 22.09.06.í™”
  * https://www.acmicpc.net/problem/7569
- * ¹®Á¦Ç®ÀÌ: BFS
- * ÀÔ·Â:
+ * ë¬¸ì œí’€ì´: BFS
+ * ì…ë ¥:
 5 3 2
 0 0 0 0 0
 0 0 0 0 0
@@ -13,7 +13,7 @@ package TestBackJoon;
 0 0 0 0 0
 0 0 1 0 0
 0 0 0 0 0
- * Ãâ·Â:
+ * ì¶œë ¥:
 4
  */
 
@@ -37,7 +37,7 @@ public class D220906T7569Tomato {
 		N = Integer.parseInt(st.nextToken());
 		H = Integer.parseInt(st.nextToken());
 		
-		// ÄÄÇ»ÅÍ´Â ¹è¿­ ¾È¿¡ ¹è¿­À» ÀúÀåÇØ¾ß ÇÏ¹Ç·Î (z, y, x)¼øÀ¸·Î ±¸Çö
+		// ì»´í“¨í„°ëŠ” ë°°ì—´ ì•ˆì— ë°°ì—´ì„ ì €ì¥í•´ì•¼ í•˜ë¯€ë¡œ (z, y, x)ìˆœìœ¼ë¡œ êµ¬í˜„
 		map = new int[H][N][M];
 		visited = new int[H][N][M];
 		
@@ -48,11 +48,11 @@ public class D220906T7569Tomato {
 					map[k][i][j] = Integer.parseInt(st.nextToken());
 					visited[k][i][j] = -1;
 					
-					if(map[k][i][j] == 0) { // ´úÀÍÀº »óÅÂ
+					if(map[k][i][j] == 0) { // ëœìµì€ ìƒíƒœ
 						unripeCount++;						
 					}
-					else if(map[k][i][j] == 1) { // ÀÍÀº »óÅÂ
-						queue.add(new Node(k, i, j)); // ³ôÀÌ:z ¼¼·Î:x °¡·Î:y
+					else if(map[k][i][j] == 1) { // ìµì€ ìƒíƒœ
+						queue.add(new Node(k, i, j)); // ë†’ì´:z ì„¸ë¡œ:x ê°€ë¡œ:y
 						visited[k][i][j] = 0;						
 					}
 				}
@@ -72,7 +72,7 @@ public class D220906T7569Tomato {
 	}
 
 	private static void bfs() {
-		// µ¿, ¼­, ³², ºÏ, À§, ¾Æ·¡
+		// ë™, ì„œ, ë‚¨, ë¶, ìœ„, ì•„ë˜
 		int[] dirX = {1, -1, 0, 0, 0, 0};
 		int[] dirY = {0, 0, -1, 1, 0, 0};
 		int[] dirZ = {0, 0, 0, 0, 1, -1};
